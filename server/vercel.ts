@@ -4,6 +4,7 @@ import { handleConfig, handleContact, type ContactDatabase } from './contact.ts'
 import { productionDatabase } from './libsql.ts';
 import { secureResponse } from './site-security.ts';
 import retention from '../maintenance/retention-worker.ts';
+import { deliverNotifications } from './notifications.ts';
 
 export type VercelEnvironment = Record<string, string | undefined>;
 const routes = new Set(['/api/contact', '/api/contact/config', '/api/admin/session', '/api/admin/login', '/api/admin/logout', '/api/admin/inquiries', '/api/maintenance']);
@@ -47,9 +48,11 @@ export async function handleVercel(request: Request, settings: VercelEnvironment
     const env: AdminEnv = { DB: database || connection!, SITE_ORIGIN: settings.SITE_ORIGIN,
       TURNSTILE_SITE_KEY: settings.TURNSTILE_SITE_KEY, TURNSTILE_SECRET_KEY: settings.TURNSTILE_SECRET_KEY,
       DATA_ENCRYPTION_KEY: settings.DATA_ENCRYPTION_KEY, RATE_LIMIT_SECRET: settings.RATE_LIMIT_SECRET,
-      ADMIN_PASSWORD_HASH: settings.ADMIN_PASSWORD_HASH, DEPLOYMENT_PLATFORM: 'vercel', LOCAL_DEVELOPMENT: false };
+      ADMIN_PASSWORD_HASH: settings.ADMIN_PASSWORD_HASH, DEPLOYMENT_PLATFORM: 'vercel', LOCAL_DEVELOPMENT: false,
+      RESEND_API_KEY: settings.RESEND_API_KEY, NOTIFICATION_TO: settings.NOTIFICATION_TO, NOTIFICATION_FROM: settings.NOTIFICATION_FROM };
     if (target.pathname === '/api/maintenance') {
       await retention.scheduled({}, { DB: env.DB! });
+      try { await deliverNotifications(env.DB!, env); } catch { /* Pending notifications remain queued. */ }
       return secureResponse(Response.json({ ok: true }, { headers: { 'Cache-Control': 'no-store' } }));
     }
     const handler = target.pathname === '/api/contact/config' ? handleConfig : target.pathname === '/api/contact' ? handleContact : handleAdmin;

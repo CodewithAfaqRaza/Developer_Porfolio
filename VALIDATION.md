@@ -2,6 +2,10 @@
 
 ## Live Vercel verification — 13 October 2026
 
+Owner email notifications: added an atomic database queue and server-only Resend delivery. All 34 API tests pass, including successful delivery metadata, no visitor details in emails, stable idempotency keys, concurrent lease claims, backoff after provider failures, preserved successful receipts, atomic queue rollback and local email suppression. Production notification migration and three private email settings were configured. Resend accepted a real setup email to the owner's Gmail (HTTP 200); inbox delivery is for the owner to confirm. Real CAPTCHA verification remains required for the public form.
+
+The deployed production notification pipeline was also verified by creating one privileged encrypted synthetic test record and its delivery queue entry, calling authenticated maintenance, and confirming `sent_at` was recorded after one attempt with no provider error. The live endpoint returned 200. Only this synthetic inquiry and queue entry were removed afterward. This verifies hosted dispatch and database updates; it does not bypass or claim an automated public CAPTCHA submission.
+
 Published https://danyal-zeb-portfolio.vercel.app from the private `Danikhan88/danyal-zeb-portfolio` repository. Vercel Hobby and the $0/month Turso Starter integration are configured, schema migrations applied, production secrets uploaded, and Managed Turnstile restricted to the canonical hostname. No local visitor records were uploaded.
 
 The deployed TypeScript API needed `rewriteRelativeImportExtensions` so emitted JavaScript imports resolve. Verified the emitted API loads, then confirmed the production build succeeds. Live pages and `/admin` return 200 with security headers. Contact configuration reports real CAPTCHA, `local: false`, and Vercel hosting. Anonymous inquiry reads return 401; unknown routes return 404; unauthenticated maintenance returns 401; authenticated maintenance succeeds against Turso; cross-origin submissions return 403; local CAPTCHA bypass tokens return 400.

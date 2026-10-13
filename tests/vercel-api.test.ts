@@ -12,7 +12,7 @@ const origin = 'https://portfolio.example';
 async function fixture(t: TestContext) {
   const client = createClient({ url: 'file::memory:', intMode: 'number' });
   t.after(() => client.close());
-  for (const migration of ['0001_contact.sql', '0002_admin.sql']) await client.executeMultiple(readFileSync(new URL(`../migrations/${migration}`, import.meta.url), 'utf8'));
+  for (const migration of ['0001_contact.sql', '0002_admin.sql', '0003_notifications.sql']) await client.executeMultiple(readFileSync(new URL(`../migrations/${migration}`, import.meta.url), 'utf8'));
   const database = new LibsqlDatabase(client);
   const password = randomBytes(32).toString('base64url');
   const settings: VercelEnvironment = { VERCEL: '1', SITE_ORIGIN: origin, DATA_ENCRYPTION_KEY: randomBytes(32).toString('base64'),

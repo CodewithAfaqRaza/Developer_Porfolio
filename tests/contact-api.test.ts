@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { DatabaseSync, type SQLInputValue } from 'node:sqlite';
 import { test, type TestContext } from 'node:test';
 import retentionWorker from '../maintenance/retention-worker.ts';
+import { deliverNotifications } from '../server/notifications.ts';
 import { secureResponse } from '../server/site-security.ts';
 import {
   decryptInquiryPayload,
@@ -58,6 +59,7 @@ class SqliteDatabase implements ContactDatabase {
   constructor() {
     this.sqlite.exec(readFileSync(new URL('../migrations/0001_contact.sql', import.meta.url), 'utf8'));
     this.sqlite.exec(readFileSync(new URL('../migrations/0002_admin.sql', import.meta.url), 'utf8'));
+    this.sqlite.exec(readFileSync(new URL('../migrations/0003_notifications.sql', import.meta.url), 'utf8'));
   }
 
   prepare(sql: string): ContactStatement {
@@ -88,6 +90,60 @@ const localOrigin = 'http://127.0.0.1:5173';
 const productionOrigin = 'https://portfolio.example';
 const encryptionKey = Buffer.from(new Uint8Array(32).fill(42)).toString('base64');
 const publicSiteKey = '0x4AAAAAAAZ8jQ9v4S7dqWnk';
+
+test('saved production inquiry sends a private owner notification once, never visitor details', async t => {
+  const { database, env } = fixture(t, true);
+  Object.assign(env, { RESEND_API_KEY: 're_test_private_notification_key', NOTIFICATION_TO: 'owner@gmail.com', NOTIFICATION_FROM: 'onboarding@resend.dev' });
+  const emails: RequestInit[] = [];
+  t.mock.method(globalThis, 'fetch', async (url: unknown, init: RequestInit) => {
+    if (String(url).includes('siteverify')) return Response.json(verifiedCaptcha());
+    assert.equal(String(url), 'https://api.resend.com/emails'); emails.push(init);
+    return Response.json({ id: 'provider-message-id' });
+  });
+  const response = await handleContact(request(validBody({ turnstileToken: 'verified-browser-token' }), { production: true }), env);
+  assert.equal(response.status, 201);
+  const { reference } = await response.json();
+  assert.equal(emails.length, 1);
+  const email = JSON.parse(String(emails[0].body));
+  assert.deepEqual(email.to, ['owner@gmail.com']);
+  assert.ok(email.text.includes(reference)); assert.ok(email.text.includes(productionOrigin + '/admin'));
+  for (const value of ['PERSON@example.com', 'Test Collaborator', '+92', 'Drupal project']) assert.ok(!String(emails[0].body).includes(value));
+  await deliverNotifications(database, env, reference);
+  assert.equal(emails.length, 1);
+  assert.ok(database.sqlite.prepare('SELECT sent_at FROM contact_notifications').get()?.sent_at);
+});
+
+test('notification failure preserves successful receipt and retries with stable idempotency', async t => {
+  const { database, env } = fixture(t, true);
+  Object.assign(env, { RESEND_API_KEY: 're_test_private_notification_key', NOTIFICATION_TO: 'owner@gmail.com', NOTIFICATION_FROM: 'onboarding@resend.dev' });
+  const keys: string[] = []; let fail = true;
+  t.mock.method(globalThis, 'fetch', async (url: unknown, init: RequestInit) => {
+    if (String(url).includes('siteverify')) return Response.json(verifiedCaptcha());
+    keys.push(new Headers(init.headers).get('Idempotency-Key')!);
+    return fail ? Response.json({ message: 'private provider detail' }, { status: 429 }) : Response.json({ id: 'retry-message' });
+  });
+  const response = await handleContact(request(validBody({ turnstileToken: 'verified-browser-token' }), { production: true }), env);
+  assert.equal(response.status, 201); assert.equal(database.inquiries().length, 1);
+  assert.equal(database.sqlite.prepare('SELECT last_error FROM contact_notifications').get()?.last_error, 'provider-429');
+  await deliverNotifications(database, env); assert.equal(keys.length, 1, 'Retry respects backoff');
+  database.sqlite.exec('UPDATE contact_notifications SET next_attempt_at = 1'); fail = false;
+  await Promise.all([deliverNotifications(database, env), deliverNotifications(database, env)]);
+  assert.equal(keys.length, 2); assert.equal(keys[0], keys[1]);
+  assert.ok(database.sqlite.prepare('SELECT sent_at FROM contact_notifications').get()?.sent_at);
+});
+
+test('queue insertion and inquiry storage are atomic; local submissions never send mail', async t => {
+  const { database, env } = fixture(t, true);
+  Object.assign(env, { RESEND_API_KEY: 're_test_private_notification_key', NOTIFICATION_TO: 'owner@gmail.com', NOTIFICATION_FROM: 'onboarding@resend.dev' });
+  database.sqlite.exec("CREATE TRIGGER block_notifications BEFORE INSERT ON contact_notifications BEGIN SELECT RAISE(ABORT, 'queue unavailable'); END");
+  let sends = 0;
+  t.mock.method(globalThis, 'fetch', async (url: unknown) => { if (!String(url).includes('siteverify')) sends++; return Response.json(verifiedCaptcha()); });
+  assert.equal((await handleContact(request(validBody({ turnstileToken: 'verified-browser-token' }), { production: true }), env)).status, 503);
+  assert.equal(database.inquiries().length, 0); assert.equal(sends, 0);
+  const local = fixture(t); Object.assign(local.env, env, { LOCAL_DEVELOPMENT: true, SITE_ORIGIN: localOrigin, DB: local.database });
+  assert.equal((await handleContact(request(), local.env)).status, 201);
+  assert.equal(sends, 0); assert.equal(local.database.sqlite.prepare('SELECT COUNT(*) AS count FROM contact_notifications').get()?.count, 0);
+});
 
 function fixture(t: TestContext, production = false) {
   const database = new SqliteDatabase();

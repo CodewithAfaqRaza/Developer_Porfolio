@@ -27,6 +27,7 @@ export class LocalContactDatabase implements ContactDatabase {
     this.sqlite.exec("PRAGMA journal_mode=WAL; PRAGMA busy_timeout=5000;");
     this.sqlite.exec(readFileSync(resolve("migrations/0001_contact.sql"), "utf8"));
     this.sqlite.exec(readFileSync(resolve("migrations/0002_admin.sql"), "utf8"));
+    this.sqlite.exec(readFileSync(resolve("migrations/0003_notifications.sql"), "utf8"));
   }
   prepare(sql: string): ContactStatement { return new LocalStatement(this.sqlite, sql); }
   async batch(statements: ContactStatement[]): Promise<ContactResult[]> {

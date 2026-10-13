@@ -56,6 +56,14 @@ Copy values privately from your generated file; never commit them or put them in
 
 ## Runtime and maintenance
 
+### Gmail notifications
+
+Saved production inquiries trigger a Resend email to the server-configured `NOTIFICATION_TO`. Set `RESEND_API_KEY`, `NOTIFICATION_TO`, and `NOTIFICATION_FROM` in Production settings and redeploy. For this portfolio the recipient is the owner's Gmail and the sender is `onboarding@resend.dev`. Resend's default sender works only with the email associated with the Resend account; a different recipient or branded sender requires a verified domain. See [Resend's sender restriction](https://resend.com/docs/knowledge-base/403-error-resend-dev-domain) and [free-plan limits](https://resend.com/pricing) (100/day, 3,000/month). No visitor autoresponder is sent.
+
+Migration `0003_notifications.sql` adds a delivery queue containing only submission references and delivery metadata. It is committed atomically with the encrypted inquiry. Emails include a reference, timestamp and `/admin` link, without visitor names, addresses, phone numbers or descriptions. Local submissions never send emails. Email failures preserve the visitor's successful receipt and leave the notification pending. Delivery is awaited with a five-second timeout; the authenticated daily maintenance job retries up to three due entries per run, with backoff, at most eight attempts, and a seven-day retry window. Resend acceptance means the provider accepted the email, not a guarantee it reached the inbox. Check spam and provider logs if missing.
+
+Database leases prevent concurrent sends, and a stable per-inquiry idempotency key suppresses provider duplicates for 24 hours. A timeout or failure to record provider acceptance can rarely cause duplicate mail on retries after that window. Failed/expired queue entries remain metadata until the inquiry retention cleanup; original submissions remain available in the dashboard. Old inquiries created before notification setup are not automatically emailed. API keys stay only in private environment settings; do not commit them.
+
 `api/index.ts` routes to the existing validation, encryption, session and CAPTCHA handlers. The libSQL adapter preserves atomic transactions. Vercel's `x-vercel-forwarded-for` is validated; incoming Cloudflare IP headers are discarded. Production never uses local SQLite or simulated CAPTCHA.
 
 `vercel.json` serves `/admin`, routes API calls, applies static security headers and schedules authenticated `/api/maintenance` daily. [Hobby cron jobs are limited to daily execution](https://vercel.com/docs/cron-jobs/usage-and-pricing). Cleanup uses bounded batches, so a large backlog may need further runs. Expired enquiries are excluded from dashboard reads after 180 days while deletion is pending. Missing secrets, database failures or exhausted free quotas make services unavailable rather than bypass verification.

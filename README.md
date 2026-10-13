@@ -70,6 +70,8 @@ npm run test:api
 
 The live portfolio is https://danyal-zeb-portfolio.vercel.app and the private dashboard is at `/admin`. Production uses Vercel, Turso and real Turnstile verification. The production owner password is stored only in the ignored `.local/production-admin-password.txt`. GitHub `main` is connected to Vercel for deployments.
 
+New saved production submissions also send an owner email notification through Resend. The email includes a reference and private dashboard link; visitor details remain in the authenticated inbox. Temporary email failures do not lose submissions. Local form tests send no emails. Delivery configuration, retry limits and free-plan restrictions are in [VERCEL_SETUP.md](VERCEL_SETUP.md).
+
 See [CONTACT_SETUP.md](CONTACT_SETUP.md) for the Cloudflare Pages/D1 alternative, secrets, migrations, hourly retention and private data access. See [SECURITY.md](SECURITY.md) for controls and limits. Cloudflare uses Functions/D1; Vercel uses its native API handler/Turso. Static-only hosting does not install either backend.
 
 After your actual HTTPS hostname is confirmed and public content is approved, enable draft indexing with:

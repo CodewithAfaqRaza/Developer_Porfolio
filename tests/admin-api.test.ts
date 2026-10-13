@@ -18,7 +18,7 @@ class Statement implements ContactStatement {
 }
 class Database implements ContactDatabase {
   sqlite = new DatabaseSync(':memory:');
-  constructor() { for (const file of ['0001_contact.sql', '0002_admin.sql']) this.sqlite.exec(readFileSync(new URL(`../migrations/${file}`, import.meta.url), 'utf8')); }
+  constructor() { for (const file of ['0001_contact.sql', '0002_admin.sql', '0003_notifications.sql']) this.sqlite.exec(readFileSync(new URL(`../migrations/${file}`, import.meta.url), 'utf8')); }
   prepare(sql: string) { return new Statement(this.sqlite, sql); }
   async batch(statements: ContactStatement[]) {
     this.sqlite.exec('BEGIN IMMEDIATE');

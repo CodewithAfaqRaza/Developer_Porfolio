@@ -1,4 +1,5 @@
 import { COUNTRY_CODES, BUDGET_OPTIONS, BUDGET_CURRENCY, CONTACT_RETENTION_DAYS } from "../shared/contact.ts";
+import { deliverNotifications, notificationAddressConfigured, type NotificationEnv } from './notifications.ts';
 /** Shared Cloudflare Pages/local handler. No browser code imports this module. */
 export interface ContactResult {
   success: boolean;
@@ -18,7 +19,7 @@ export interface ContactDatabase {
   batch(statements: ContactStatement[]): Promise<ContactResult[]>;
 }
 
-export interface ContactEnv {
+export interface ContactEnv extends NotificationEnv {
   DB?: ContactDatabase;
   SITE_ORIGIN?: string;
   TURNSTILE_SITE_KEY?: string;
@@ -481,7 +482,7 @@ export async function handleContact(request: Request, env: ContactEnv): Promise<
     const createdAt = Date.now();
     const payload = await encryptInquiry(inquiry, config, id, createdAt);
     // Indexed bounded cleanup runs together with storage. Any failure rolls back.
-    const results = await config.database.batch([
+    const statements = [
       config.database.prepare(`
         DELETE FROM contact_inquiries WHERE id IN (
           SELECT id FROM contact_inquiries WHERE created_at < ? ORDER BY created_at LIMIT 500
@@ -493,8 +494,14 @@ export async function handleContact(request: Request, env: ContactEnv): Promise<
         )
       `).bind(createdAt - DAY),
       config.database.prepare("INSERT INTO contact_inquiries (id, created_at, payload) VALUES (?, ?, ?)").bind(id, createdAt, payload),
-    ]);
-    if (results.length !== 3 || results.some((result) => result.success !== true)) throw unavailable();
+    ];
+    if (notificationAddressConfigured(env)) statements.push(config.database.prepare(
+      'INSERT INTO contact_notifications (inquiry_id, created_at, next_attempt_at) VALUES (?, ?, ?)'
+    ).bind(id, createdAt, createdAt));
+    const results = await config.database.batch(statements);
+    if (results.length !== statements.length || results.some((result) => result.success !== true)) throw unavailable();
+    try { await deliverNotifications(config.database, env, id); }
+    catch { /* Submission is saved; a notification failure must not cause resubmission. */ }
     return response({ ok: true, reference: id }, 201);
   } catch (error) {
     // No request body, identifiers, IP, secrets, or database errors are logged.
