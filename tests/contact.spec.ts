@@ -8,7 +8,6 @@ async function fillInquiry(page: Page) {
   await page.locator('#contact-email').fill('portfolio-test@example.com');
   await page.getByRole('combobox', { name: 'Country or region' }).fill('Pakistan');
   await page.getByRole('option', { name: 'Pakistan PK', exact: true }).click();
-  await page.locator('#contact-kind').selectOption('collaboration');
   await page.locator('#contact-budget').selectOption('discuss');
   await page.locator('#contact-description').fill('A synthetic inquiry used only to verify persistent encrypted storage.');
   await page.locator('#contact-consent').check();
@@ -17,6 +16,7 @@ async function fillInquiry(page: Page) {
 test('contact submission stores an encrypted inquiry and returns a real receipt', async ({ page }) => {
   await page.goto('/#contact');
   await fillInquiry(page);
+  await expect(page.locator('#contact-phone, #contact-kind')).toHaveCount(0);
   await page.getByRole('checkbox', { name: 'Verify this local test submission' }).check();
   const pending = page.waitForResponse(response => response.url().endsWith('/api/contact') && response.request().method() === 'POST');
   await page.getByRole('button', { name: 'Send inquiry', exact: true }).click();
@@ -31,7 +31,9 @@ test('contact submission stores an encrypted inquiry and returns a real receipt'
     expect(row.payload).not.toContain('portfolio-test@example.com');
     const key = JSON.parse(readFileSync('.local/contact-secrets.json','utf8')).DATA_ENCRYPTION_KEY as string;
     const details = await decryptInquiryPayload(String(row.payload),key,String(row.id),Number(row.created_at)) as Record<string,unknown>;
-    expect(details).toMatchObject({name:'Portfolio integration test', email:'portfolio-test@example.com',phone:null,country:'PK',kind:'collaboration',budget:'discuss',consent:true});
+    expect(details).toMatchObject({name:'Portfolio integration test', email:'portfolio-test@example.com',country:'PK',budget:'discuss',consent:true});
+    expect(details).not.toHaveProperty('phone');
+    expect(details).not.toHaveProperty('kind');
   } finally {
     database.prepare('DELETE FROM contact_inquiries WHERE id = ?').run(reference);
     database.close();

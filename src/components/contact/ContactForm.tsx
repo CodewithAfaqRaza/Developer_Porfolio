@@ -12,9 +12,7 @@ const budgets = BUDGET_OPTIONS;
 type Values = {
   name: string;
   email: string;
-  phone: string;
   country: string;
-  kind: string;
   description: string;
   budget: string;
   consent: boolean;
@@ -26,20 +24,16 @@ type Config = { siteKey: string | null; local: boolean; hosting: 'cloudflare' | 
 const initialValues: Values = {
   name: "",
   email: "",
-  phone: "",
   country: "",
-  kind: "project",
   description: "",
-  budget: "",
+  budget: "discuss",
   consent: false,
   website: "",
 };
 const knownFields: Field[] = [
   "name",
   "email",
-  "phone",
   "country",
-  "kind",
   "description",
   "budget",
   "consent",
@@ -50,7 +44,6 @@ function validate(values: Values, token: string): FieldErrors {
   const fields: FieldErrors = {};
   const name = values.name.normalize("NFC").trim();
   const email = values.email.normalize("NFC").trim();
-  const phone = values.phone.normalize("NFC").trim();
   const description = values.description.normalize("NFC").trim();
   const control = /[\u0000-\u001f\u007f-\u009f]/;
   const emailLocal = email.split("@")[0];
@@ -82,19 +75,8 @@ function validate(values: Values, token: string): FieldErrors {
       )
   )
     fields.email = "Enter a valid email address.";
-  if (
-    phone &&
-    (phone.length > 35 ||
-      !/^\+?[0-9 ()\-.]+$/.test(phone) ||
-      phone.replace(/\D/g, "").length < 7 ||
-      phone.replace(/\D/g, "").length > 15)
-  )
-    fields.phone =
-      "Enter a phone number with 7–15 digits, including your country code.";
   if (!countryCodes.includes(values.country))
     fields.country = "Select your country or region.";
-  if (!["project", "collaboration"].includes(values.kind))
-    fields.kind = "Select a project or collaboration.";
   if (
     description.length < 20 ||
     description.length > 2000 ||
@@ -286,7 +268,6 @@ export function ContactForm() {
           ...values,
           name: values.name.trim(),
           email: values.email.trim(),
-          phone: values.phone.trim(),
           description: values.description.trim(),
           turnstileToken: token,
         }),
@@ -387,8 +368,8 @@ export function ContactForm() {
           <div className="contact-form-intro">
             <h3>Tell me what you’re thinking.</h3>
             <p>
-              Share a little about your project or collaboration. All fields are
-              required except your phone number.
+              Share a little about your idea. If you’re unsure about the budget,
+              choose “Let’s discuss.”
             </p>
           </div>
           <form
@@ -452,23 +433,6 @@ export function ContactForm() {
                 {fieldError("email")}
               </div>
               <div className="contact-field">
-                <label htmlFor="contact-phone">
-                  Phone number <span>(optional)</span>
-                </label>
-                <input
-                  id="contact-phone"
-                  name="phone"
-                  type="tel"
-                  maxLength={35}
-                  autoComplete="tel"
-                  placeholder="Include your country code"
-                  value={values.phone}
-                  onChange={(event) => update("phone", event.target.value)}
-                  {...fieldAttributes("phone")}
-                />
-                {fieldError("phone")}
-              </div>
-              <div className="contact-field">
                 <label htmlFor="contact-country">Country or region</label>
                 <CountrySelect
                   value={values.country}
@@ -476,21 +440,6 @@ export function ContactForm() {
                   {...fieldAttributes("country")}
                 />
                 {fieldError("country")}
-              </div>
-              <div className="contact-field">
-                <label htmlFor="contact-kind">I’m reaching out about</label>
-                <select
-                  id="contact-kind"
-                  name="kind"
-                  required
-                  value={values.kind}
-                  onChange={(event) => update("kind", event.target.value)}
-                  {...fieldAttributes("kind")}
-                >
-                  <option value="project">A project</option>
-                  <option value="collaboration">A collaboration</option>
-                </select>
-                {fieldError("kind")}
               </div>
               <div className="contact-field">
                 <label htmlFor="contact-budget">
@@ -567,7 +516,7 @@ export function ContactForm() {
             <details className="contact-privacy">
               <summary>How your information is used</summary>
               <p>
-                Your name, email, optional phone number, country, budget, and
+                Your name, email, country, budget, and
                 project details are stored privately to review and respond to
                 your inquiry. They are not used for marketing. Inquiries are
                 scheduled for deletion from the database after {CONTACT_RETENTION_DAYS} days.

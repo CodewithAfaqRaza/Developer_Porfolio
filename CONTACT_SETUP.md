@@ -2,7 +2,7 @@
 
 For Vercel deployment, use [VERCEL_SETUP.md](VERCEL_SETUP.md). Local development is unchanged; Cloudflare instructions below are an alternative.
 
-The form collects name, email, optional phone, country, project/collaboration type, description, and a USD budget range. It requires consent to store the inquiry and use it to respond. No notification email service is configured; read inquiries with the owner commands below.
+The form collects name, email, country, a project/collaboration description, and a USD budget range with “Let’s discuss” selected by default. It requires consent to store the inquiry and use it to respond. Phone and a separate inquiry-type selection are no longer collected. The Vercel deployment sends owner email notifications with Reply-To; see VERCEL_SETUP.md. The commands below cover local data and the Cloudflare alternative.
 
 ## Local use
 

@@ -1,5 +1,13 @@
 # Reference-inspired light portfolio — validation
 
+## Simplified contact form — 13 October 2026
+
+Removed phone and the separate project/collaboration selector. The form now collects name, email, country, description and budget, defaulting budget to “Let’s discuss.” Processing copy reflects the smaller set of fields. Missing phone/type are omitted from encrypted new records and notification emails; the dashboard uses a general inquiry label and shows phone only on records containing that legacy field. Validated older requests/records remain supported without a migration or deleting existing data.
+
+Production build and all 37 API checks passed. The updated persisted-submission browser check verifies removed controls and absent phone/type in the decrypted saved payload. API coverage exercises simplified production saves, full details and Reply-To emails, authenticated owner reads, plus existing legacy field validation and delivery retry/security checks.
+
+All seven contact/admin browser checks passed, covering actual encrypted saves, validation, mobile layout, searchable countries, failed-save preservation, CAPTCHA expiry, and the existing owner dashboard. The owner API read test also passed with the simplified record shape. Mobile form screenshot inspected after the controls were removed.
+
 ## Complete inquiry emails and direct replies — 13 October 2026
 
 Updated owner notifications to include all submitted contact/project fields, readable country/budget labels, consent, timestamp, reference and dashboard link. Reply-To uses the validated submitted email, while the recipient and sender remain server settings. Email content is plain text. Sending and retries decrypt the authenticated saved inquiry; queue metadata never stores a clear-text copy. The processing notice now discloses Resend email copies and separate mailbox retention.

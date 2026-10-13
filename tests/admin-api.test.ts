@@ -85,7 +85,7 @@ test('failed logins rate limited persistently; malformed and oversized body fail
 test('encrypted contact submission appears only to authenticated owner', async () => {
   const f = await fixture();
   const submission = await handleContact(new Request(`${origin}/api/contact`, { method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json' }, body: JSON.stringify({
-    name: 'Test Owner Inquiry', email: 'test@example.com', phone: '', country: 'PK', kind: 'project', description: 'Build a Drupal event website with API integrations.', budget: '1000-5000', consent: true, website: '', turnstileToken: 'local-development-only',
+    name: 'Test Owner Inquiry', email: 'test@example.com', country: 'PK', description: 'Build a Drupal event website with API integrations.', budget: '1000-5000', consent: true, website: '', turnstileToken: 'local-development-only',
   }) }), f.env);
   assert.equal(submission.status, 201);
   const raw = f.db.sqlite.prepare('SELECT payload FROM contact_inquiries').get()!;
@@ -95,6 +95,8 @@ test('encrypted contact submission appears only to authenticated owner', async (
   assert.equal(response.status, 200);
   const data = await response.json();
   assert.equal(data.inquiries[0].details.email, 'test@example.com');
+  assert.ok(!('phone' in data.inquiries[0].details));
+  assert.ok(!('kind' in data.inquiries[0].details));
   assert.equal(data.next, null);
   assert.equal((await handleAdmin(f.request('inquiries?before=bad&id=bad', undefined, cookie), f.env)).status, 400);
 });

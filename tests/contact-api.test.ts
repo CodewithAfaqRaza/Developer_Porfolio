@@ -91,6 +91,25 @@ const productionOrigin = 'https://portfolio.example';
 const encryptionKey = Buffer.from(new Uint8Array(32).fill(42)).toString('base64');
 const publicSiteKey = '0x4AAAAAAAZ8jQ9v4S7dqWnk';
 
+test('simplified form saves and emails the five contact fields without inventing phone or inquiry type', async t => {
+  const { database, env } = fixture(t, true);
+  Object.assign(env, { RESEND_API_KEY: 're_test_private_notification_key', NOTIFICATION_TO: 'owner@gmail.com', NOTIFICATION_FROM: 'onboarding@resend.dev' });
+  const emails: Record<string, unknown>[] = [];
+  t.mock.method(globalThis, 'fetch', async (url: unknown, init: RequestInit) => {
+    if (String(url).includes('siteverify')) return Response.json(verifiedCaptcha());
+    emails.push(JSON.parse(String(init.body))); return Response.json({ id: 'simplified-email-id' });
+  });
+  const body = validBody({ phone: undefined, kind: undefined, turnstileToken: 'browser-token' });
+  const response = await handleContact(request(body, { production: true }), env);
+  assert.equal(response.status, 201);
+  const row = database.inquiries()[0];
+  const details = await decryptInquiryPayload(String(row.payload), encryptionKey, String(row.id), Number(row.created_at)) as Record<string, unknown>;
+  assert.ok(!('phone' in details)); assert.ok(!('kind' in details));
+  assert.equal(emails.length, 1); assert.equal(emails[0].reply_to, body.email.trim());
+  assert.ok(String(emails[0].text).includes(body.description));
+  assert.ok(!String(emails[0].text).includes('Phone:')); assert.ok(!String(emails[0].text).includes('Inquiry type:'));
+});
+
 test('saved production inquiry emails every field to the owner and sets the visitor as Reply-To', async t => {
   const { database, env } = fixture(t, true);
   Object.assign(env, { RESEND_API_KEY: 're_test_private_notification_key', NOTIFICATION_TO: 'owner@gmail.com', NOTIFICATION_FROM: 'onboarding@resend.dev' });

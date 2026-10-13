@@ -60,9 +60,10 @@ const BODY_FIELDS = new Set([
 export interface Inquiry {
   name: string;
   email: string;
-  phone: string | null;
+  /** Legacy fields accepted from cached clients; the current form does not collect them. */
+  phone?: string | null;
   country: string;
-  kind: "project" | "collaboration";
+  kind?: "project" | "collaboration";
   description: string;
   budget: string;
   budgetCurrency: "USD";
@@ -314,7 +315,7 @@ function validate(data: Record<string, unknown>): { inquiry: Inquiry; token: str
     ))
   ) fields.phone = "Enter a valid phone number, or leave it blank.";
   if (!country || !COUNTRIES.has(country)) fields.country = "Select your country.";
-  if (data.kind !== "project" && data.kind !== "collaboration") fields.kind = "Select a project or collaboration.";
+  if (data.kind !== undefined && data.kind !== "project" && data.kind !== "collaboration") fields.kind = "Select a project or collaboration.";
   if (
     !description || description.length < 20 || description.length > 2000 ||
     /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f-\u009f]/.test(description)
@@ -334,9 +335,9 @@ function validate(data: Record<string, unknown>): { inquiry: Inquiry; token: str
     inquiry: {
       name: name!,
       email: email!.slice(0, separator + 1) + email!.slice(separator + 1).toLowerCase(),
-      phone: phone || null,
+      ...(data.phone !== undefined ? { phone: phone || null } : {}),
       country: country!,
-      kind: data.kind as Inquiry["kind"],
+      ...(data.kind !== undefined ? { kind: data.kind as Inquiry["kind"] } : {}),
       description: description!,
       budget: budget!,
       budgetCurrency: BUDGET_CURRENCY,

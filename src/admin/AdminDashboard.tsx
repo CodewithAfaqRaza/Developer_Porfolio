@@ -5,8 +5,8 @@ import { profile, profileInitials } from '../data/profile';
 import { BUDGET_OPTIONS, CONTACT_RETENTION_DAYS } from '../../shared/contact';
 
 type Inquiry = { id: string; createdAt: number; details: {
-  name: string; email: string; phone: string | null; country: string;
-  kind: string; description: string; budget: string; budgetCurrency: string;
+  name: string; email: string; phone?: string | null; country: string;
+  kind?: string; description: string; budget: string; budgetCurrency: string;
 }};
 type Session = { authenticated: boolean; local: boolean; siteKey: string | null };
 type Cursor = { before: number; id: string } | null;
@@ -120,12 +120,12 @@ export default function AdminDashboard() {
         {busy && <p role="status">Loading…</p>}
         {!busy && !visible.length && <p>{inquiries.length ? 'No matching submissions.' : 'No submissions yet. New enquiries will appear here.'}</p>}
         {visible.map(row => <button key={row.id} className={selected === row.id ? 'is-selected' : ''} aria-pressed={selected === row.id} onClick={() => setSelected(row.id)}>
-          <span>{row.details.kind}</span><strong>{row.details.name}</strong><small>{row.details.email}</small><time dateTime={new Date(row.createdAt).toISOString()}>{new Date(row.createdAt).toLocaleDateString()}</time>
+          <span>{row.details.kind || 'Inquiry'}</span><strong>{row.details.name}</strong><small>{row.details.email}</small><time dateTime={new Date(row.createdAt).toISOString()}>{new Date(row.createdAt).toLocaleDateString()}</time>
         </button>)}
         {next && <button disabled={busy} className="admin-more" onClick={() => void load(next)}>Load older submissions</button>}
       </aside><article className="admin-detail" aria-label="Submission details">
-        {active ? <><p className="admin-eyebrow">{active.details.kind}</p><h2>{active.details.name}</h2><p>{new Date(active.createdAt).toLocaleString()}</p>
-          <dl><dt>Email</dt><dd>{active.details.email}</dd><dt>Phone</dt><dd>{active.details.phone || 'Not provided'}</dd><dt>Country</dt><dd>{country(active.details.country)}</dd><dt>Budget ({active.details.budgetCurrency})</dt><dd>{budgets[active.details.budget] || active.details.budget}</dd></dl>
+        {active ? <><p className="admin-eyebrow">{active.details.kind || 'Inquiry'}</p><h2>{active.details.name}</h2><p>{new Date(active.createdAt).toLocaleString()}</p>
+          <dl><dt>Email</dt><dd>{active.details.email}</dd>{active.details.phone !== undefined && <><dt>Phone</dt><dd>{active.details.phone || 'Not provided'}</dd></>}<dt>Country</dt><dd>{country(active.details.country)}</dd><dt>Budget ({active.details.budgetCurrency})</dt><dd>{budgets[active.details.budget] || active.details.budget}</dd></dl>
           <h3>Project / collaboration</h3><p className="admin-description">{active.details.description}</p><p className="admin-reference">Reference: {active.id}</p>
         </> : <p>Select an enquiry to see its details.</p>}
       </article></div>

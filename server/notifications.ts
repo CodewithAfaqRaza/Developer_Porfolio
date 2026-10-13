@@ -18,9 +18,10 @@ function emailContents(inquiry: Inquiry, row: Pending, origin: string): string {
   const budget = BUDGET_OPTIONS.find(([value]) => value === inquiry.budget)?.[1] || inquiry.budget;
   return [
     'A new portfolio inquiry has been saved.', '',
-    `Name: ${inquiry.name}`, `Email: ${inquiry.email}`, `Phone: ${inquiry.phone || 'Not provided'}`,
+    `Name: ${inquiry.name}`, `Email: ${inquiry.email}`,
+    ...(inquiry.phone !== undefined ? [`Phone: ${inquiry.phone || 'Not provided'}`] : []),
     `Country: ${country} (${inquiry.country})`,
-    `Inquiry type: ${inquiry.kind === 'collaboration' ? 'Collaboration' : 'Project'}`,
+    ...(inquiry.kind ? [`Inquiry type: ${inquiry.kind === 'collaboration' ? 'Collaboration' : 'Project'}`] : []),
     `Budget: ${budget}`, `Budget currency: ${inquiry.budgetCurrency}`,
     `Consent to store details and respond: ${inquiry.consent ? 'Yes' : 'No'}`, '',
     'Project or collaboration details:', inquiry.description, '',
@@ -62,7 +63,7 @@ export async function deliverNotifications(database: ContactDatabase, env: Notif
         || !/^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(inquiry.email)
         || typeof inquiry.name !== 'string' || typeof inquiry.description !== 'string'
         || typeof inquiry.country !== 'string' || !/^[A-Z]{2}$/.test(inquiry.country)
-        || !['project', 'collaboration'].includes(inquiry.kind)) throw new Error('Invalid inquiry');
+        || (inquiry.kind !== undefined && !['project', 'collaboration'].includes(inquiry.kind))) throw new Error('Invalid inquiry');
       const text = emailContents(inquiry, row, origin.origin);
       error = 'network';
       const response = await fetch('https://api.resend.com/emails', {
