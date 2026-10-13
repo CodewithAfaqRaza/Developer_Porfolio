@@ -1,5 +1,6 @@
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
+import { FloatingWhatsApp } from "./components/layout/FloatingWhatsApp";
 import { Hero } from "./sections/Hero";
 import { FeaturedWork } from "./sections/FeaturedWork";
 import { About } from "./sections/About";
@@ -32,6 +33,7 @@ export default function App() {
         </main>
         <Footer />
       </ScrollExperience>
+      <FloatingWhatsApp />
     </>
   );
 }

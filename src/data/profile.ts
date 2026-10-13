@@ -15,6 +15,7 @@ export const profile = {
   // TODO: Supply real public contact details. Empty values hide controls.
   email: "",
   github: "https://github.com/Danikhan88",
+  whatsapp: "+92 316 9712793",
   cv: "/danyal-zeb-cv.pdf",
   contentApproved: false,
 } as const;

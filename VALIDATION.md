@@ -1,5 +1,11 @@
 # Reference-inspired light portfolio — validation
 
+## Floating WhatsApp contact — 13 October 2026
+
+Added a fixed bottom-right WhatsApp link using the owner's confirmed `+92 316 9712793`, stored in profile data. It opens `wa.me/923169712793` with a prefilled introduction in a separate tab. No message is sent automatically. Local SVG glyph, visible keyboard focus/tooltip, desktop/mobile safe-area spacing, reduced-motion handling and footer clearance are included. It stays outside animated containers, respects native project-dialog layering and is absent from `/admin`.
+
+Dedicated browser check passed at 390px and 1440px: correct normalized number and message, image loading, at least 44px target, viewport position across scrolling, no horizontal overflow, footer clearance, keyboard focus/activation, separate-tab navigation, dialog behavior and dashboard exclusion. Desktop/mobile screenshots were inspected. An actual read-only request followed WhatsApp's redirect and returned HTTP 200 from `api.whatsapp.com` with the expected phone query. This tests link navigation; it does not send a message or assert WhatsApp account registration.
+
 ## Simplified contact form — 13 October 2026
 
 Removed phone and the separate project/collaboration selector. The form now collects name, email, country, description and budget, defaulting budget to “Let’s discuss.” Processing copy reflects the smaller set of fields. Missing phone/type are omitted from encrypted new records and notification emails; the dashboard uses a general inquiry label and shows phone only on records containing that legacy field. Validated older requests/records remain supported without a migration or deleting existing data.

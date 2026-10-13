@@ -1,0 +1,58 @@
+.whatsapp-contact {
+  position: fixed;
+  right: calc(24px + env(safe-area-inset-right, 0px));
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid #ffffff80;
+  border-radius: 50%;
+  background: #075e54;
+  color: #fff;
+  box-shadow: 0 6px 24px #00000026;
+  transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+.whatsapp-contact img { display: block; }
+.footer.container { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+.whatsapp-contact-label {
+  position: absolute;
+  right: calc(100% + 12px);
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #151515;
+  color: #fff;
+  font: 13px/1.4 var(--body);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(4px);
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+}
+.whatsapp-contact:focus-visible {
+  outline: 2px solid #075e54;
+  outline-offset: 5px;
+}
+.whatsapp-contact:focus-visible .whatsapp-contact-label {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+@media (hover: hover) {
+  .whatsapp-contact:hover { background: #064c44; transform: translateY(-3px); box-shadow: 0 9px 28px #00000033; }
+  .whatsapp-contact:hover .whatsapp-contact-label { opacity: 1; visibility: visible; transform: none; }
+}
+@media (max-width: 767px) {
+  .whatsapp-contact {
+    right: calc(16px + env(safe-area-inset-right, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    width: 52px;
+    height: 52px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-contact, .whatsapp-contact-label { transition: none; }
+  .whatsapp-contact:hover { transform: none; }
+}

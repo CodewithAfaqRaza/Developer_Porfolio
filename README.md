@@ -57,6 +57,8 @@ Chrome checks cover horizontal overflow at 360, 390, 768, 1024, and 1440px; mobi
 
 ## Contact form and hosting
 
+A fixed WhatsApp button in the bottom-right corner opens a chat with the owner-confirmed number in `src/data/profile.ts`. It uses a locally bundled icon, a short prefilled introduction, keyboard access, safe-area spacing and reduced-motion support. It is outside scroll transforms, sits behind project dialogs, and is not shown in the private dashboard. No WhatsApp message is sent automatically.
+
 For the requested GitHub + Vercel deployment, start with [VERCEL_SETUP.md](VERCEL_SETUP.md). It covers ignored credentials, Turso, production login/CAPTCHA and Vercel's free-plan restrictions. The contact form and `/admin` have native Vercel API support; static-only hosting does not provide persistence. Cloudflare remains an alternative.
 
 The contact form works with `npm run dev` and persists encrypted inquiries locally. It collects name, email, country, a project/collaboration description, and budget. “Let’s discuss” is the default budget option. Phone and a separate inquiry-type selection are no longer collected. Local bot verification is explicitly simulated; deployed submissions require real Turnstile keys and server-side verification. Run `npm run admin:setup` and open `/admin` for the private submissions dashboard; see [ADMIN_SETUP.md](ADMIN_SETUP.md) for login and production setup.

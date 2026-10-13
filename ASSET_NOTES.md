@@ -1,5 +1,9 @@
 # Original workspace hero artwork
 
+## WhatsApp contact icon
+
+`public/icons/whatsapp.svg` uses the WhatsApp glyph from [Simple Icons](https://github.com/simple-icons/simple-icons/blob/develop/icons/whatsapp.svg), distributed under [CC0](https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md). Its fill is white for the dark green contact button. It is bundled locally; the page makes no WhatsApp request until the visitor clicks the link. The number is the owner-confirmed `+92 316 9712793` in `src/data/profile.ts`.
+
 **Tool:** built-in ImageGen.
 
 **Saved project asset:** `public/images/workspace-hero.jpg` (1672 × 941; approximately 267 kB). The generated original was preserved in the default generated-images library; a JPEG encoding is bundled with the site.
