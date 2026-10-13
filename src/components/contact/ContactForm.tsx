@@ -362,10 +362,10 @@ export function ContactForm() {
           tabIndex={-1}
         >
           <Check size={28} aria-hidden="true" />
-          <h3>Your inquiry has been received.</h3>
+          <h3>Thank you for reaching out!</h3>
           <p>
-            Your project details have been saved. I’ll use your email to
-            respond.
+            Your message has been received. I’ll review your project or
+            collaboration details and get back to you by email soon.
           </p>
           <p>Reference: {reference}</p>
           <button
