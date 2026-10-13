@@ -33,3 +33,5 @@ coverage/
 tmp/
 output/
 Thumbs.db
+.vercel
+skills-lock.json

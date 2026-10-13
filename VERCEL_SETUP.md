@@ -1,6 +1,8 @@
 # GitHub and Vercel deployment
 
-The requested target is a new private `Danikhan88/danyal-zeb-portfolio` repository. GitHub/Vercel authentication is required before publishing. A private repository can still produce a public website.
+The private repository is https://github.com/Danikhan88/danyal-zeb-portfolio. The public portfolio is https://danyal-zeb-portfolio.vercel.app and the owner dashboard is https://danyal-zeb-portfolio.vercel.app/admin. GitHub is connected to Vercel for deployments from `main`.
+
+Production uses Vercel Hobby, the $0/month Turso Starter integration (`portfolio-contact`), and a Managed Turnstile widget restricted to the live hostname. Both schema migrations and production environment settings are configured. The generated production password is saved privately in `.local/production-admin-password.txt`; local credentials remain separate. Do not rerun secret generation to obtain the existing password. Secrets and local submissions are excluded from Git and uploads.
 
 ## Files to commit and ignore
 

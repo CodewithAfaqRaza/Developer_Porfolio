@@ -68,7 +68,9 @@ npm run inquiries:prune
 npm run test:api
 ```
 
-See [CONTACT_SETUP.md](CONTACT_SETUP.md) for the Cloudflare Pages/D1 alternative, secrets, migrations, hourly retention and private data access. See [SECURITY.md](SECURITY.md) for controls and limits. Cloudflare uses Functions/D1; Vercel uses its native API handler/Turso. Static-only hosting does not install either backend. No account resources or public deployment have been created.
+The live portfolio is https://danyal-zeb-portfolio.vercel.app and the private dashboard is at `/admin`. Production uses Vercel, Turso and real Turnstile verification. The production owner password is stored only in the ignored `.local/production-admin-password.txt`. GitHub `main` is connected to Vercel for deployments.
+
+See [CONTACT_SETUP.md](CONTACT_SETUP.md) for the Cloudflare Pages/D1 alternative, secrets, migrations, hourly retention and private data access. See [SECURITY.md](SECURITY.md) for controls and limits. Cloudflare uses Functions/D1; Vercel uses its native API handler/Turso. Static-only hosting does not install either backend.
 
 After your actual HTTPS hostname is confirmed and public content is approved, enable draft indexing with:
 

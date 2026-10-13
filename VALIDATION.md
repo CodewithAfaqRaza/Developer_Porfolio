@@ -1,5 +1,13 @@
 # Reference-inspired light portfolio — validation
 
+## Live Vercel verification — 13 October 2026
+
+Published https://danyal-zeb-portfolio.vercel.app from the private `Danikhan88/danyal-zeb-portfolio` repository. Vercel Hobby and the $0/month Turso Starter integration are configured, schema migrations applied, production secrets uploaded, and Managed Turnstile restricted to the canonical hostname. No local visitor records were uploaded.
+
+The deployed TypeScript API needed `rewriteRelativeImportExtensions` so emitted JavaScript imports resolve. Verified the emitted API loads, then confirmed the production build succeeds. Live pages and `/admin` return 200 with security headers. Contact configuration reports real CAPTCHA, `local: false`, and Vercel hosting. Anonymous inquiry reads return 401; unknown routes return 404; unauthenticated maintenance returns 401; authenticated maintenance succeeds against Turso; cross-origin submissions return 403; local CAPTCHA bypass tokens return 400.
+
+Installed Chrome loaded all 12 projects with no page errors and displayed the owner password field and real Cloudflare checkbox. Turnstile required human interaction and did not issue an automated token. A successful live contact submission, CAPTCHA-verified admin login and inbox read still require a manual browser check; they are not claimed as verified. Existing local API and browser test results are recorded below. Production password is stored in the ignored `.local/production-admin-password.txt`; it is never committed.
+
 Validated on 13 October 2026 (Asia/Karachi). This supersedes previous design validation. The latest user preference is mostly light, closest to https://wqsoftwares.com/.
 
 ## Completed
