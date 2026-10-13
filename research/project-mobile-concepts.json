@@ -1,0 +1,48 @@
+{
+  "authorization": "User chose matching mobile mockups for websites blocking capture",
+  "method": "ImageGen portrait adaptations of supplied desktop previews; not live screenshots",
+  "projects": [
+    {
+      "id": "leap",
+      "kind": "concept",
+      "generatedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-1361fe54-239f-490f-86dd-973c03a48c04.png",
+      "asset": "public/images/projects/leap-mobile-concept.jpg"
+    },
+    {
+      "id": "black-hat-mea",
+      "kind": "concept",
+      "generatedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-ea50302d-f997-4868-8f6c-157160c3ffd3.png",
+      "asset": "public/images/projects/black-hat-mea-mobile-concept.jpg"
+    },
+    {
+      "id": "deepfest",
+      "kind": "concept",
+      "generatedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-ce684a6e-8780-470d-9e2f-25d0d8a7a687.png",
+      "asset": "public/images/projects/deepfest-mobile-concept.jpg"
+    },
+    {
+      "id": "tahaluf",
+      "kind": "concept",
+      "generatedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-a82f2bd2-79c0-4ea4-883d-ed65d1fc8456.png",
+      "asset": "public/images/projects/tahaluf-mobile-concept.jpg"
+    },
+    {
+      "id": "cityscape-global",
+      "kind": "concept",
+      "generatedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-6e50b39a-670b-4400-8b2c-50012c56d6d6.png",
+      "asset": "public/images/projects/cityscape-global-mobile-concept.jpg"
+    },
+    {
+      "id": "idwsc",
+      "kind": "concept",
+      "generatedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-ce4ec307-03ab-4e48-a3ff-12c2fb0648c2.png",
+      "asset": "public/images/projects/idwsc-mobile-concept.jpg"
+    },
+    {
+      "id": "american-elements",
+      "kind": "concept",
+      "generatedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-961fc64f-cae0-46b8-9ae9-713e6c58d517.png",
+      "asset": "public/images/projects/american-elements-mobile-concept.jpg"
+    }
+  ]
+}

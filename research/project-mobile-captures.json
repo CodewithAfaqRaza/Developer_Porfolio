@@ -1,0 +1,89 @@
+[
+  {
+    "id": "leap",
+    "publicUrl": "https://onegiantleap.com/",
+    "status": 403,
+    "captured": false
+  },
+  {
+    "id": "black-hat-mea",
+    "publicUrl": "https://blackhatmea.com/",
+    "status": 403,
+    "captured": false
+  },
+  {
+    "id": "leap-east",
+    "publicUrl": "https://leapeast.com/",
+    "status": 200,
+    "captured": true,
+    "width": 390,
+    "height": 844,
+    "grayscale": true
+  },
+  {
+    "id": "deepfest",
+    "publicUrl": "https://deepfest.com/",
+    "status": 403,
+    "captured": false
+  },
+  {
+    "id": "cityscape-global",
+    "publicUrl": "https://cityscapeglobal.com/",
+    "status": 403,
+    "captured": false
+  },
+  {
+    "id": "tahaluf",
+    "publicUrl": "https://tahaluf.com/",
+    "status": 403,
+    "captured": false
+  },
+  {
+    "id": "idwsc",
+    "publicUrl": "https://idwsc.com/",
+    "status": 403,
+    "captured": false
+  },
+  {
+    "id": "umrah-ziyarah",
+    "publicUrl": "https://umrah-ziyarah.com/",
+    "status": 200,
+    "captured": true,
+    "width": 390,
+    "height": 844,
+    "grayscale": true
+  },
+  {
+    "id": "bio-middle-east",
+    "publicUrl": "https://biomiddleeast.com/",
+    "status": 200,
+    "captured": true,
+    "width": 390,
+    "height": 844,
+    "grayscale": true
+  },
+  {
+    "id": "red-sea-yacht-show",
+    "publicUrl": "https://redseayachtshow.com/",
+    "status": 200,
+    "captured": true,
+    "width": 390,
+    "height": 844,
+    "grayscale": true
+  },
+  {
+    "id": "american-elements",
+    "publicUrl": "https://www.americanelements.com/",
+    "status": 403,
+    "captured": false
+  },
+  {
+    "id": "kingdom-of-gaming",
+    "publicUrl": "https://kingdomofgaming.com/",
+    "status": 200,
+    "captured": true,
+    "width": 390,
+    "height": 844,
+    "grayscale": true
+  }
+]

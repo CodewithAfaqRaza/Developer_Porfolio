@@ -1,0 +1,53 @@
+{
+  "method": "Built-in ImageGen edits of user-supplied screenshots; JPEG format conversion with FFmpeg",
+  "projects": [
+    {
+      "id": "american-elements",
+      "source": "Screenshot 2026-10-13 at 11.02.20 am.png",
+      "editedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-19f34620-db0d-4ce3-aa38-e9ce38534c73.png",
+      "bundledAsset": "public/images/projects/american-elements-edited.jpg"
+    },
+    {
+      "id": "black-hat-mea",
+      "source": "Screenshot 2026-10-13 at 11.01.40 am.png",
+      "editedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-0a35738c-e9bc-42a9-a283-0e06c50afe22.png",
+      "bundledAsset": "public/images/projects/black-hat-mea-edited.jpg"
+    },
+    {
+      "id": "idwsc",
+      "source": "Screenshot 2026-10-13 at 11.02.39 am.png",
+      "editedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-0980b123-d646-427e-add9-fffb4ccddf99.png",
+      "bundledAsset": "public/images/projects/idwsc-edited.jpg"
+    },
+    {
+      "id": "tahaluf",
+      "source": "Screenshot 2026-10-13 at 11.02.00 am.png",
+      "editedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-5b0c673b-921e-4114-99f2-9e21dc0c22ed.png",
+      "bundledAsset": "public/images/projects/tahaluf-edited.jpg"
+    },
+    {
+      "id": "leap",
+      "source": "Screenshot 2026-10-13 at 11.01.19 am.png",
+      "editedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-78c22548-300c-4eb7-917d-c34927848ab8.png",
+      "bundledAsset": "public/images/projects/leap-edited.jpg"
+    },
+    {
+      "id": "deepfest",
+      "source": "Screenshot 2026-10-13 at 11.14.42 am.png",
+      "editedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-f69bdb48-d7e2-487f-96b5-1de1efad0f58.png",
+      "bundledAsset": "public/images/projects/deepfest-edited.jpg"
+    },
+    {
+      "id": "cityscape-global",
+      "source": "Screenshot 2026-10-13 at 11.15.06 am.png",
+      "editedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-5fd912b4-4942-4fd6-b545-62bec604ff9c.png",
+      "bundledAsset": "public/images/projects/cityscape-global-edited.jpg"
+    },
+    {
+      "id": "leap-east",
+      "source": "Screenshot 2026-10-13 at 11.15.50 am.png",
+      "editedPng": "/Users/mc/.codex/generated_images/01a12f68-bf69-7c11-b5d7-6350d37fb57a/exec-58ee0dd2-0789-4311-b0db-bb3c2aee3612.png",
+      "bundledAsset": "public/images/projects/leap-east-edited.jpg"
+    }
+  ]
+}

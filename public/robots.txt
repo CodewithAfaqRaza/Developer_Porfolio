@@ -1,0 +1,3 @@
+# Draft: run npm run seo -- https://your-project.pages.dev after content approval.
+User-agent: *
+Disallow: /
