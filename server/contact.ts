@@ -57,7 +57,7 @@ const BODY_FIELDS = new Set([
   "turnstileToken",
 ]);
 
-interface Inquiry {
+export interface Inquiry {
   name: string;
   email: string;
   phone: string | null;

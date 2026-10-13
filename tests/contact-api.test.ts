@@ -91,7 +91,7 @@ const productionOrigin = 'https://portfolio.example';
 const encryptionKey = Buffer.from(new Uint8Array(32).fill(42)).toString('base64');
 const publicSiteKey = '0x4AAAAAAAZ8jQ9v4S7dqWnk';
 
-test('saved production inquiry sends a private owner notification once, never visitor details', async t => {
+test('saved production inquiry emails every field to the owner and sets the visitor as Reply-To', async t => {
   const { database, env } = fixture(t, true);
   Object.assign(env, { RESEND_API_KEY: 're_test_private_notification_key', NOTIFICATION_TO: 'owner@gmail.com', NOTIFICATION_FROM: 'onboarding@resend.dev' });
   const emails: RequestInit[] = [];
@@ -102,15 +102,58 @@ test('saved production inquiry sends a private owner notification once, never vi
   });
   const response = await handleContact(request(validBody({ turnstileToken: 'verified-browser-token' }), { production: true }), env);
   assert.equal(response.status, 201);
-  const { reference } = await response.json();
+  const receipt = await response.json();
+  const { reference } = receipt;
   assert.equal(emails.length, 1);
   const email = JSON.parse(String(emails[0].body));
   assert.deepEqual(email.to, ['owner@gmail.com']);
+  assert.equal(email.from, 'onboarding@resend.dev');
+  assert.equal(email.reply_to, 'PERSON@example.com');
   assert.ok(email.text.includes(reference)); assert.ok(email.text.includes(productionOrigin + '/admin'));
-  for (const value of ['PERSON@example.com', 'Test Collaborator', '+92', 'Drupal project']) assert.ok(!String(emails[0].body).includes(value));
+  for (const value of ['Email: PERSON@example.com', 'Name: Test Collaborator', 'Phone: +92 300 1234567',
+    'Country: Pakistan (PK)', 'Inquiry type: Project', 'Budget: $5,000–$10,000', 'Budget currency: USD',
+    'Consent to store details and respond: Yes', validBody().description]) assert.ok(email.text.includes(value), value);
+  assert.equal(email.html, undefined, 'Visitor content is plain text, never interpreted as HTML');
+  assert.deepEqual(receipt, { ok: true, reference });
   await deliverNotifications(database, env, reference);
   assert.equal(emails.length, 1);
   assert.ok(database.sqlite.prepare('SELECT sent_at FROM contact_notifications').get()?.sent_at);
+});
+
+test('email supports optional phone and collaboration details; injected email headers cannot send', async t => {
+  const { database, env } = fixture(t, true);
+  Object.assign(env, { RESEND_API_KEY: 're_test_private_notification_key', NOTIFICATION_TO: 'owner@gmail.com', NOTIFICATION_FROM: 'onboarding@resend.dev' });
+  const emails: Record<string, unknown>[] = [];
+  t.mock.method(globalThis, 'fetch', async (url: unknown, init: RequestInit) => {
+    if (String(url).includes('siteverify')) return Response.json(verifiedCaptcha());
+    emails.push(JSON.parse(String(init.body))); return Response.json({ id: 'email-id' });
+  });
+  const bad = await handleContact(request(validBody({ email: 'visitor@gmail.com\r\nBcc: attacker@example.com', turnstileToken: 'browser-token' }), { production: true }), env);
+  assert.equal(bad.status, 422); assert.equal(emails.length, 0);
+  const description = 'First requirement.\n<script>alert("inert text")</script>\nSecond requirement.';
+  const response = await handleContact(request(validBody({ phone: '', kind: 'collaboration', email: 'visitor@gmail.com', description, budget: 'discuss', turnstileToken: 'browser-token' }), { production: true }), env);
+  assert.equal(response.status, 201); assert.equal(emails.length, 1);
+  assert.equal(emails[0].reply_to, 'visitor@gmail.com');
+  assert.ok(String(emails[0].text).includes('Phone: Not provided'));
+  assert.ok(String(emails[0].text).includes('Inquiry type: Collaboration'));
+  assert.ok(String(emails[0].text).includes(description));
+  assert.equal(emails[0].html, undefined);
+  assert.equal(database.inquiries().length, 1);
+});
+
+test('notification retries fail safely when authenticated decryption is unavailable', async t => {
+  const { database, env } = fixture(t, true);
+  Object.assign(env, { NOTIFICATION_TO: 'owner@gmail.com', NOTIFICATION_FROM: 'onboarding@resend.dev' });
+  t.mock.method(globalThis, 'fetch', async () => Response.json(verifiedCaptcha()));
+  const response = await handleContact(request(validBody({ turnstileToken: 'browser-token' }), { production: true }), env);
+  assert.equal(response.status, 201);
+  database.sqlite.exec("UPDATE contact_inquiries SET payload = '{}'");
+  env.RESEND_API_KEY = 're_test_private_notification_key'; let sends = 0;
+  t.mock.method(globalThis, 'fetch', async () => { sends++; return Response.json({ id: 'unexpected' }); });
+  await deliverNotifications(database, env);
+  assert.equal(sends, 0);
+  const row = database.sqlite.prepare('SELECT sent_at, last_error FROM contact_notifications').get();
+  assert.equal(row?.sent_at, null); assert.equal(row?.last_error, 'payload-unavailable');
 });
 
 test('notification failure preserves successful receipt and retries with stable idempotency', async t => {

@@ -1,5 +1,13 @@
 # Reference-inspired light portfolio — validation
 
+## Complete inquiry emails and direct replies — 13 October 2026
+
+Updated owner notifications to include all submitted contact/project fields, readable country/budget labels, consent, timestamp, reference and dashboard link. Reply-To uses the validated submitted email, while the recipient and sender remain server settings. Email content is plain text. Sending and retries decrypt the authenticated saved inquiry; queue metadata never stores a clear-text copy. The processing notice now discloses Resend email copies and separate mailbox retention.
+
+Production build and all 36 API tests passed. Coverage verifies full field content, direct Reply-To, optional phone, collaboration descriptions with preserved line breaks/inert markup, fixed sender/recipient, header-injection rejection, safe decryption failures, retry backoff and idempotency, atomic persistence, local suppression and private receipts. Previous validation notes below describe earlier notification formats.
+
+All five existing contact browser checks passed. Deployed the update and verified the hosted email pipeline using one encrypted synthetic full-field inquiry and its queue entry. Authenticated maintenance returned 200 and recorded provider acceptance after one attempt with no error. Only that synthetic record and queue entry were removed afterward. The owner can inspect the received test email; its Reply-To is the clearly synthetic `reply-test@example.com`. New real notifications use each visitor's actual submitted address.
+
 ## Live Vercel verification — 13 October 2026
 
 Owner email notifications: added an atomic database queue and server-only Resend delivery. All 34 API tests pass, including successful delivery metadata, no visitor details in emails, stable idempotency keys, concurrent lease claims, backoff after provider failures, preserved successful receipts, atomic queue rollback and local email suppression. Production notification migration and three private email settings were configured. Resend accepted a real setup email to the owner's Gmail (HTTP 200); inbox delivery is for the owner to confirm. Real CAPTCHA verification remains required for the public form.

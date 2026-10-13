@@ -570,8 +570,13 @@ export function ContactForm() {
                 Your name, email, optional phone number, country, budget, and
                 project details are stored privately to review and respond to
                 your inquiry. They are not used for marketing. Inquiries are
-                scheduled for deletion after {CONTACT_RETENTION_DAYS} days.
+                scheduled for deletion from the database after {CONTACT_RETENTION_DAYS} days.
               </p>
+              {config?.hosting === 'vercel' && <p>
+                A copy of your submitted details is emailed to me through Resend
+                so I can review your requirements and reply to your email address.
+                Email copies remain in my inbox until deleted.
+              </p>}
               <p>
                 {config?.hosting === 'vercel'
                   ? 'The production form is hosted by Vercel and its database by Turso.'

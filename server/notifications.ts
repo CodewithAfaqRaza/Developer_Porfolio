@@ -1,15 +1,34 @@
-import type { ContactDatabase } from './contact.ts';
+import { decryptInquiryPayload, type ContactDatabase, type Inquiry } from './contact.ts';
+import { BUDGET_OPTIONS } from '../shared/contact.ts';
 
 export interface NotificationEnv {
   RESEND_API_KEY?: string;
   NOTIFICATION_TO?: string;
   NOTIFICATION_FROM?: string;
   SITE_ORIGIN?: string;
+  DATA_ENCRYPTION_KEY?: string;
   LOCAL_DEVELOPMENT?: boolean;
 }
 const DAY = 86400000;
 const MAX_ATTEMPTS = 8;
-type Pending = { inquiry_id: string; created_at: number; attempts: number };
+type Pending = { inquiry_id: string; created_at: number; attempts: number; payload: string };
+
+function emailContents(inquiry: Inquiry, row: Pending, origin: string): string {
+  const country = new Intl.DisplayNames(['en'], { type: 'region' }).of(inquiry.country) || inquiry.country;
+  const budget = BUDGET_OPTIONS.find(([value]) => value === inquiry.budget)?.[1] || inquiry.budget;
+  return [
+    'A new portfolio inquiry has been saved.', '',
+    `Name: ${inquiry.name}`, `Email: ${inquiry.email}`, `Phone: ${inquiry.phone || 'Not provided'}`,
+    `Country: ${country} (${inquiry.country})`,
+    `Inquiry type: ${inquiry.kind === 'collaboration' ? 'Collaboration' : 'Project'}`,
+    `Budget: ${budget}`, `Budget currency: ${inquiry.budgetCurrency}`,
+    `Consent to store details and respond: ${inquiry.consent ? 'Yes' : 'No'}`, '',
+    'Project or collaboration details:', inquiry.description, '',
+    `Reference: ${row.inquiry_id}`, `Submitted: ${new Date(row.created_at).toISOString()}`, '',
+    `View in your dashboard: ${origin}/admin`, '',
+    'Click Reply to respond directly to the email address supplied by this visitor.',
+  ].join('\n');
+}
 
 /** The recipient and sender come only from private server settings, never form input. */
 export function notificationAddressConfigured(env: NotificationEnv): boolean {
@@ -21,11 +40,11 @@ export function notificationAddressConfigured(env: NotificationEnv): boolean {
 
 /** Await delivery while the serverless invocation is alive. Failed sends stay queued. */
 export async function deliverNotifications(database: ContactDatabase, env: NotificationEnv, inquiryId?: string): Promise<void> {
-  if (!notificationAddressConfigured(env) || !/^re_[A-Za-z0-9_-]{16,}$/.test(env.RESEND_API_KEY || '')) return;
+  if (!notificationAddressConfigured(env) || !env.DATA_ENCRYPTION_KEY || !/^re_[A-Za-z0-9_-]{16,}$/.test(env.RESEND_API_KEY || '')) return;
   const origin = new URL(env.SITE_ORIGIN || '');
   if (origin.protocol !== 'https:' || origin.origin !== env.SITE_ORIGIN) return;
   const now = Date.now();
-  const result = await database.prepare(`SELECT n.inquiry_id, n.created_at, n.attempts FROM contact_notifications n
+  const result = await database.prepare(`SELECT n.inquiry_id, n.created_at, n.attempts, i.payload FROM contact_notifications n
     JOIN contact_inquiries i ON i.id = n.inquiry_id
     WHERE n.sent_at IS NULL AND n.next_attempt_at <= ? AND n.attempts < ? AND n.created_at > ?
     ${inquiryId ? 'AND n.inquiry_id = ?' : ''} ORDER BY n.created_at LIMIT 3`)
@@ -36,15 +55,24 @@ export async function deliverNotifications(database: ContactDatabase, env: Notif
       WHERE inquiry_id = ? AND sent_at IS NULL AND next_attempt_at <= ? AND attempts = ?`)
       .bind(now + 5 * 60000, row.inquiry_id, now, row.attempts).run();
     if (claim.meta?.changes !== 1) continue;
-    let error = 'network';
+    let error = 'payload-unavailable';
     try {
+      const inquiry = await decryptInquiryPayload(row.payload, env.DATA_ENCRYPTION_KEY, row.inquiry_id, row.created_at) as Inquiry;
+      if (!inquiry || typeof inquiry.email !== 'string' || inquiry.email.length > 254
+        || !/^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(inquiry.email)
+        || typeof inquiry.name !== 'string' || typeof inquiry.description !== 'string'
+        || typeof inquiry.country !== 'string' || !/^[A-Z]{2}$/.test(inquiry.country)
+        || !['project', 'collaboration'].includes(inquiry.kind)) throw new Error('Invalid inquiry');
+      const text = emailContents(inquiry, row, origin.origin);
+      error = 'network';
       const response = await fetch('https://api.resend.com/emails', {
         method: 'POST', signal: AbortSignal.timeout(5000),
         headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json',
           'Idempotency-Key': `portfolio-inquiry/${row.inquiry_id}` },
         body: JSON.stringify({ from: env.NOTIFICATION_FROM, to: [env.NOTIFICATION_TO],
           subject: 'New portfolio inquiry',
-          text: `A new project or collaboration inquiry has been saved.\n\nReference: ${row.inquiry_id}\nSubmitted: ${new Date(row.created_at).toISOString()}\n\nReview it securely: ${origin.origin}/admin\n\nVisitor contact details are available only after you log in to the dashboard.`,
+          reply_to: inquiry.email,
+          text,
         }),
       });
       if (response.ok) {
