@@ -40,7 +40,7 @@ export function FeaturedWork() {
   return (
     <section id="work" className="work-section container">
       <SectionHeading number="01" label="SELECTED WORK" title={<>Real projects.<br /><span className="serif-text">Built with Drupal.</span></>}>
-        <p>Drupal development across event platforms, corporate publishing, and ecommerce. {integrated} event projects include Swapcard, custom UTM tracking, and API integrations. Custom URN handling is part of the Kingdom of Gaming project.</p>
+        <p>Drupal development across event platforms, corporate publishing and ecommerce, with connected APIs, campaign tracking and event integrations.</p>
         <span className="small-note">{visible.length} websites / {integrated} integrated event platforms <ArrowUpRight size={14} /></span>
       </SectionHeading>
       <div className="project-showcase">

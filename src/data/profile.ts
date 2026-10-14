@@ -8,9 +8,9 @@ export const profile = {
   intro:
     "Drupal architecture, modern frontend engineering, and considered interactions. Turning complex requirements into clear, reliable digital experiences.",
   about:
-    "I work on Drupal websites for technology, cybersecurity, real estate, gaming, and specialist industry events, alongside corporate and product-focused platforms.",
+    "I build Drupal and full-stack web applications for event platforms, corporate websites and ecommerce. My work brings together content architecture, responsive interfaces and AI-assisted workflows.",
   aboutDetail:
-    "My work includes Swapcard integration, custom UTM tracking and API integrations, with custom URN handling for Kingdom of Gaming—connecting event content with the systems behind each visitor journey.",
+    "My focus includes Drupal AI, content assistance and workflow automation, alongside Swapcard integrations, custom UTM tracking, URN handling and external APIs that connect websites with business systems.",
   linkedin: "https://www.linkedin.com/in/danyal-zeb-4a1571249/",
   // TODO: Supply real public contact details. Empty values hide controls.
   email: "",
@@ -69,7 +69,7 @@ export const capabilities = [
     name: "APIs & event integrations",
     label: "07 / FOUNDATIONS",
     description:
-      "Swapcard connections, custom UTM tracking and external APIs, plus custom URN handling for Kingdom of Gaming.",
+      "Connecting event platforms and business systems through Swapcard, custom UTM tracking, URN handling and external APIs.",
     skills: ["Swapcard", "Custom UTM", "Custom URN", "API integration"],
   },
   {
