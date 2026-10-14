@@ -6,9 +6,9 @@ export const profile = {
   proposedRole: "Senior Full-Stack Drupal Developer & Creative Web Engineer",
   headline: "Thoughtful engineering. Lasting experiences.",
   intro:
-    "Drupal architecture, modern frontend engineering, and considered interactions. Turning complex requirements into clear, reliable digital experiences.",
+    "From distinctive Drupal websites to powerful web applications and complex platforms, I bring together thoughtful design, full-stack engineering and practical AI.",
   about:
-    "I build Drupal and full-stack web applications for event platforms, corporate websites and ecommerce. My work brings together content architecture, responsive interfaces and AI-assisted workflows.",
+    "I turn complex requirements into clear digital experiences—from brand and content websites to ecommerce platforms and complex web applications.",
   aboutDetail:
     "My focus includes Drupal AI, content assistance and workflow automation, alongside Swapcard integrations, custom UTM tracking, URN handling and external APIs that connect websites with business systems.",
   linkedin: "https://www.linkedin.com/in/danyal-zeb-4a1571249/",

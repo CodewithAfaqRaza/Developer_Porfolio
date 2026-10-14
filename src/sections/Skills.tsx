@@ -30,8 +30,8 @@ export function Skills() {
           from foundation to frontend.
         </h2>
         <p className="capabilities-intro">
-          Drupal, full-stack development and AI integrations, with attention to
-          performance, accessibility and the experience people use.
+          The expertise behind the experience—from content architecture and
+          expressive interfaces to connected systems and AI-powered workflows.
         </p>
         <div className="capability-list">
           {capabilities.map((item, index) => {

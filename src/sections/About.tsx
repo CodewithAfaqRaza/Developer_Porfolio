@@ -11,9 +11,9 @@ export function About() {
       <div className="about-copy">
         <p className="eyebrow">WHO I AM</p>
         <h2>
-          Engineering with clarity.
+          Thoughtful design.
           <br />
-          Building with purpose.
+          Technical depth.
         </h2>
         <p>{profile.about}</p>
         <p>{profile.aboutDetail}</p>
