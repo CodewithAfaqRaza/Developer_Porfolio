@@ -2182,3 +2182,51 @@ a.button, .contact-circle { transition: background-color 250ms ease; }
   .project-load-more svg { transition: none; }
   .project-load-more:hover svg { transform: none; }
 }
+
+/* A browsable index and one generous frame put the work first. */
+.project-showcase { display: grid; grid-template-columns: minmax(230px, .7fr) minmax(0, 2fr); gap: 48px; align-items: start; }
+.showcase-index { position: sticky; top: 110px; min-width: 0; }
+.showcase-index-label { margin-bottom: 24px; font-size: 12px; color: #666; }
+.showcase-select { display: flex; width: 100%; align-items: center; gap: 15px; background: transparent; text-align: left; border-top: 1px solid #ddd; padding: 22px 8px; font: 500 17px/1.4 var(--display); cursor: pointer; transition: background-color 200ms ease; }
+.showcase-select:last-of-type { border-bottom: 1px solid #ddd; }
+.showcase-select svg { margin-left: auto; flex-shrink: 0; }
+.showcase-number { font: 12px/1.4 var(--mono); color: #777; }
+.showcase-select[aria-pressed="true"] { background: #111; color: #fff; }
+.showcase-select[aria-pressed="true"] .showcase-number { color: #bbb; }
+.showcase-select:hover:not([aria-pressed="true"]) { background: #e9e9e9; }
+.showcase-index-note { margin-top: 24px; font: 12px/1.8 var(--mono); color: #666; }
+.showcase-stage { min-width: 0; }
+.showcase-navigation { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.showcase-navigation p { font: 12px/1.5 var(--mono); color: #555; }
+.showcase-navigation > div { display: flex; gap: 6px; flex-shrink: 0; }
+.showcase-navigation button { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #ccc; background: transparent; cursor: pointer; }
+.showcase-navigation button:disabled { opacity: .3; cursor: default; }
+.showcase-stage .project-card { animation: showcase-enter 250ms ease both; }
+.showcase-stage .project-info { display: flex; flex-wrap: wrap; gap: 16px 28px; }
+.showcase-stage .project-info > div:first-child, .showcase-stage .project-tags { flex-basis: 100%; }
+.showcase-stage .project-info h3 { font-size: clamp(24px, 3vw, 36px); }
+.showcase-stage .project-summary { font-size: 15px; }
+.showcase-role { font: 13px/1.6 var(--mono); margin-top: 16px; color: #555; }
+.showcase-contributions { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-left: 18px; margin-top: 12px; font: 13px/1.6 var(--mono); }
+.showcase-details { background: transparent; padding: 0; cursor: pointer; }
+.remaining-project-heading { border-top: 1px solid #ddd; margin: 64px 0 32px; padding-top: 32px; }
+.remaining-project-heading h3 { font: 500 24px/1.5 var(--display); }
+.remaining-project-heading p { color: #666; margin-top: 8px; font: 13px/1.6 var(--mono); }
+@keyframes showcase-enter { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (max-width: 767px) {
+  .project-showcase { grid-template-columns: 1fr; gap: 24px; }
+  .showcase-index { position: static; display: flex; overflow-x: auto; gap: 8px; padding-bottom: 10px; scroll-snap-type: x proximity; }
+  .showcase-index-label, .showcase-index-note { display: none; }
+  .showcase-select { width: auto; flex-shrink: 0; border: 1px solid #ddd; padding: 14px; font-size: 15px; scroll-snap-align: start; }
+  .showcase-select:last-of-type { border: 1px solid #ddd; }
+  .showcase-stage .project-summary { font-size: 14px; }
+  .showcase-contributions { display: block; }
+  .showcase-contributions li + li { margin-top: 5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .showcase-stage .project-card { animation: none; }
+  .showcase-select { transition: none; }
+}
+.showcase-stage .project-card { display: block; }
+.showcase-stage .project-art { aspect-ratio: 1.6; }
+.showcase-stage .project-info { padding-top: 24px; }

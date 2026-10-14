@@ -1,48 +1,60 @@
 import { expect, test } from '@playwright/test';
 
+const featuredIds = ['leap', 'black-hat-mea', 'cityscape-global', 'kingdom-of-gaming', 'umrah-ziyarah'];
+const remainingIds = ['money2020-middle-east', 'cityscape-west-ksa', 'deepfest', 'leap-east', 'bio-middle-east', 'idwsc', 'red-sea-yacht-show', 'tahaluf', 'american-elements'];
 for (const width of [390, 1440]) {
-  test(`project batches and details work at ${width}px`, async ({ page }) => {
+  test(`showcase selection and remaining collection work at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/');
-    const cards = page.locator('.project-card');
-    const load = page.getByRole('button', { name: 'Load more projects' });
-    const batch = width < 768 ? 2 : 5;
-    await expect(cards).toHaveCount(batch);
-    // Unrevealed images are not mounted or downloaded by the gallery.
-    await expect(page.locator('.project-desktop')).toHaveCount(batch);
-    const initialIds = await cards.evaluateAll(elements => elements.map(el => el.getAttribute('data-project-id')));
-    for (let shown = batch; shown < 14; shown += batch) {
-      await load.click();
-      await expect(cards).toHaveCount(Math.min(14, shown + batch));
-      await expect(cards.nth(shown).locator('.project-open')).toBeFocused();
-      await expect(page.locator('.project-pagination [role="status"]')).toHaveText(`Showing ${Math.min(14, shown + batch)} of 14 projects`);
+    // Selecting the first project must not jump past the hero on initial load.
+    expect(await page.evaluate(() => scrollY)).toBe(0);
+    await expect(page.locator('.project-card')).toHaveCount(1);
+    const selectors = page.getByRole('group', { name: 'Featured project selector' }).getByRole('button');
+    await expect(selectors).toHaveCount(5);
+    for (let i = 0; i < 5; i++) {
+      await selectors.nth(i).click();
+      await expect(selectors.nth(i)).toHaveAttribute('aria-pressed', 'true');
+      await expect(page.locator('.showcase-stage .project-card')).toHaveAttribute('data-project-id', featuredIds[i]);
+      await expect(page.locator('.showcase-stage .showcase-details')).toBeVisible();
     }
-    await expect(load).toHaveCount(0);
-    const ids = await cards.evaluateAll(elements => elements.map(el => el.getAttribute('data-project-id')));
-    expect(ids).toEqual(['leap', 'black-hat-mea', 'cityscape-global', 'kingdom-of-gaming', 'umrah-ziyarah', 'money2020-middle-east', 'cityscape-west-ksa', 'deepfest', 'leap-east', 'bio-middle-east', 'idwsc', 'red-sea-yacht-show', 'tahaluf', 'american-elements']);
-    expect(new Set(ids).size).toBe(14);
-    expect(ids.slice(0, batch)).toEqual(initialIds);
+    await expect(page.getByRole('button', { name: 'Next featured project' })).toBeDisabled();
+    await page.getByRole('button', { name: 'Previous featured project' }).click();
+    await expect(selectors.nth(3)).toHaveAttribute('aria-pressed', 'true');
+    const batch = width < 768 ? 2 : 5;
+    const cards = page.locator('.project-grid .project-card');
+    await page.getByRole('button', { name: 'View all projects' }).click();
+    await expect(cards).toHaveCount(batch);
+    await expect(cards.first().locator('.project-open')).toBeFocused();
+    for (let shown = batch; shown < 9; shown += batch) {
+      await page.getByRole('button', { name: 'Load more projects' }).click();
+      await expect(cards).toHaveCount(Math.min(9, shown + batch));
+      await expect(cards.nth(shown).locator('.project-open')).toBeFocused();
+    }
+    await expect(page.getByRole('button', { name: 'Load more projects' })).toHaveCount(0);
+    expect(await cards.evaluateAll(els => els.map(el => el.getAttribute('data-project-id')))).toEqual(remainingIds);
     await cards.last().locator('.project-open').click();
     await expect(page.getByRole('dialog')).toContainText('American Elements');
     await page.keyboard.press('Escape');
     await expect(cards.last().locator('.project-open')).toBeFocused();
-    await page.setViewportSize({ width: width === 390 ? 1440 : 390, height: 900 });
-    await expect(cards).toHaveCount(14);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    await page.locator('.project-pagination').screenshot({ path: `test-results/project-pagination-${width}.png` });
+    await page.setViewportSize({ width: width === 390 ? 1440 : 390, height: 900 });
+    await expect(cards).toHaveCount(9);
+    await expect(page.getByRole('link', { name: 'GitHub', exact: true })).toHaveAttribute('href', 'https://github.com/danyal-zeb/');
   });
 }
 
-test('new cards keep scroll animations and keyboard load-more works', async ({ page }) => {
+test('keyboard selector and new-card animations respect reduced motion', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/');
-  const load = page.getByRole('button', { name: 'Load more projects' });
-  await load.focus();
+  const selectors = page.getByRole('group', { name: 'Featured project selector' }).getByRole('button');
+  await selectors.nth(1).focus();
   await page.keyboard.press('Enter');
-  const newCard = page.locator('.project-card').nth(5);
-  await expect(newCard.locator('.project-open')).toBeFocused();
-  await expect.poll(() => newCard.locator('.project-art').evaluate(el => el.style.transform)).not.toBe('');
+  await expect(selectors.nth(1)).toHaveAttribute('aria-pressed', 'true');
+  await page.getByRole('button', { name: 'View all projects' }).click();
+  const card = page.locator('.project-grid .project-card').first();
+  await expect.poll(() => card.locator('.project-art').evaluate(el => el.style.transform)).not.toBe('');
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await expect.poll(() => newCard.locator('.project-art').evaluate(el => el.style.transform)).toBe('');
+  await expect.poll(() => card.locator('.project-art').evaluate(el => el.style.transform)).toBe('');
+  await expect(page.locator('.showcase-stage .project-card')).toHaveCSS('animation-name', 'none');
 });

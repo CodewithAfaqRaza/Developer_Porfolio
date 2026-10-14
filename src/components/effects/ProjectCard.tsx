@@ -154,15 +154,17 @@ export function ProjectCard({
   project,
   index,
   onOpen,
+  showcase = false,
 }: {
   project: PortfolioProject;
   index: number;
+  showcase?: boolean;
   onOpen: (project: PortfolioProject) => void;
 }) {
   const scope = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotion();
   useGSAP(() => {
-    if (reducedMotion || !scope.current) return;
+    if (reducedMotion || showcase || !scope.current) return;
     const card = scope.current;
     gsap.fromTo(card.querySelector(".project-art"), { scale: 1.1, yPercent: 3 }, {
       scale: 1.1, yPercent: -3, ease: "none",
@@ -172,7 +174,7 @@ export function ProjectCard({
       y: 0, ease: "none",
       scrollTrigger: { trigger: card, start: "top bottom", end: "center center", scrub: 0.9 },
     });
-  }, { scope, dependencies: [reducedMotion], revertOnUpdate: true });
+  }, { scope, dependencies: [reducedMotion, showcase], revertOnUpdate: true });
   return (
     <article ref={scope} className={`project-card project-${project.visual}`} data-project-id={project.id} data-reveal>
       <button
@@ -197,8 +199,10 @@ export function ProjectCard({
             <button onClick={() => onOpen(project)}>{project.title}</button>
           </h3>
           <p className="project-summary">{project.summary}</p>
+          {showcase && <><p className="showcase-role">{project.role}</p><ul className="showcase-contributions">{project.contributions.slice(0, 3).map(item => <li key={item}>{item}</li>)}</ul></>}
         </div>
         {project.href && <a className="text-link project-live-link" href={project.href} target="_blank" rel="noopener noreferrer">Visit {project.title} <ArrowUpRight size={16} /></a>}
+        {showcase && <button className="text-link showcase-details" onClick={() => onOpen(project)}>View details <ArrowUpRight size={16} /></button>}
         <div className="project-tags">
           {project.stack.map((tag) => (
             <span key={tag}>{tag}</span>

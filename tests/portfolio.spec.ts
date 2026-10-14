@@ -86,7 +86,8 @@ test("native scrolling drives the hero and gallery, with reduced-motion cleanup"
   await expect
     .poll(() => art.evaluate((element) => getComputedStyle(element).transform))
     .not.toBe(initial);
-  const project = page.locator(".project-card").first();
+  await page.getByRole("button", { name: "View all projects" }).click();
+  const project = page.locator(".project-grid .project-card").first();
   await project.scrollIntoViewIfNeeded();
   await expect
     .poll(() =>
@@ -343,10 +344,13 @@ test("all 14 real Drupal projects have live links and accurate integration scope
     ["Cityscape West KSA", "https://cityscapewestksa.com/", false],
     ["American Elements", "https://www.americanelements.com/", false],
   ] as const;
+  await page.getByRole("button", { name: "View all projects" }).click();
   while (await page.getByRole("button", { name: "Load more projects" }).isVisible()) await page.getByRole("button", { name: "Load more projects" }).click();
-  await expect(page.locator(".project-card")).toHaveCount(14);
-  await expect(page.locator(".project-card img.project-desktop")).toHaveCount(14);
+  await expect(page.locator(".project-card")).toHaveCount(10);
+  await expect(page.locator(".project-card img.project-desktop")).toHaveCount(10);
   for (const [title, href, integrated] of projects) {
+    const selector = page.getByRole("group", { name: "Featured project selector" }).getByRole("button", { name: new RegExp(title) });
+    if (await selector.count()) await selector.click();
     const live = page.getByRole("link", { name: `Visit ${title}`, exact: true });
     await expect(live).toHaveAttribute("href", href);
     await expect(live).toHaveAttribute("rel", "noopener noreferrer");
@@ -375,9 +379,10 @@ test("mobile corner previews remain usable and hover motion respects reduced mot
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
+  await page.getByRole("button", { name: "View all projects" }).click();
   while (await page.getByRole("button", { name: "Load more projects" }).isVisible()) await page.getByRole("button", { name: "Load more projects" }).click();
-  await expect(page.locator(".project-card .project-mobile-device")).toHaveCount(14);
-  await expect(page.locator(".project-card .project-mobile-caption").filter({ hasText: "Mobile concept" })).toHaveCount(14);
+  await expect(page.locator(".project-card .project-mobile-device")).toHaveCount(10);
+  await expect(page.locator(".project-card .project-mobile-caption").filter({ hasText: "Mobile concept" })).toHaveCount(10);
   const trigger = page.getByRole("button", { name: "Explore LEAP", exact: true });
   await trigger.scrollIntoViewIfNeeded();
   const device = trigger.locator(".project-mobile-device");

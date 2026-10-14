@@ -4,11 +4,12 @@ test('all desktop and mobile project sources retain color and reveal it on hover
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');
+  await page.getByRole('button', { name: 'View all projects' }).click();
   while (await page.getByRole('button', { name: 'Load more projects' }).isVisible()) await page.getByRole('button', { name: 'Load more projects' }).click();
   await page.locator('.project-open').last().evaluate(el => (el as HTMLElement).blur());
   const cards = page.locator('.project-open');
-  await expect(cards).toHaveCount(14);
-  for (const card of await cards.all()) {
+  await expect(cards).toHaveCount(10);
+  const inspect = async (card: ReturnType<typeof page.locator>) => {
     await card.scrollIntoViewIfNeeded();
     await page.mouse.move(0, 0);
     await expect(card.locator('.project-mobile-caption')).toHaveText('Mobile concept');
@@ -38,7 +39,13 @@ test('all desktop and mobile project sources retain color and reveal it on hover
     await expect(image).toHaveCSS('transition-duration', '0s');
     await page.mouse.move(0, 0);
     await expect(image).toHaveCSS('filter', 'grayscale(1)');
+  };
+  const selectors = page.getByRole('group', { name: 'Featured project selector' }).getByRole('button');
+  for (const selector of await selectors.all()) {
+    await selector.click();
+    await inspect(page.locator('.showcase-stage .project-open'));
   }
+  for (const card of await page.locator('.project-grid .project-open').all()) await inspect(card);
   await page.keyboard.press('Tab');
   await cards.first().focus();
   await expect(cards.first().locator('.project-desktop')).toHaveCSS('filter', 'grayscale(0)');

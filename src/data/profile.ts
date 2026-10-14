@@ -14,7 +14,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/danyal-zeb-4a1571249/",
   // TODO: Supply real public contact details. Empty values hide controls.
   email: "",
-  github: "https://github.com/Danikhan88",
+  github: "https://github.com/danyal-zeb/",
   whatsapp: "+92 316 9712793",
   cv: "/danyal-zeb-cv.pdf",
   contentApproved: false,

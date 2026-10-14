@@ -1,5 +1,11 @@
 # Reference-inspired light portfolio — validation
 
+## Project showcase and GitHub profile update — 14 October 2026
+
+Replaced the initial grid with a project index and one large featured desktop/phone preview for the owner's first five projects. Selection uses labelled native buttons with pressed state, status announcements and Previous/Next controls. Each preview includes role, three contributions and website/details actions. Mobile has a horizontally scrollable index and explicit navigation. “View all projects” reveals the remaining nine projects in batches of two on mobile or five on desktop, preserving expansion across resizing and focusing newly revealed cards. Showcase transitions respect reduced motion; the remaining grid retains scroll-driven card motion. GitHub profile data points to `https://github.com/danyal-zeb/`.
+
+Production build passed. Browser checks cover all five selectors, first-load scroll position, mobile/desktop collection expansion, exact remaining order, details/focus restoration, no viewport overflow, GitHub link, all 28 source images/color states and all 14 project integration scopes. Desktop/mobile showcase images were visually reviewed. Older initial-grid expectations were updated to target the remaining grid and the public GitHub link's actual accessible name.
+
 ## Integration scope and ecommerce correction — 14 October 2026
 
 Custom URN is now listed only for Kingdom of Gaming, following the owner's correction. Gallery and capability summaries explicitly scope URN to that project. American Elements now describes Drupal/ecommerce development, product catalog presentation and the public website's search, cart, sign-in and quote-request experience, without naming an unverified commerce module or payment implementation.
