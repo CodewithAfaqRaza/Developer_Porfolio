@@ -20,6 +20,7 @@ for (const width of [390, 1440]) {
     }
     await expect(load).toHaveCount(0);
     const ids = await cards.evaluateAll(elements => elements.map(el => el.getAttribute('data-project-id')));
+    expect(ids).toEqual(['leap', 'black-hat-mea', 'cityscape-global', 'kingdom-of-gaming', 'umrah-ziyarah', 'deepfest', 'leap-east', 'bio-middle-east', 'idwsc', 'red-sea-yacht-show', 'tahaluf', 'american-elements']);
     expect(new Set(ids).size).toBe(12);
     expect(ids.slice(0, batch)).toEqual(initialIds);
     await cards.last().locator('.project-open').click();

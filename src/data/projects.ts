@@ -55,24 +55,6 @@ export const projects: PortfolioProject[] = [
     monogram: "LEAP"
   },
   {
-    id: "leap-east",
-    mobileCover: "/images/projects/color/leap-east-mobile.jpg",
-    mobilePreviewKind: "capture",
-    cover: "/images/projects/color/leap-east.jpg",
-    title: "LEAP East",
-    eyebrow: "TECHNOLOGY / HONG KONG",
-    summary: "A Hong Kong technology event website connecting enterprises, investors, startups, and global innovators.",
-    role: "Drupal development & integrations",
-    stack: ["Drupal", "Swapcard", "Custom UTM", "Custom URN", "API integration"],
-    href: "https://leapeast.com/",
-    contributions: ["Drupal website development", "Swapcard integration", "Custom UTM tracking", "Custom URN handling", "API integration"],
-    approvedForPortfolio: true,
-    isDemo: false,
-    visual: "content",
-    challenge: "Contribute Drupal website development for LEAP’s Hong Kong event and its technology-focused content and visitor journeys.",
-    monogram: "LE"
-  },
-  {
     id: "black-hat-mea",
     mobileCover: "/images/projects/color/black-hat-mea-mobile-concept.jpg",
     mobilePreviewKind: "concept",
@@ -101,58 +83,6 @@ export const projects: PortfolioProject[] = [
     visual: "content",
     challenge: "Support a cybersecurity event website with Drupal development and connected registration and event experiences.",
     monogram: "BH"
-  },
-  {
-    id: "deepfest",
-    mobileCover: "/images/projects/color/deepfest-mobile-concept.jpg",
-    mobilePreviewKind: "concept",
-    cover: "/images/projects/color/deepfest.jpg",
-    title: "DeepFest",
-    eyebrow: "ARTIFICIAL INTELLIGENCE / EVENTS",
-    summary: "An AI event website bringing together technology leaders, researchers, and industry communities.",
-    role: "Drupal development & integrations",
-    stack: [
-      "Drupal",
-      "Swapcard",
-      "Custom UTM",
-      "Custom URN",
-      "API integration"
-    ],
-    href: "https://deepfest.com/",
-    contributions: [
-      "Drupal website development",
-      "Swapcard integration",
-      "Custom UTM tracking",
-      "Custom URN handling",
-      "API integration"
-    ],
-    approvedForPortfolio: true,
-    isDemo: false,
-    visual: "content",
-    challenge: "Connect AI event content with external platforms and campaign-aware visitor journeys.",
-    monogram: "DF"
-  },
-  {
-    id: "tahaluf",
-    mobileCover: "/images/projects/color/tahaluf-mobile-concept.jpg",
-    mobilePreviewKind: "concept",
-    cover: "/images/projects/color/tahaluf.jpg",
-    title: "Tahaluf",
-    eyebrow: "CORPORATE / EVENT ORGANISER",
-    summary: "A corporate website presenting an international event organiser and its event portfolio.",
-    role: "Drupal development contributor",
-    stack: [
-      "Drupal"
-    ],
-    href: "https://tahaluf.com/",
-    contributions: [
-      "Drupal website development"
-    ],
-    approvedForPortfolio: true,
-    isDemo: false,
-    visual: "content",
-    challenge: "Contribute Drupal development to the corporate website and its publishing experience.",
-    monogram: "T"
   },
   {
     id: "cityscape-global",
@@ -185,6 +115,37 @@ export const projects: PortfolioProject[] = [
     monogram: "CG"
   },
   {
+    id: "kingdom-of-gaming",
+    mobileCover: "/images/projects/color/kingdom-of-gaming-mobile.jpg",
+    mobilePreviewKind: "capture",
+    title: "Kingdom of Gaming",
+    eyebrow: "GAMING / EVENTS",
+    summary: "A gaming industry and culture event website with a vivid animated video hero.",
+    role: "Drupal development & integrations",
+    stack: [
+      "Drupal",
+      "Swapcard",
+      "Custom UTM",
+      "Custom URN",
+      "API integration"
+    ],
+    href: "https://kingdomofgaming.com/",
+    contributions: [
+      "Drupal website development",
+      "Swapcard integration",
+      "Custom UTM tracking",
+      "Custom URN handling",
+      "API integration"
+    ],
+    approvedForPortfolio: true,
+    isDemo: false,
+    visual: "content",
+    challenge: "Connect Drupal event content and external platforms for a gaming industry audience.",
+    monogram: "KOG",
+    cover: "/images/projects/color/kingdom-of-gaming.jpg",
+    siteExperience: "The public site uses a looping animated video hero with a gaming-inspired visual identity."
+  },
+  {
     id: "umrah-ziyarah",
     mobileCover: "/images/projects/color/umrah-ziyarah-mobile.jpg",
     mobilePreviewKind: "capture",
@@ -214,6 +175,54 @@ export const projects: PortfolioProject[] = [
     monogram: "UZ",
     cover: "/images/projects/color/umrah-ziyarah.jpg",
     siteExperience: "The public site uses an autoplaying video hero and carries UTM campaign parameters through navigation."
+  },
+  {
+    id: "deepfest",
+    mobileCover: "/images/projects/color/deepfest-mobile-concept.jpg",
+    mobilePreviewKind: "concept",
+    cover: "/images/projects/color/deepfest.jpg",
+    title: "DeepFest",
+    eyebrow: "ARTIFICIAL INTELLIGENCE / EVENTS",
+    summary: "An AI event website bringing together technology leaders, researchers, and industry communities.",
+    role: "Drupal development & integrations",
+    stack: [
+      "Drupal",
+      "Swapcard",
+      "Custom UTM",
+      "Custom URN",
+      "API integration"
+    ],
+    href: "https://deepfest.com/",
+    contributions: [
+      "Drupal website development",
+      "Swapcard integration",
+      "Custom UTM tracking",
+      "Custom URN handling",
+      "API integration"
+    ],
+    approvedForPortfolio: true,
+    isDemo: false,
+    visual: "content",
+    challenge: "Connect AI event content with external platforms and campaign-aware visitor journeys.",
+    monogram: "DF"
+  },
+  {
+    id: "leap-east",
+    mobileCover: "/images/projects/color/leap-east-mobile.jpg",
+    mobilePreviewKind: "capture",
+    cover: "/images/projects/color/leap-east.jpg",
+    title: "LEAP East",
+    eyebrow: "TECHNOLOGY / HONG KONG",
+    summary: "A Hong Kong technology event website connecting enterprises, investors, startups, and global innovators.",
+    role: "Drupal development & integrations",
+    stack: ["Drupal", "Swapcard", "Custom UTM", "Custom URN", "API integration"],
+    href: "https://leapeast.com/",
+    contributions: ["Drupal website development", "Swapcard integration", "Custom UTM tracking", "Custom URN handling", "API integration"],
+    approvedForPortfolio: true,
+    isDemo: false,
+    visual: "content",
+    challenge: "Contribute Drupal website development for LEAP’s Hong Kong event and its technology-focused content and visitor journeys.",
+    monogram: "LE"
   },
   {
     id: "bio-middle-east",
@@ -307,35 +316,26 @@ export const projects: PortfolioProject[] = [
     siteExperience: "The public site uses a multi-video experience with forward/reverse sequences, looping scenes, and animated floating elements."
   },
   {
-    id: "kingdom-of-gaming",
-    mobileCover: "/images/projects/color/kingdom-of-gaming-mobile.jpg",
-    mobilePreviewKind: "capture",
-    title: "Kingdom of Gaming",
-    eyebrow: "GAMING / EVENTS",
-    summary: "A gaming industry and culture event website with a vivid animated video hero.",
-    role: "Drupal development & integrations",
+    id: "tahaluf",
+    mobileCover: "/images/projects/color/tahaluf-mobile-concept.jpg",
+    mobilePreviewKind: "concept",
+    cover: "/images/projects/color/tahaluf.jpg",
+    title: "Tahaluf",
+    eyebrow: "CORPORATE / EVENT ORGANISER",
+    summary: "A corporate website presenting an international event organiser and its event portfolio.",
+    role: "Drupal development contributor",
     stack: [
-      "Drupal",
-      "Swapcard",
-      "Custom UTM",
-      "Custom URN",
-      "API integration"
+      "Drupal"
     ],
-    href: "https://kingdomofgaming.com/",
+    href: "https://tahaluf.com/",
     contributions: [
-      "Drupal website development",
-      "Swapcard integration",
-      "Custom UTM tracking",
-      "Custom URN handling",
-      "API integration"
+      "Drupal website development"
     ],
     approvedForPortfolio: true,
     isDemo: false,
     visual: "content",
-    challenge: "Connect Drupal event content and external platforms for a gaming industry audience.",
-    monogram: "KOG",
-    cover: "/images/projects/color/kingdom-of-gaming.jpg",
-    siteExperience: "The public site uses a looping animated video hero with a gaming-inspired visual identity."
+    challenge: "Contribute Drupal development to the corporate website and its publishing experience.",
+    monogram: "T"
   },
   {
     id: "american-elements",
@@ -358,5 +358,5 @@ export const projects: PortfolioProject[] = [
     visual: "content",
     challenge: "Contribute Drupal development to a content-rich advanced materials website.",
     monogram: "AE"
-  }
+  },
 ];
