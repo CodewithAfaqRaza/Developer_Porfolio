@@ -2,7 +2,7 @@
 
 ## Progressive project gallery — 14 October 2026
 
-Mobile starts with two projects and reveals two per click; desktop starts with six and reveals six, matching the two-column grid. The visible/total count is announced, focus moves to the first newly revealed card and the control disappears when all projects are shown. Already expanded cards are retained on resize. Hidden project images are not mounted until their batch is revealed. Card scroll animation setup/cleanup now lives with each card, so appended cards animate correctly.
+Mobile starts with two projects and reveals two per click; desktop starts with five and reveals five per click (5 → 10 → 12), following the owner’s updated preference. The visible/total count is announced, focus moves to the first newly revealed card and the control disappears when all projects are shown. Already expanded cards are retained on resize. Hidden project images are not mounted until their batch is revealed. Card scroll animation setup/cleanup now lives with each card, so appended cards animate correctly.
 
 Production build and all 15 portfolio/gallery browser checks passed. Coverage includes every mobile batch, desktop expansion, preserved order/no duplicates, keyboard activation, focus and dialog restoration, count announcements, resize retention, newly mounted scroll animations, reduced-motion cleanup, all desktop/mobile source colors and hover states, responsive layouts, existing hero/navigation and project attribution. The initial mobile and desktop controls were visually inspected.
 

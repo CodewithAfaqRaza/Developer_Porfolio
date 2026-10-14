@@ -14,7 +14,7 @@ export function FeaturedWork() {
   );
   const mobile = useMediaQuery("(max-width: 767px)");
   const reducedMotion = useReducedMotion();
-  const batchSize = mobile ? 2 : 6;
+  const batchSize = mobile ? 2 : 5;
   const [expandedCount, setExpandedCount] = useState(0);
   const shownCount = Math.min(visible.length, Math.max(batchSize, expandedCount));
   const grid = useRef<HTMLDivElement>(null);

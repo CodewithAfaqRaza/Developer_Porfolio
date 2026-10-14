@@ -7,7 +7,7 @@ for (const width of [390, 1440]) {
     await page.goto('/');
     const cards = page.locator('.project-card');
     const load = page.getByRole('button', { name: 'Load more projects' });
-    const batch = width < 768 ? 2 : 6;
+    const batch = width < 768 ? 2 : 5;
     await expect(cards).toHaveCount(batch);
     // Unrevealed images are not mounted or downloaded by the gallery.
     await expect(page.locator('.project-desktop')).toHaveCount(batch);
@@ -39,7 +39,7 @@ test('new cards keep scroll animations and keyboard load-more works', async ({ p
   const load = page.getByRole('button', { name: 'Load more projects' });
   await load.focus();
   await page.keyboard.press('Enter');
-  const newCard = page.locator('.project-card').nth(6);
+  const newCard = page.locator('.project-card').nth(5);
   await expect(newCard.locator('.project-open')).toBeFocused();
   await expect.poll(() => newCard.locator('.project-art').evaluate(el => el.style.transform)).not.toBe('');
   await page.emulateMedia({ reducedMotion: 'reduce' });
