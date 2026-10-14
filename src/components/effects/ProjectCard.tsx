@@ -1,6 +1,13 @@
+import { useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { useReducedMotion } from "../../hooks/useReducedMotion";
 import { EngineeringIllustration } from "../illustrations/EngineeringIllustration";
 import { ArrowUpRight } from "lucide-react";
 import type { PortfolioProject } from "../../data/projects";
+
+gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 export function ProjectArtwork({
   visual,
@@ -152,8 +159,22 @@ export function ProjectCard({
   index: number;
   onOpen: (project: PortfolioProject) => void;
 }) {
+  const scope = useRef<HTMLElement>(null);
+  const reducedMotion = useReducedMotion();
+  useGSAP(() => {
+    if (reducedMotion || !scope.current) return;
+    const card = scope.current;
+    gsap.fromTo(card.querySelector(".project-art"), { scale: 1.1, yPercent: 3 }, {
+      scale: 1.1, yPercent: -3, ease: "none",
+      scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: 0.9 },
+    });
+    gsap.fromTo(card.querySelector(".project-info"), { y: 20 }, {
+      y: 0, ease: "none",
+      scrollTrigger: { trigger: card, start: "top bottom", end: "center center", scrub: 0.9 },
+    });
+  }, { scope, dependencies: [reducedMotion], revertOnUpdate: true });
   return (
-    <article className={`project-card project-${project.visual}`} data-project-id={project.id} data-reveal>
+    <article ref={scope} className={`project-card project-${project.visual}`} data-project-id={project.id} data-reveal>
       <button
         className="project-open"
         aria-label={`Explore ${project.title}`}

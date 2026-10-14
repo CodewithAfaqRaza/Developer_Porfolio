@@ -341,6 +341,7 @@ test("all 12 real Drupal projects have live links and accurate integration scope
     ["Kingdom of Gaming", "https://kingdomofgaming.com/", true],
     ["American Elements", "https://www.americanelements.com/", false],
   ] as const;
+  while (await page.getByRole("button", { name: "Load more projects" }).isVisible()) await page.getByRole("button", { name: "Load more projects" }).click();
   await expect(page.locator(".project-card")).toHaveCount(12);
   await expect(page.locator(".project-card img.project-desktop")).toHaveCount(12);
   for (const [title, href, integrated] of projects) {
@@ -368,6 +369,7 @@ test("mobile corner previews remain usable and hover motion respects reduced mot
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
+  while (await page.getByRole("button", { name: "Load more projects" }).isVisible()) await page.getByRole("button", { name: "Load more projects" }).click();
   await expect(page.locator(".project-card .project-mobile-device")).toHaveCount(12);
   await expect(page.locator(".project-card .project-mobile-caption").filter({ hasText: "Mobile concept" })).toHaveCount(12);
   const trigger = page.getByRole("button", { name: "Explore LEAP", exact: true });

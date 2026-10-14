@@ -79,27 +79,6 @@ export function ScrollExperience({ children }: { children: ReactNode }) {
           },
         );
       });
-      gsap.utils.toArray<HTMLElement>(".project-card").forEach((card) => {
-        gsap.fromTo(
-          card.querySelector(".project-art"),
-          { scale: 1.1, yPercent: 3 },
-          {
-            scale: 1.1,
-            yPercent: -3,
-            ease: "none",
-            scrollTrigger: scrub(card),
-          },
-        );
-        gsap.fromTo(
-          card.querySelector(".project-info"),
-          { y: 20 },
-          {
-            y: 0,
-            ease: "none",
-            scrollTrigger: scrub(card, "top bottom", "center center"),
-          },
-        );
-      });
       gsap.fromTo(
         ".contact-headline",
         { y: 28 },

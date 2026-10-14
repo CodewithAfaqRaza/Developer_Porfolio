@@ -2170,3 +2170,15 @@ a.button, .contact-circle { transition: background-color 250ms ease; }
   }
   .brand .monogram, .footer-wordmark > span { transform: none !important; }
 }
+
+/* Progressive project gallery keeps each batch easy to browse. */
+.project-card { scroll-margin-top: 100px; }
+.project-pagination { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 40px; }
+.project-pagination p { color: #555; font: 13px/1.5 var(--mono); margin: 0; }
+.project-load-more { cursor: pointer; }
+.project-load-more svg { transition: transform 250ms ease; }
+.project-load-more:hover svg { transform: translateY(3px); }
+@media (prefers-reduced-motion: reduce) {
+  .project-load-more svg { transition: none; }
+  .project-load-more:hover svg { transform: none; }
+}

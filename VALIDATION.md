@@ -1,5 +1,11 @@
 # Reference-inspired light portfolio — validation
 
+## Progressive project gallery — 14 October 2026
+
+Mobile starts with two projects and reveals two per click; desktop starts with six and reveals six, matching the two-column grid. The visible/total count is announced, focus moves to the first newly revealed card and the control disappears when all projects are shown. Already expanded cards are retained on resize. Hidden project images are not mounted until their batch is revealed. Card scroll animation setup/cleanup now lives with each card, so appended cards animate correctly.
+
+Production build and all 15 portfolio/gallery browser checks passed. Coverage includes every mobile batch, desktop expansion, preserved order/no duplicates, keyboard activation, focus and dialog restoration, count announcements, resize retention, newly mounted scroll animations, reduced-motion cleanup, all desktop/mobile source colors and hover states, responsive layouts, existing hero/navigation and project attribution. The initial mobile and desktop controls were visually inspected.
+
 ## Mobile preview color and caption correction — 14 October 2026
 
 Seven mobile concept assets had grayscale baked into their pixels. Recolored versions now match their desktop palettes, with original layout and copy visually reviewed. All twelve phone captions read “Mobile concept” in the gallery and detail dialog as requested. Capture/concept source metadata and descriptive alternative text remain accurate.
