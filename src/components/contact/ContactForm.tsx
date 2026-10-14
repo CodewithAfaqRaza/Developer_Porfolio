@@ -514,26 +514,23 @@ export function ContactForm() {
             </label>
             {fieldError("consent")}
             <details className="contact-privacy">
-              <summary>How your information is used</summary>
+              <summary>Privacy &amp; your information</summary>
               <p>
-                Your name, email, country, budget, and
-                project details are stored privately to review and respond to
-                your inquiry. They are not used for marketing. Inquiries are
-                scheduled for deletion from the database after {CONTACT_RETENTION_DAYS} days.
+                I store your contact and project details privately to review
+                your inquiry and reply. They are not used for marketing.
+                Database submissions are scheduled for deletion after {CONTACT_RETENTION_DAYS} days.
               </p>
               {config?.hosting === 'vercel' && <p>
-                A copy of your submitted details is emailed to me through Resend
-                so I can review your requirements and reply to your email address.
-                Email copies remain in my inbox until deleted.
+                Resend emails me a copy of your submission so I can reply.
+                That copy stays in my inbox until I delete it.
               </p>}
               <p>
                 {config?.hosting === 'vercel'
                   ? 'The production form is hosted by Vercel and its database by Turso.'
-                  : 'The production form and database are hosted by Cloudflare.'}
-                Cloudflare Turnstile processes verification and connection
-                signals to prevent automated abuse. Contact me through the
-                LinkedIn link below to request access to or deletion of your
-                inquiry; include your submission reference. Deletion runs on a scheduled basis after expiry.
+                  : 'The production form and database are hosted by Cloudflare.'}{' '}
+                Cloudflare Turnstile checks connection signals to prevent bots.
+                To request a copy or deletion of your inquiry, contact me on
+                LinkedIn with your submission reference.
               </p>
             </details>
             <div
