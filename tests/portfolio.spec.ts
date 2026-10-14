@@ -380,6 +380,9 @@ test("mobile corner previews remain usable and hover motion respects reduced mot
   await device.locator("img").evaluate((img) => (img as HTMLImageElement).decode());
   await page.mouse.move(0, 0);
   const transform = () => device.evaluate((el) => getComputedStyle(el).transform);
+  // Loading batches moves focus and can briefly trigger pointer hover.
+  // Capture the resting baseline only after the phone transition settles.
+  await expect.poll(() => device.evaluate((el) => new DOMMatrix(getComputedStyle(el).transform).m42)).toBe(0);
   const initial = await transform();
   await trigger.hover();
   await expect.poll(transform).not.toBe(initial);
