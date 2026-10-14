@@ -324,7 +324,7 @@ test("30-second hero contains changing scenes and loops at its endpoint", async 
     .toBe(false);
 });
 
-test("all 12 real Drupal projects have live links and accurate integration scope", async ({ page }) => {
+test("all 14 real Drupal projects have live links and accurate integration scope", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/#work");
   const projects = [
@@ -339,11 +339,13 @@ test("all 12 real Drupal projects have live links and accurate integration scope
     ["Global Water Sustainability Conference", "https://idwsc.com/", true],
     ["Red Sea Yacht Show", "https://redseayachtshow.com/", true],
     ["Kingdom of Gaming", "https://kingdomofgaming.com/", true],
+    ["Money20/20 Middle East", "https://money2020middleeast.com/", true],
+    ["Cityscape West KSA", "https://cityscapewestksa.com/", false],
     ["American Elements", "https://www.americanelements.com/", false],
   ] as const;
   while (await page.getByRole("button", { name: "Load more projects" }).isVisible()) await page.getByRole("button", { name: "Load more projects" }).click();
-  await expect(page.locator(".project-card")).toHaveCount(12);
-  await expect(page.locator(".project-card img.project-desktop")).toHaveCount(12);
+  await expect(page.locator(".project-card")).toHaveCount(14);
+  await expect(page.locator(".project-card img.project-desktop")).toHaveCount(14);
   for (const [title, href, integrated] of projects) {
     const live = page.getByRole("link", { name: `Visit ${title}`, exact: true });
     await expect(live).toHaveAttribute("href", href);
@@ -370,8 +372,8 @@ test("mobile corner previews remain usable and hover motion respects reduced mot
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
   while (await page.getByRole("button", { name: "Load more projects" }).isVisible()) await page.getByRole("button", { name: "Load more projects" }).click();
-  await expect(page.locator(".project-card .project-mobile-device")).toHaveCount(12);
-  await expect(page.locator(".project-card .project-mobile-caption").filter({ hasText: "Mobile concept" })).toHaveCount(12);
+  await expect(page.locator(".project-card .project-mobile-device")).toHaveCount(14);
+  await expect(page.locator(".project-card .project-mobile-caption").filter({ hasText: "Mobile concept" })).toHaveCount(14);
   const trigger = page.getByRole("button", { name: "Explore LEAP", exact: true });
   await trigger.scrollIntoViewIfNeeded();
   const device = trigger.locator(".project-mobile-device");

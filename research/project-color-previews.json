@@ -1,6 +1,6 @@
 {
   "date": "2026-10-14",
-  "notes": "Grayscale is applied with CSS only. All 12 visible phone captions read Mobile concept at the owner\u2019s request; source metadata distinguishes five live captures and seven illustrative concepts.",
+  "notes": "Grayscale is applied with CSS only. All 14 visible phone captions read Mobile concept at the owner\u2019s request; source metadata distinguishes five live captures and nine illustrative concepts.",
   "previews": [
     {
       "id": "american-elements",
@@ -106,6 +106,30 @@
       "mobile": "/images/projects/color/red-sea-yacht-show-mobile.jpg",
       "method": "Original-color browser capture, consent widgets hidden for presentation",
       "source": "https://redseayachtshow.com/"
+    },
+    {
+      "id": "money2020-middle-east",
+      "desktop": "/images/projects/color/money2020-middle-east.jpg",
+      "mobile": "/images/projects/color/money2020-middle-east-mobile-concept.jpg",
+      "method": "Built-in ImageGen cleanup of owner-supplied desktop screenshot; separate matching illustrative mobile concept",
+      "source": "https://money2020middleeast.com/",
+      "suppliedScreenshot": "Screenshot 2026-10-14 at 11.47.11 am.png",
+      "generatedOriginals": {
+        "desktop": "exec-938ebf18-dba2-4c55-996c-f4955afb54f3.png",
+        "mobile": "exec-200234e4-64d7-4eb9-8f04-aee3ced482fe.png"
+      }
+    },
+    {
+      "id": "cityscape-west-ksa",
+      "desktop": "/images/projects/color/cityscape-west-ksa.jpg",
+      "mobile": "/images/projects/color/cityscape-west-ksa-mobile-concept.jpg",
+      "method": "Built-in ImageGen cleanup of owner-supplied desktop screenshot; separate matching illustrative mobile concept",
+      "source": "https://cityscapewestksa.com/",
+      "suppliedScreenshot": "Screenshot 2026-10-14 at 11.47.33 am.png",
+      "generatedOriginals": {
+        "desktop": "exec-f48e5030-c211-445f-afc8-0bddfc66a15e.png",
+        "mobile": "exec-acc161ae-7eae-47ef-8ba7-b734c632741e.png"
+      }
     }
   ]
 }

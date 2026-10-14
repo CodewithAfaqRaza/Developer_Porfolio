@@ -72,3 +72,7 @@ CSS applies grayscale at rest, reveals source colors on hover and keyboard focus
 ### Mobile color correction
 
 Built-in ImageGen recolored the seven grayscale mobile mockups using their corresponding original-color desktop image as reference. The prompt requested only palette restoration, preserving the portrait layout, logos, text, photographs and faces, and excluding browser chrome, phone frames and popups. Published JPEG assets are `public/images/projects/color/<id>-mobile-concept.jpg` for LEAP, Black Hat MEA, DeepFest, Tahaluf, Cityscape Global, IDWSC and American Elements. These remain illustrative mobile concepts rather than verified deployed mobile layouts.
+
+## Cityscape West KSA and Money20/20 Middle East — 14 October 2026
+
+Owner-supplied desktop screenshots were cleaned using built-in ImageGen, removing browser chrome and floating privacy/language overlays while retaining their original palettes, copy, logos and visual layout. Separate illustrative mobile concepts adapt each screenshot to a portrait layout and are captioned “Mobile concept.” The prompt required the same branding, headline, date/location, photography and primary calls to action, without browser chrome or a device frame. Assets are saved under `public/images/projects/color/` with each project's ID, and `<id>-mobile-concept.jpg` for the phone preview. Grayscale is applied only by CSS; hover/focus reveals colors.

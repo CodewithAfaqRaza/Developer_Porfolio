@@ -177,6 +177,58 @@ export const projects: PortfolioProject[] = [
     siteExperience: "The public site uses an autoplaying video hero and carries UTM campaign parameters through navigation."
   },
   {
+    "id": "money2020-middle-east",
+    "title": "Money20/20 Middle East",
+    "eyebrow": "FINTECH / EVENTS",
+    "summary": "A fintech event website connecting financial services, payments, technology, startups and investors.",
+    "role": "Drupal development & integrations",
+    "stack": [
+      "Drupal",
+      "Swapcard",
+      "Custom UTM",
+      "Custom URN",
+      "API integration"
+    ],
+    "href": "https://money2020middleeast.com/",
+    "contributions": [
+      "Drupal website development",
+      "Swapcard integration",
+      "Custom UTM tracking",
+      "Custom URN handling",
+      "API integration"
+    ],
+    "challenge": "Connect fintech event content with external platforms and campaign-aware visitor journeys.",
+    "monogram": "M20",
+    "mobileCover": "/images/projects/color/money2020-middle-east-mobile-concept.jpg",
+    "mobilePreviewKind": "concept",
+    "cover": "/images/projects/color/money2020-middle-east.jpg",
+    "approvedForPortfolio": true,
+    "isDemo": false,
+    "visual": "content"
+  },
+  {
+    "id": "cityscape-west-ksa",
+    "title": "Cityscape West KSA",
+    "eyebrow": "REAL ESTATE / EVENTS",
+    "summary": "A real estate event website presenting property development and investment opportunities in western Saudi Arabia.",
+    "role": "Drupal development",
+    "stack": [
+      "Drupal"
+    ],
+    "href": "https://cityscapewestksa.com/",
+    "contributions": [
+      "Drupal website development"
+    ],
+    "challenge": "Contribute Drupal development for a real estate event website and its content publishing experience.",
+    "monogram": "CW",
+    "mobileCover": "/images/projects/color/cityscape-west-ksa-mobile-concept.jpg",
+    "mobilePreviewKind": "concept",
+    "cover": "/images/projects/color/cityscape-west-ksa.jpg",
+    "approvedForPortfolio": true,
+    "isDemo": false,
+    "visual": "content"
+  },
+  {
     id: "deepfest",
     mobileCover: "/images/projects/color/deepfest-mobile-concept.jpg",
     mobilePreviewKind: "concept",

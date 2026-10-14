@@ -1,5 +1,11 @@
 # Reference-inspired light portfolio — validation
 
+## Two additional Drupal projects — 14 October 2026
+
+Added Money20/20 Middle East and Cityscape West KSA after the owner's first five priority projects. Money20/20 includes all four owner-confirmed integrations; Cityscape West lists Drupal development only. The gallery now contains 14 projects and 11 confirmed integrated event platforms. Both new projects have cleaned original-color desktop previews and matching illustrative phone concepts, with grayscale-at-rest and color-on-hover/focus behavior.
+
+Production build and eight browser checks passed, covering all 14 project links and integration scope, all 28 desktop/mobile source images and color transitions, mobile 2-project batches, desktop 5-project batches, exact order, no duplicates, final control removal, touch access, keyboard focus, card motion and reduced-motion cleanup. All four new image assets were visually reviewed against the supplied screenshots. Source URLs and image-generation provenance are documented in research and asset notes.
+
 ## Progressive project gallery — 14 October 2026
 
 Mobile starts with two projects and reveals two per click; desktop starts with five and reveals five per click (5 → 10 → 12), following the owner’s updated preference. The visible/total count is announced, focus moves to the first newly revealed card and the control disappears when all projects are shown. Already expanded cards are retained on resize. Hidden project images are not mounted until their batch is revealed. Card scroll animation setup/cleanup now lives with each card, so appended cards animate correctly.

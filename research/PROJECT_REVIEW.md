@@ -26,3 +26,10 @@ Screenshots show current public sites, not a preserved historical version of Dan
 LEAP East was added at Danyal's request, and he explicitly confirmed all four integrations: Swapcard, custom UTM, custom URN, and external APIs. This brings the portfolio to 12 projects and 10 integrated event platforms.
 
 Mobile previews were added for all 12 projects: five real mobile browser captures and seven user-authorized generated concepts. The concept label and image alternative text distinguish the two in the site. Asset provenance is documented in ASSET_NOTES.md.
+
+## Additional owner projects — 14 October 2026
+
+- [Money20/20 Middle East](https://money2020middleeast.com/): public homepage reviewed as a fintech event platform. Danyal confirmed Drupal work with Swapcard, custom UTM, custom URN and API integrations.
+- [Cityscape West KSA](https://cityscapewestksa.com/): public homepage content reviewed as a real estate event platform for western Saudi Arabia. Listed for Drupal development; the four integration claims are not attached to this entry.
+
+Both entries use cleaned owner-supplied desktop screenshots and illustrative mobile concepts. The owner's first five project priorities remain unchanged.

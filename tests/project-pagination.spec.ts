@@ -12,23 +12,23 @@ for (const width of [390, 1440]) {
     // Unrevealed images are not mounted or downloaded by the gallery.
     await expect(page.locator('.project-desktop')).toHaveCount(batch);
     const initialIds = await cards.evaluateAll(elements => elements.map(el => el.getAttribute('data-project-id')));
-    for (let shown = batch; shown < 12; shown += batch) {
+    for (let shown = batch; shown < 14; shown += batch) {
       await load.click();
-      await expect(cards).toHaveCount(Math.min(12, shown + batch));
+      await expect(cards).toHaveCount(Math.min(14, shown + batch));
       await expect(cards.nth(shown).locator('.project-open')).toBeFocused();
-      await expect(page.locator('.project-pagination [role="status"]')).toHaveText(`Showing ${Math.min(12, shown + batch)} of 12 projects`);
+      await expect(page.locator('.project-pagination [role="status"]')).toHaveText(`Showing ${Math.min(14, shown + batch)} of 14 projects`);
     }
     await expect(load).toHaveCount(0);
     const ids = await cards.evaluateAll(elements => elements.map(el => el.getAttribute('data-project-id')));
-    expect(ids).toEqual(['leap', 'black-hat-mea', 'cityscape-global', 'kingdom-of-gaming', 'umrah-ziyarah', 'deepfest', 'leap-east', 'bio-middle-east', 'idwsc', 'red-sea-yacht-show', 'tahaluf', 'american-elements']);
-    expect(new Set(ids).size).toBe(12);
+    expect(ids).toEqual(['leap', 'black-hat-mea', 'cityscape-global', 'kingdom-of-gaming', 'umrah-ziyarah', 'money2020-middle-east', 'cityscape-west-ksa', 'deepfest', 'leap-east', 'bio-middle-east', 'idwsc', 'red-sea-yacht-show', 'tahaluf', 'american-elements']);
+    expect(new Set(ids).size).toBe(14);
     expect(ids.slice(0, batch)).toEqual(initialIds);
     await cards.last().locator('.project-open').click();
     await expect(page.getByRole('dialog')).toContainText('American Elements');
     await page.keyboard.press('Escape');
     await expect(cards.last().locator('.project-open')).toBeFocused();
     await page.setViewportSize({ width: width === 390 ? 1440 : 390, height: 900 });
-    await expect(cards).toHaveCount(12);
+    await expect(cards).toHaveCount(14);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.locator('.project-pagination').screenshot({ path: `test-results/project-pagination-${width}.png` });
   });

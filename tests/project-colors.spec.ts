@@ -7,7 +7,7 @@ test('all desktop and mobile project sources retain color and reveal it on hover
   while (await page.getByRole('button', { name: 'Load more projects' }).isVisible()) await page.getByRole('button', { name: 'Load more projects' }).click();
   await page.locator('.project-open').last().evaluate(el => (el as HTMLElement).blur());
   const cards = page.locator('.project-open');
-  await expect(cards).toHaveCount(12);
+  await expect(cards).toHaveCount(14);
   for (const card of await cards.all()) {
     await card.scrollIntoViewIfNeeded();
     await page.mouse.move(0, 0);
