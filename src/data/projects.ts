@@ -26,7 +26,7 @@ export type PortfolioProject = {
 export const projects: PortfolioProject[] = [
   {
     id: "leap",
-    mobileCover: "/images/projects/leap-mobile-concept.jpg",
+    mobileCover: "/images/projects/color/leap-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/leap.jpg",
     title: "LEAP",
@@ -74,7 +74,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "black-hat-mea",
-    mobileCover: "/images/projects/black-hat-mea-mobile-concept.jpg",
+    mobileCover: "/images/projects/color/black-hat-mea-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/black-hat-mea.jpg",
     title: "Black Hat MEA",
@@ -104,7 +104,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "deepfest",
-    mobileCover: "/images/projects/deepfest-mobile-concept.jpg",
+    mobileCover: "/images/projects/color/deepfest-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/deepfest.jpg",
     title: "DeepFest",
@@ -134,7 +134,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "tahaluf",
-    mobileCover: "/images/projects/tahaluf-mobile-concept.jpg",
+    mobileCover: "/images/projects/color/tahaluf-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/tahaluf.jpg",
     title: "Tahaluf",
@@ -156,7 +156,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "cityscape-global",
-    mobileCover: "/images/projects/cityscape-global-mobile-concept.jpg",
+    mobileCover: "/images/projects/color/cityscape-global-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/cityscape-global.jpg",
     title: "Cityscape Global",
@@ -247,7 +247,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "idwsc",
-    mobileCover: "/images/projects/idwsc-mobile-concept.jpg",
+    mobileCover: "/images/projects/color/idwsc-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/idwsc.jpg",
     title: "Global Water Sustainability Conference",
@@ -339,7 +339,7 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "american-elements",
-    mobileCover: "/images/projects/american-elements-mobile-concept.jpg",
+    mobileCover: "/images/projects/color/american-elements-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/american-elements.jpg",
     title: "American Elements",

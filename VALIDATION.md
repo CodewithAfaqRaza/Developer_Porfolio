@@ -1,5 +1,11 @@
 # Reference-inspired light portfolio — validation
 
+## Mobile preview color and caption correction — 14 October 2026
+
+Seven mobile concept assets had grayscale baked into their pixels. Recolored versions now match their desktop palettes, with original layout and copy visually reviewed. All twelve phone captions read “Mobile concept” in the gallery and detail dialog as requested. Capture/concept source metadata and descriptive alternative text remain accurate.
+
+Production build and three browser checks passed. The source pixel check now covers all 24 desktop/mobile images, plus resting grayscale, hover color and keyboard focus. Touch project details reveal both images in color and use the same caption. Existing phone inset motion, reduced-motion behavior and 390px layout remain valid.
+
 ## Project screenshot color reveal — 14 October 2026
 
 Replaced baked-in grayscale desktop previews with original-color sources for all 12 projects. CSS preserves the monochrome resting state and reveals color on hover or keyboard focus; touch users see colors in project details. Existing motion is retained, with transitions disabled for reduced-motion preferences. Five real mobile screenshots were recaptured in color; seven concept labels remain unchanged.

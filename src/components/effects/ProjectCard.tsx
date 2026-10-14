@@ -127,7 +127,7 @@ export function ProjectPreview({ project }: { project: PortfolioProject }) {
           <span className="project-mobile-screen">
             <img src={project.mobileCover} loading="lazy" width="390" height="844" alt={`${project.title} ${project.mobilePreviewKind === "concept" ? "illustrative mobile layout concept" : "mobile website screenshot"}`} />
           </span>
-          <span className="project-mobile-caption">{project.mobilePreviewKind === "concept" ? "Mobile concept" : "Mobile"}</span>
+          <span className="project-mobile-caption">Mobile concept</span>
         </span>
       )}
     </div>

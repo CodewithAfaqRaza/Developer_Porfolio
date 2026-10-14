@@ -120,6 +120,6 @@ Run `node scripts/capture-project-previews.mjs` with Chrome installed. It captur
 
 ## Mobile previews and hover
 
-Each project has `mobileCover` and `mobilePreviewKind` in `src/data/projects.ts`. Five mobile assets are live-site captures; seven are user-authorized mobile layout concepts for sites that block screenshots. Concepts are visibly labeled. `node scripts/capture-project-mobile-previews.mjs` can refresh captures with the same URL override mechanism as desktop capture. To replace a concept with a real screenshot, update its path and set `mobilePreviewKind: "capture"`.
+Each project has `mobileCover` and `mobilePreviewKind` in `src/data/projects.ts`. Five mobile assets are live-site captures; seven are user-authorized mobile layout concepts for sites that block screenshots. All phone insets are captioned “Mobile concept” as requested by the owner, while source type and alternative text distinguish captures from illustrative concepts. Every mobile source retains color for the hover reveal. `node scripts/capture-project-mobile-previews.mjs` can refresh captures with the same URL override mechanism as desktop capture. To replace a concept with a real screenshot, update its path and set `mobilePreviewKind: "capture"`.
 
 Cards show a small phone in the lower-right corner. Fine-pointer hover and keyboard focus animate the desktop image, phone and arrow; reduced motion keeps them static. The same paired previews appear in project dialogs. Browser validation covers loading both assets, hover movement, reduced motion, dialog access and mobile overflow.

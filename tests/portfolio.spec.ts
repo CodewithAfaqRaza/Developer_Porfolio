@@ -369,7 +369,7 @@ test("mobile corner previews remain usable and hover motion respects reduced mot
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/");
   await expect(page.locator(".project-card .project-mobile-device")).toHaveCount(12);
-  await expect(page.locator(".project-card .project-mobile-caption").filter({ hasText: "Mobile concept" })).toHaveCount(7);
+  await expect(page.locator(".project-card .project-mobile-caption").filter({ hasText: "Mobile concept" })).toHaveCount(12);
   const trigger = page.getByRole("button", { name: "Explore LEAP", exact: true });
   await trigger.scrollIntoViewIfNeeded();
   const device = trigger.locator(".project-mobile-device");

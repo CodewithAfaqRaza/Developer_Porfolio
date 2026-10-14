@@ -1,55 +1,76 @@
 {
   "date": "2026-10-14",
-  "notes": "Grayscale is applied with CSS only. Seven existing mobile concepts remain explicitly labelled as concepts. Original brands and website artwork belong to their respective owners.",
+  "notes": "Grayscale is applied with CSS only. All 12 visible phone captions read Mobile concept at the owner\u2019s request; source metadata distinguishes five live captures and seven illustrative concepts.",
   "previews": [
     {
       "id": "american-elements",
       "desktop": "/images/projects/color/american-elements.jpg",
       "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
       "generatedOriginal": "exec-2e003383-0766-47f7-b2f1-d932183d0d5e.png",
-      "source": "Owner-supplied original-color screenshot"
+      "source": "Owner-supplied original-color screenshot",
+      "mobile": "/images/projects/color/american-elements-mobile-concept.jpg",
+      "mobileMethod": "Built-in ImageGen recoloring of existing mobile concept using desktop palette reference",
+      "mobileGeneratedOriginal": "exec-a6db6a6c-1226-496e-9819-0ae7b89dcf56.png"
     },
     {
       "id": "black-hat-mea",
       "desktop": "/images/projects/color/black-hat-mea.jpg",
       "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
       "generatedOriginal": "exec-117f946c-4506-4961-b837-c8f000137179.png",
-      "source": "Owner-supplied original-color screenshot"
+      "source": "Owner-supplied original-color screenshot",
+      "mobile": "/images/projects/color/black-hat-mea-mobile-concept.jpg",
+      "mobileMethod": "Built-in ImageGen recoloring of existing mobile concept using desktop palette reference",
+      "mobileGeneratedOriginal": "exec-b60bc22f-e8d4-42bc-bb0e-bb95cebc0a44.png"
     },
     {
       "id": "leap",
       "desktop": "/images/projects/color/leap.jpg",
       "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
       "generatedOriginal": "exec-76f64be7-40dd-4ac0-a9e9-0b1e77b19eee.png",
-      "source": "Owner-supplied original-color screenshot"
+      "source": "Owner-supplied original-color screenshot",
+      "mobile": "/images/projects/color/leap-mobile-concept.jpg",
+      "mobileMethod": "Built-in ImageGen recoloring of existing mobile concept using desktop palette reference",
+      "mobileGeneratedOriginal": "exec-da0e1924-4b19-4ac0-83dc-d251fa769047.png"
     },
     {
       "id": "tahaluf",
       "desktop": "/images/projects/color/tahaluf.jpg",
       "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
       "generatedOriginal": "exec-2a5661dc-15d6-4aeb-abea-5ac3f6e83a7e.png",
-      "source": "Owner-supplied original-color screenshot"
+      "source": "Owner-supplied original-color screenshot",
+      "mobile": "/images/projects/color/tahaluf-mobile-concept.jpg",
+      "mobileMethod": "Built-in ImageGen recoloring of existing mobile concept using desktop palette reference",
+      "mobileGeneratedOriginal": "exec-9c1e0a77-e13f-49e3-abcd-93179142395e.png"
     },
     {
       "id": "idwsc",
       "desktop": "/images/projects/color/idwsc.jpg",
       "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
       "generatedOriginal": "exec-38f534b9-b25d-4036-b9a7-4d47371181e1.png",
-      "source": "Owner-supplied original-color screenshot"
+      "source": "Owner-supplied original-color screenshot",
+      "mobile": "/images/projects/color/idwsc-mobile-concept.jpg",
+      "mobileMethod": "Built-in ImageGen recoloring of existing mobile concept using desktop palette reference",
+      "mobileGeneratedOriginal": "exec-5b8c17c9-3557-4508-bc18-28f5c3c9f7bc.png"
     },
     {
       "id": "cityscape-global",
       "desktop": "/images/projects/color/cityscape-global.jpg",
       "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
       "generatedOriginal": "exec-55917864-426f-43ad-932c-1ad59c01d808.png",
-      "source": "Owner-supplied original-color screenshot"
+      "source": "Owner-supplied original-color screenshot",
+      "mobile": "/images/projects/color/cityscape-global-mobile-concept.jpg",
+      "mobileMethod": "Built-in ImageGen recoloring of existing mobile concept using desktop palette reference",
+      "mobileGeneratedOriginal": "exec-8399b7f6-da9f-4168-8cf4-6dbcb0be81f8.png"
     },
     {
       "id": "deepfest",
       "desktop": "/images/projects/color/deepfest.jpg",
       "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
       "generatedOriginal": "exec-ad1d41b9-639d-4960-a864-a00562833a58.png",
-      "source": "Owner-supplied original-color screenshot"
+      "source": "Owner-supplied original-color screenshot",
+      "mobile": "/images/projects/color/deepfest-mobile-concept.jpg",
+      "mobileMethod": "Built-in ImageGen recoloring of existing mobile concept using desktop palette reference",
+      "mobileGeneratedOriginal": "exec-9a6bc584-6b22-47e3-bf75-c8ee0057e2df.png"
     },
     {
       "id": "umrah-ziyarah",
