@@ -44,7 +44,7 @@ export function FeaturedWork() {
           </>
         }
       >
-        <p>Drupal development across event platforms, corporate publishing, and advanced materials. {integrated} event projects include Swapcard, custom UTM and URN handling, and API integrations.</p>
+        <p>Drupal development across event platforms, corporate publishing, and ecommerce. {integrated} event projects include Swapcard, custom UTM tracking, and API integrations. Custom URN handling is part of the Kingdom of Gaming project.</p>
         <span className="small-note">
           {visible.length} websites / {integrated} integrated event platforms{" "}
           <ArrowUpRight size={14} />

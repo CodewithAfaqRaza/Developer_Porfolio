@@ -10,7 +10,7 @@ export const profile = {
   about:
     "I work on Drupal websites for technology, cybersecurity, real estate, gaming, and specialist industry events, alongside corporate and product-focused platforms.",
   aboutDetail:
-    "My work includes Swapcard integration, custom UTM tracking, custom URN handling, and API integrations—connecting event content with the systems behind each visitor journey.",
+    "My work includes Swapcard integration, custom UTM tracking and API integrations, with custom URN handling for Kingdom of Gaming—connecting event content with the systems behind each visitor journey.",
   linkedin: "https://www.linkedin.com/in/danyal-zeb-4a1571249/",
   // TODO: Supply real public contact details. Empty values hide controls.
   email: "",
@@ -48,7 +48,7 @@ export const capabilities = [
     name: "APIs & event integrations",
     label: "04 / FOUNDATIONS",
     description:
-      "Swapcard connections, custom UTM tracking, custom URN handling, and external APIs.",
+      "Swapcard connections, custom UTM tracking and external APIs, plus custom URN handling for Kingdom of Gaming.",
     skills: ["Swapcard", "Custom UTM", "Custom URN", "API integration"],
   },
   {

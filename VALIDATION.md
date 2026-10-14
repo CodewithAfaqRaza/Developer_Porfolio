@@ -1,5 +1,11 @@
 # Reference-inspired light portfolio — validation
 
+## Integration scope and ecommerce correction — 14 October 2026
+
+Custom URN is now listed only for Kingdom of Gaming, following the owner's correction. Gallery and capability summaries explicitly scope URN to that project. American Elements now describes Drupal/ecommerce development, product catalog presentation and the public website's search, cart, sign-in and quote-request experience, without naming an unverified commerce module or payment implementation.
+
+Production build and the browser check of all 14 project details passed. The check verifies URN is present only for Kingdom of Gaming, preserves the other confirmed integration scope, and checks American Elements ecommerce/catalog contributions. The latest research note supersedes earlier broad URN claims.
+
 ## Two additional Drupal projects — 14 October 2026
 
 Added Money20/20 Middle East and Cityscape West KSA after the owner's first five priority projects. Money20/20 includes all four owner-confirmed integrations; Cityscape West lists Drupal development only. The gallery now contains 14 projects and 11 confirmed integrated event platforms. Both new projects have cleaned original-color desktop previews and matching illustrative phone concepts, with grayscale-at-rest and color-on-hover/focus behavior.

@@ -1,3 +1,5 @@
+> Latest scope correction, 14 October 2026: Custom URN handling applies only to Kingdom of Gaming. Earlier broad integration confirmations below are superseded on that point. American Elements includes Drupal/ecommerce development and product catalog presentation; its public site shows product search, cart, sign-in and quote-request journeys.
+
 # Project website review
 
 Reviewed 13 October 2026. All 12 URLs were read through public web retrieval (BIO Middle East through search retrieval after its initial open failed). Chrome also inspected the rendered homepages and requested the public www variants where the first URL returned HTTP 403. Raw browser observations are in `project-sites.json`.

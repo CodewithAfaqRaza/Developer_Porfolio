@@ -37,7 +37,6 @@ export const projects: PortfolioProject[] = [
       "Drupal",
       "Swapcard",
       "Custom UTM",
-      "Custom URN",
       "API integration"
     ],
     href: "https://onegiantleap.com/",
@@ -45,7 +44,6 @@ export const projects: PortfolioProject[] = [
       "Drupal website development",
       "Swapcard integration",
       "Custom UTM tracking",
-      "Custom URN handling",
       "API integration"
     ],
     approvedForPortfolio: true,
@@ -67,7 +65,6 @@ export const projects: PortfolioProject[] = [
       "Drupal",
       "Swapcard",
       "Custom UTM",
-      "Custom URN",
       "API integration"
     ],
     href: "https://blackhatmea.com/",
@@ -75,7 +72,6 @@ export const projects: PortfolioProject[] = [
       "Drupal website development",
       "Swapcard integration",
       "Custom UTM tracking",
-      "Custom URN handling",
       "API integration"
     ],
     approvedForPortfolio: true,
@@ -97,7 +93,6 @@ export const projects: PortfolioProject[] = [
       "Drupal",
       "Swapcard",
       "Custom UTM",
-      "Custom URN",
       "API integration"
     ],
     href: "https://cityscapeglobal.com/",
@@ -105,7 +100,6 @@ export const projects: PortfolioProject[] = [
       "Drupal website development",
       "Swapcard integration",
       "Custom UTM tracking",
-      "Custom URN handling",
       "API integration"
     ],
     approvedForPortfolio: true,
@@ -157,7 +151,6 @@ export const projects: PortfolioProject[] = [
       "Drupal",
       "Swapcard",
       "Custom UTM",
-      "Custom URN",
       "API integration"
     ],
     href: "https://umrah-ziyarah.com/",
@@ -165,7 +158,6 @@ export const projects: PortfolioProject[] = [
       "Drupal website development",
       "Swapcard integration",
       "Custom UTM tracking",
-      "Custom URN handling",
       "API integration"
     ],
     approvedForPortfolio: true,
@@ -186,7 +178,6 @@ export const projects: PortfolioProject[] = [
       "Drupal",
       "Swapcard",
       "Custom UTM",
-      "Custom URN",
       "API integration"
     ],
     "href": "https://money2020middleeast.com/",
@@ -194,7 +185,6 @@ export const projects: PortfolioProject[] = [
       "Drupal website development",
       "Swapcard integration",
       "Custom UTM tracking",
-      "Custom URN handling",
       "API integration"
     ],
     "challenge": "Connect fintech event content with external platforms and campaign-aware visitor journeys.",
@@ -241,7 +231,6 @@ export const projects: PortfolioProject[] = [
       "Drupal",
       "Swapcard",
       "Custom UTM",
-      "Custom URN",
       "API integration"
     ],
     href: "https://deepfest.com/",
@@ -249,7 +238,6 @@ export const projects: PortfolioProject[] = [
       "Drupal website development",
       "Swapcard integration",
       "Custom UTM tracking",
-      "Custom URN handling",
       "API integration"
     ],
     approvedForPortfolio: true,
@@ -267,9 +255,9 @@ export const projects: PortfolioProject[] = [
     eyebrow: "TECHNOLOGY / HONG KONG",
     summary: "A Hong Kong technology event website connecting enterprises, investors, startups, and global innovators.",
     role: "Drupal development & integrations",
-    stack: ["Drupal", "Swapcard", "Custom UTM", "Custom URN", "API integration"],
+    stack: ["Drupal", "Swapcard", "Custom UTM", "API integration"],
     href: "https://leapeast.com/",
-    contributions: ["Drupal website development", "Swapcard integration", "Custom UTM tracking", "Custom URN handling", "API integration"],
+    contributions: ["Drupal website development", "Swapcard integration", "Custom UTM tracking", "API integration"],
     approvedForPortfolio: true,
     isDemo: false,
     visual: "content",
@@ -288,7 +276,6 @@ export const projects: PortfolioProject[] = [
       "Drupal",
       "Swapcard",
       "Custom UTM",
-      "Custom URN",
       "API integration"
     ],
     href: "https://biomiddleeast.com/",
@@ -296,7 +283,6 @@ export const projects: PortfolioProject[] = [
       "Drupal website development",
       "Swapcard integration",
       "Custom UTM tracking",
-      "Custom URN handling",
       "API integration"
     ],
     approvedForPortfolio: true,
@@ -319,7 +305,6 @@ export const projects: PortfolioProject[] = [
       "Drupal",
       "Swapcard",
       "Custom UTM",
-      "Custom URN",
       "API integration"
     ],
     href: "https://idwsc.com/",
@@ -327,7 +312,6 @@ export const projects: PortfolioProject[] = [
       "Drupal website development",
       "Swapcard integration",
       "Custom UTM tracking",
-      "Custom URN handling",
       "API integration"
     ],
     approvedForPortfolio: true,
@@ -348,7 +332,6 @@ export const projects: PortfolioProject[] = [
       "Drupal",
       "Swapcard",
       "Custom UTM",
-      "Custom URN",
       "API integration"
     ],
     href: "https://redseayachtshow.com/",
@@ -356,7 +339,6 @@ export const projects: PortfolioProject[] = [
       "Drupal website development",
       "Swapcard integration",
       "Custom UTM tracking",
-      "Custom URN handling",
       "API integration"
     ],
     approvedForPortfolio: true,
@@ -395,20 +377,21 @@ export const projects: PortfolioProject[] = [
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/american-elements.jpg",
     title: "American Elements",
-    eyebrow: "ADVANCED MATERIALS / MANUFACTURING",
-    summary: "An advanced materials manufacturer website with extensive product and technical information.",
-    role: "Drupal development contributor",
-    stack: [
-      "Drupal"
-    ],
+    eyebrow: "ECOMMERCE / ADVANCED MATERIALS",
+    summary: "An advanced materials ecommerce website combining a large product catalog, technical information and customer purchasing enquiries.",
+    role: "Drupal & ecommerce development contributor",
+    stack: ["Drupal", "Ecommerce", "Product catalog"],
     href: "https://www.americanelements.com/",
     contributions: [
-      "Drupal website development"
+      "Drupal website development",
+      "Ecommerce website development",
+      "Product catalog and technical content presentation"
     ],
     approvedForPortfolio: true,
     isDemo: false,
     visual: "content",
-    challenge: "Contribute Drupal development to a content-rich advanced materials website.",
+    challenge: "Support a Drupal ecommerce website that connects extensive materials and product information with purchasing and quote-request journeys.",
+    siteExperience: "The public website includes product search, a shopping cart, customer sign-in and quote-request journeys alongside technical materials content.",
     monogram: "AE"
   },
 ];

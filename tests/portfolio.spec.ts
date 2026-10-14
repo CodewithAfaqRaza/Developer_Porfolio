@@ -355,7 +355,11 @@ test("all 14 real Drupal projects have live links and accurate integration scope
     await expect(dialog.getByRole("heading", { name: title, exact: true })).toBeVisible();
     await expect(dialog.getByRole("link", { name: "Visit project" })).toHaveAttribute("href", href);
     for (const contribution of ["Swapcard integration", "Custom UTM tracking", "Custom URN handling", "API integration"]) {
-      await expect(dialog.getByRole("listitem").filter({ hasText: contribution })).toHaveCount(integrated ? 1 : 0);
+      await expect(dialog.getByRole("listitem").filter({ hasText: contribution })).toHaveCount((contribution === "Custom URN handling" ? title === "Kingdom of Gaming" : integrated) ? 1 : 0);
+    }
+    if (title === "American Elements") {
+      await expect(dialog).toContainText("Ecommerce website development");
+      await expect(dialog).toContainText("Product catalog and technical content presentation");
     }
     await expect(dialog).not.toContainText("ILLUSTRATIVE CONCEPT");
     await dialog.getByRole("button", { name: "Close project details" }).click();
