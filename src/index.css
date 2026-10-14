@@ -2019,7 +2019,7 @@ body {
 }
 .project-event .project-identity { display: flex; }
 
-/* Keep project previews monochrome in both the gallery and detail dialog. */
+/* Default monochrome presentation; gallery hover/focus reveals source colors. */
 img.project-art { filter: grayscale(1); }
 .project-identity { filter: grayscale(1); }
 
@@ -2040,7 +2040,7 @@ img.project-art { filter: grayscale(1); }
   object-fit: contain;
   object-position: center;
   filter: grayscale(1);
-  transition: transform 650ms cubic-bezier(.2,.75,.25,1);
+  transition: transform 650ms cubic-bezier(.2,.75,.25,1), filter 350ms ease;
 }
 .project-mobile-device {
   position: absolute;
@@ -2071,16 +2071,22 @@ img.project-art { filter: grayscale(1); }
   z-index: 1;
 }
 .project-mobile-screen { display: block; width: 100%; height: 100%; overflow: hidden; border-radius: 12px; background: #fff; }
-.project-mobile-screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; filter: grayscale(1); }
+.project-mobile-screen img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; filter: grayscale(1); transition: filter 350ms ease; }
 .project-mobile-caption { position: absolute; bottom: -22px; right: 0; white-space: nowrap; background: #ffffffed; padding: 2px 5px; color: #333; font: 11px/1.4 var(--mono); transform: rotate(-4deg); }
 .project-open { transition: box-shadow 400ms ease, border-color 400ms ease; }
 .project-preview ~ .project-arrow { right: auto; left: 14px; z-index: 3; }
 .project-arrow svg { transition: transform 350ms ease; }
 .project-open:focus-visible .project-desktop { transform: scale(1.025); }
+.project-open:focus-visible .project-desktop,
+.project-open:focus-visible .project-mobile-screen img { filter: grayscale(0); }
 .project-open:focus-visible .project-mobile-device { transform: translateY(-10px) rotate(0deg); }
 @media (hover: hover) and (pointer: fine) {
   .project-open:hover { border-color: #a0a0a0; box-shadow: 0 12px 32px #00000012; }
   .project-open:hover .project-desktop { transform: scale(1.025); }
+  .project-open:hover .project-desktop,
+  .project-open:hover .project-mobile-screen img,
+  .project-preview:hover .project-desktop,
+  .project-preview:hover .project-mobile-screen img { filter: grayscale(0); }
   .project-open:hover .project-mobile-device { transform: translateY(-10px) rotate(0deg); box-shadow: 0 18px 30px #0004; }
   .project-open:hover .project-arrow svg { transform: translate(2px, -2px); }
 }
@@ -2088,8 +2094,12 @@ img.project-art { filter: grayscale(1); }
   .project-mobile-device { right: 30px; bottom: 38px; width: 23%; border-radius: 13px; padding: 4px; }
   .project-mobile-screen { border-radius: 9px; }
 }
+@media (hover: none) {
+  .project-dialog .project-desktop,
+  .project-dialog .project-mobile-screen img { filter: grayscale(0); }
+}
 @media (prefers-reduced-motion: reduce) {
-  .project-desktop, .project-mobile-device, .project-open, .project-arrow svg { transition: none; }
+  .project-desktop, .project-mobile-screen img, .project-mobile-device, .project-open, .project-arrow svg { transition: none; }
   .project-open:hover .project-desktop, .project-open:focus-visible .project-desktop { transform: none; }
   .project-open:hover .project-mobile-device, .project-open:focus-visible .project-mobile-device { transform: rotate(4deg); }
   .project-open:hover .project-arrow svg { transform: none; }

@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-14",
+  "notes": "Grayscale is applied with CSS only. Seven existing mobile concepts remain explicitly labelled as concepts. Original brands and website artwork belong to their respective owners.",
+  "previews": [
+    {
+      "id": "american-elements",
+      "desktop": "/images/projects/color/american-elements.jpg",
+      "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
+      "generatedOriginal": "exec-2e003383-0766-47f7-b2f1-d932183d0d5e.png",
+      "source": "Owner-supplied original-color screenshot"
+    },
+    {
+      "id": "black-hat-mea",
+      "desktop": "/images/projects/color/black-hat-mea.jpg",
+      "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
+      "generatedOriginal": "exec-117f946c-4506-4961-b837-c8f000137179.png",
+      "source": "Owner-supplied original-color screenshot"
+    },
+    {
+      "id": "leap",
+      "desktop": "/images/projects/color/leap.jpg",
+      "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
+      "generatedOriginal": "exec-76f64be7-40dd-4ac0-a9e9-0b1e77b19eee.png",
+      "source": "Owner-supplied original-color screenshot"
+    },
+    {
+      "id": "tahaluf",
+      "desktop": "/images/projects/color/tahaluf.jpg",
+      "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
+      "generatedOriginal": "exec-2a5661dc-15d6-4aeb-abea-5ac3f6e83a7e.png",
+      "source": "Owner-supplied original-color screenshot"
+    },
+    {
+      "id": "idwsc",
+      "desktop": "/images/projects/color/idwsc.jpg",
+      "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
+      "generatedOriginal": "exec-38f534b9-b25d-4036-b9a7-4d47371181e1.png",
+      "source": "Owner-supplied original-color screenshot"
+    },
+    {
+      "id": "cityscape-global",
+      "desktop": "/images/projects/color/cityscape-global.jpg",
+      "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
+      "generatedOriginal": "exec-55917864-426f-43ad-932c-1ad59c01d808.png",
+      "source": "Owner-supplied original-color screenshot"
+    },
+    {
+      "id": "deepfest",
+      "desktop": "/images/projects/color/deepfest.jpg",
+      "method": "Color-preserving ImageGen cleanup of owner-supplied screenshot",
+      "generatedOriginal": "exec-ad1d41b9-639d-4960-a864-a00562833a58.png",
+      "source": "Owner-supplied original-color screenshot"
+    },
+    {
+      "id": "umrah-ziyarah",
+      "desktop": "/images/projects/color/umrah-ziyarah.jpg",
+      "mobile": "/images/projects/color/umrah-ziyarah-mobile.jpg",
+      "method": "Original-color browser capture, consent widgets hidden for presentation",
+      "source": "https://umrah-ziyarah.com/"
+    },
+    {
+      "id": "bio-middle-east",
+      "desktop": "/images/projects/color/bio-middle-east.jpg",
+      "mobile": "/images/projects/color/bio-middle-east-mobile.jpg",
+      "method": "Original-color browser capture, consent widgets hidden for presentation",
+      "source": "https://biomiddleeast.com/"
+    },
+    {
+      "id": "leap-east",
+      "desktop": "/images/projects/color/leap-east.jpg",
+      "mobile": "/images/projects/color/leap-east-mobile.jpg",
+      "method": "Original-color browser capture, consent widgets hidden for presentation",
+      "source": "https://leapeast.com/"
+    },
+    {
+      "id": "kingdom-of-gaming",
+      "desktop": "/images/projects/color/kingdom-of-gaming.jpg",
+      "mobile": "/images/projects/color/kingdom-of-gaming-mobile.jpg",
+      "method": "Original-color browser capture, consent widgets hidden for presentation",
+      "source": "https://kingdomofgaming.com/"
+    },
+    {
+      "id": "red-sea-yacht-show",
+      "desktop": "/images/projects/color/red-sea-yacht-show.jpg",
+      "mobile": "/images/projects/color/red-sea-yacht-show-mobile.jpg",
+      "method": "Original-color browser capture, consent widgets hidden for presentation",
+      "source": "https://redseayachtshow.com/"
+    }
+  ]
+}

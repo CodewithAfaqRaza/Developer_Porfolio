@@ -62,3 +62,9 @@ All 12 desktop previews include a phone inset in the gallery and project dialog.
 The seven sites that blocked capture use ImageGen mobile layout concepts adapted from the supplied desktop screenshots, as explicitly requested by Danyal. These are labeled **Mobile concept**, have descriptive alternative text, and are recorded in `research/project-mobile-concepts.json`. They are illustrative responsive compositions, not evidence of the deployed mobile layout. Original generated PNGs remain in the default generated-images library; small JPEG versions are bundled in the project.
 
 Hover motion uses CSS on the inner desktop image and phone device, independently of GSAP's outer scroll movement. Desktop imagery gently scales, the phone rises and straightens, and the arrow shifts. Fine-pointer hover and keyboard focus support the effect; reduced-motion preferences disable the movement. Touch users retain the complete static preview and project interaction.
+
+## Color reveal update — 14 October 2026
+
+Current desktop previews live in `public/images/projects/color/`. Seven use color-preserving presentation edits of the owner-supplied screenshots, with browser chrome and floating overlays removed using ImageGen. Five use new original-color browser captures: LEAP East, Umrah & Ziyarah Forum, BIO Middle East, Red Sea Yacht Show, and Kingdom of Gaming. These five also have matching original-color mobile captures. Earlier monochrome files remain as historical assets. Seven mobile concepts retain their existing artwork and explicit “Mobile concept” labels.
+
+CSS applies grayscale at rest, reveals source colors on hover and keyboard focus, and reveals color in project details on touch devices. Reduced-motion preferences remove the transition. The capture script saves review candidates privately before publication and does not bypass blocked sites. Source methods are recorded in `research/project-color-previews.json`.

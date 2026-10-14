@@ -1,5 +1,11 @@
 # Reference-inspired light portfolio — validation
 
+## Project screenshot color reveal — 14 October 2026
+
+Replaced baked-in grayscale desktop previews with original-color sources for all 12 projects. CSS preserves the monochrome resting state and reveals color on hover or keyboard focus; touch users see colors in project details. Existing motion is retained, with transitions disabled for reduced-motion preferences. Five real mobile screenshots were recaptured in color; seven concept labels remain unchanged.
+
+Production build passed. Three browser checks passed: all 12 desktop assets contain real RGB color and switch correctly between hover/rest/focus states; touch project details reveal color; existing navigation, keyboard modal behavior, reduced-motion fallback and layout at 360, 390, 768, 1024 and 1440px remain valid. Cleaned source images and accessible-site desktop/mobile captures were visually reviewed.
+
 ## Floating WhatsApp contact — 13 October 2026
 
 Added a fixed bottom-right WhatsApp link using the owner's confirmed `+92 316 9712793`, stored in profile data. It opens `wa.me/923169712793` with a prefilled introduction in a separate tab. No message is sent automatically. Local SVG glyph, visible keyboard focus/tooltip, desktop/mobile safe-area spacing, reduced-motion handling and footer clearance are included. It stays outside animated containers, respects native project-dialog layering and is absent from `/admin`.
