@@ -31,36 +31,57 @@ export const capabilities = [
     skills: ["Drupal", "PHP", "Twig", "Content architecture"],
   },
   {
+    name: "Full-stack development",
+    label: "02 / APPLICATIONS",
+    description:
+      "Connecting frontend interfaces, backend logic, databases and APIs into complete web applications.",
+    skills: ["React", "TypeScript", "PHP", "Node.js", "SQL", "REST APIs"],
+  },
+  {
     name: "Frontend & interaction",
-    label: "02 / INTERFACES",
+    label: "03 / INTERFACES",
     description:
       "Responsive interfaces with a considered balance of clarity and expression.",
     skills: ["React", "TypeScript", "JavaScript", "CSS"],
   },
   {
+    name: "Drupal AI",
+    label: "04 / INTELLIGENT CONTENT",
+    description:
+      "Connecting Drupal with AI providers for content assistance and automated editorial workflows.",
+    skills: ["Drupal AI", "AI providers", "Content assistance", "AI Automators"],
+  },
+  {
+    name: "AI integrations & automation",
+    label: "05 / AUTOMATION",
+    description:
+      "Bringing language-model APIs, conversational interfaces and useful automation into web experiences.",
+    skills: ["LLM APIs", "Prompt engineering", "Chatbot integrations", "Workflow automation"],
+  },
+  {
     name: "Creative interaction",
-    label: "03 / EXPERIENCES",
+    label: "06 / EXPERIENCES",
     description:
       "Scroll-led compositions, expressive typography, and interaction with purpose.",
     skills: ["React", "GSAP", "SVG", "Interaction design"],
   },
   {
     name: "APIs & event integrations",
-    label: "04 / FOUNDATIONS",
+    label: "07 / FOUNDATIONS",
     description:
       "Swapcard connections, custom UTM tracking and external APIs, plus custom URN handling for Kingdom of Gaming.",
     skills: ["Swapcard", "Custom UTM", "Custom URN", "API integration"],
   },
   {
     name: "Performance",
-    label: "05 / SPEED",
+    label: "08 / SPEED",
     description:
       "Lean assets, responsive interfaces, and attention to the moments that affect perceived speed.",
     skills: ["Core Web Vitals", "Optimization", "Responsive design"],
   },
   {
     name: "Accessibility",
-    label: "06 / INCLUSION",
+    label: "09 / INCLUSION",
     description:
       "Clear navigation and inclusive interactions that work across devices and input methods.",
     skills: ["Semantic HTML", "Keyboard access", "Reduced motion"],

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import {
   Accessibility,
+  Bot,
+  BrainCircuit,
+  Server,
   Cloud,
   Code2,
   Gauge,
@@ -11,7 +14,7 @@ import {
 } from "lucide-react";
 import { capabilities } from "../data/profile";
 
-const icons = [Layers, Code2, Workflow, Cloud, Gauge, Accessibility];
+const icons = [Layers, Server, Code2, BrainCircuit, Bot, Workflow, Cloud, Gauge, Accessibility];
 export function Skills() {
   const [expanded, setExpanded] = useState<number | null>(null);
   return (
@@ -27,8 +30,8 @@ export function Skills() {
           from foundation to frontend.
         </h2>
         <p className="capabilities-intro">
-          The technologies and ideas behind the work. Experience details will be
-          added as the portfolio is finalized.
+          Drupal, full-stack development and AI integrations, with attention to
+          performance, accessibility and the experience people use.
         </p>
         <div className="capability-list">
           {capabilities.map((item, index) => {
