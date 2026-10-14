@@ -37,8 +37,8 @@ export function Hero() {
               Let’s build something <ArrowUpRight size={17} />
             </a>
             {profile.cv && (
-              <a className="text-link" href={profile.cv} target="_blank" rel="noopener noreferrer" aria-label="View résumé (PDF, opens in a new tab)">
-                View résumé <ArrowUpRight size={17} />
+              <a className="text-link" href={profile.cv} target="_blank" rel="noopener noreferrer" aria-label="View Résumé (PDF, opens in a new tab)">
+                View Résumé <ArrowUpRight size={17} />
               </a>
             )}
           </div>

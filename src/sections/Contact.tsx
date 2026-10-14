@@ -81,7 +81,7 @@ export function Contact() {
             )}
             {profile.cv && (
               <a href={profile.cv} target="_blank" rel="noopener noreferrer">
-                View CV <ArrowUpRight size={17} />
+                View Résumé <ArrowUpRight size={17} />
               </a>
             )}
           </div>

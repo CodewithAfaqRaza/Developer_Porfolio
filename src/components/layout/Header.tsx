@@ -46,7 +46,7 @@ export function Header() {
           ))}
         </nav>
         <a className="header-contact" href={profile.cv || "#contact"} target={profile.cv ? "_blank" : undefined} rel={profile.cv ? "noopener noreferrer" : undefined}>
-          {profile.cv ? "View CV" : "Let’s talk"}
+          {profile.cv ? "View Résumé" : "Let’s talk"}
           <ArrowUpRight size={15} />
         </a>
         <button
