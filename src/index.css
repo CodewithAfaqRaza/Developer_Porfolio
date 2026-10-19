@@ -2230,3 +2230,6 @@ a.button, .contact-circle { transition: background-color 250ms ease; }
 .showcase-stage .project-card { display: block; }
 .showcase-stage .project-art { aspect-ratio: 1.6; }
 .showcase-stage .project-info { padding-top: 24px; }
+
+.project-languages { margin: 24px 0; }
+.project-languages .text-link { display: flex; width: fit-content; margin: 14px 0; }

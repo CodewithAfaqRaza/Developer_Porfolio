@@ -365,6 +365,17 @@ test("all 14 real Drupal projects have live links and accurate integration scope
       await expect(dialog).toContainText("Ecommerce website development");
       await expect(dialog).toContainText("Product catalog and technical content presentation");
     }
+    const arabicProjects = ["LEAP", "Black Hat MEA", "Cityscape Global", "Umrah & Ziyarah Forum", "Cityscape West KSA", "BIO Middle East", "Global Water Sustainability Conference", "Red Sea Yacht Show", "Tahaluf"];
+    const multilingual = arabicProjects.includes(title) || title === "LEAP East";
+    await expect(dialog.getByRole("heading", { name: "Languages", exact: true })).toHaveCount(multilingual ? 1 : 0);
+    await expect(dialog.locator(".project-tags").getByText("Multilingual", { exact: true })).toHaveCount(multilingual ? 1 : 0);
+    if (multilingual) {
+      const translated = dialog.getByRole("link", { name: title === "LEAP East" ? "Chinese content" : "Arabic content", exact: true });
+      await expect(translated).toHaveAttribute("hrefLang", title === "LEAP East" ? "zh" : "ar");
+      await expect(translated).toHaveAttribute("target", "_blank");
+      await expect(translated).toHaveAttribute("rel", "noopener noreferrer");
+    }
+    if (title === "Cityscape West KSA") await expect(dialog).toContainText("Arabic enquiry form");
     await expect(dialog).not.toContainText("ILLUSTRATIVE CONCEPT");
     await dialog.getByRole("button", { name: "Close project details" }).click();
   }

@@ -27,8 +27,8 @@ export const capabilities = [
     name: "Drupal & architecture",
     label: "01 / SYSTEMS",
     description:
-      "Content models, custom modules, migrations, and maintainable foundations.",
-    skills: ["Drupal", "PHP", "Twig", "Content architecture"],
+      "Content models, custom modules, migrations and multilingual publishing, built on maintainable foundations.",
+    skills: ["Drupal", "PHP", "Twig", "Content architecture", "Multilingual content"],
   },
   {
     name: "Full-stack development",

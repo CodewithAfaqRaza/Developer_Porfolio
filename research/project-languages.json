@@ -1,0 +1,94 @@
+{
+  "reviewed": "2026-10-19",
+  "scope": "Public language availability, not proof of personal translation/module implementation or complete translation coverage.",
+  "verified": [
+    {
+      "id": "leap",
+      "language": "Arabic",
+      "locale": "ar",
+      "url": "https://onegiantleap.com/ar/node/4974",
+      "note": "Arabic event content is available; the linked page reflects an earlier event edition."
+    },
+    {
+      "id": "black-hat-mea",
+      "language": "Arabic",
+      "locale": "ar",
+      "url": "https://blackhatmea.com/ar/ar",
+      "note": "An Arabic landing page is available; this does not imply every page is translated."
+    },
+    {
+      "id": "cityscape-global",
+      "language": "Arabic",
+      "locale": "ar",
+      "url": "https://cityscapeglobal.com/ar",
+      "note": "English and Arabic website content."
+    },
+    {
+      "id": "umrah-ziyarah",
+      "language": "Arabic",
+      "locale": "ar",
+      "url": "https://umrah-ziyarah.com/ar",
+      "note": "English and Arabic website content, including right-to-left Arabic pages."
+    },
+    {
+      "id": "cityscape-west-ksa",
+      "language": "Arabic",
+      "locale": "ar",
+      "url": "https://cityscapewestksa.com/ar/form/book-a-stand-enquiry-form",
+      "note": "An Arabic enquiry form is available; the Arabic homepage route still contains substantial English text."
+    },
+    {
+      "id": "leap-east",
+      "language": "Chinese",
+      "locale": "zh",
+      "url": "https://www.leapeast.com.cn/",
+      "note": "The English website links to a separate Chinese edition."
+    },
+    {
+      "id": "bio-middle-east",
+      "language": "Arabic",
+      "locale": "ar",
+      "url": "https://biomiddleeast.com/ar",
+      "note": "English and Arabic website content, including right-to-left Arabic pages."
+    },
+    {
+      "id": "idwsc",
+      "language": "Arabic",
+      "locale": "ar",
+      "url": "https://idwsc.com/ar",
+      "note": "English and Arabic website content."
+    },
+    {
+      "id": "red-sea-yacht-show",
+      "language": "Arabic",
+      "locale": "ar",
+      "url": "https://redseayachtshow.com/ar",
+      "note": "English and Arabic website content, including right-to-left Arabic pages."
+    },
+    {
+      "id": "tahaluf",
+      "language": "Arabic",
+      "locale": "ar",
+      "url": "https://tahaluf.com/ar",
+      "note": "English and Arabic corporate website content."
+    }
+  ],
+  "unconfirmed": [
+    {
+      "id": "deepfest",
+      "reason": "Direct requests blocked; retrieved /ar content remained English and was old."
+    },
+    {
+      "id": "kingdom-of-gaming",
+      "reason": "/ar is marked lang=ar dir=rtl but sampled content remained English with no Arabic text."
+    },
+    {
+      "id": "money2020-middle-east",
+      "reason": "/ar is marked lang=ar dir=rtl but sampled content remained English; individual mixed-language biographies do not establish an Arabic website edition."
+    },
+    {
+      "id": "american-elements",
+      "reason": "Public menu links to Google Translate. Native Arabic content was not verified; direct requests blocked."
+    }
+  ]
+}

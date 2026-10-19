@@ -1,5 +1,11 @@
 # Reference-inspired light portfolio — validation
 
+## Public project language review — 19 October 2026
+
+Added verified language metadata, multilingual tags and language links to project details for nine projects with Arabic content and LEAP East with a linked Chinese edition. LEAP's evidence is an earlier-edition Arabic page, Black Hat an Arabic landing page, and Cityscape West an Arabic enquiry form; visible scope notes avoid claiming complete translation. Routes returning English text despite `/ar` or Arabic HTML metadata are not sufficient evidence. DeepFest, Kingdom of Gaming, Money20/20 and American Elements remain unlabelled for verified native language editions. The Drupal Stack entry now includes multilingual publishing. No personal responsibility for translation or a particular multilingual module is inferred from public pages.
+
+TypeScript and Vite production build passed. Existing responsive/navigation check passed at five viewport widths. The all-project browser check verifies language headings/tags, Arabic versus Chinese link labels and hreflang, safe external links, partial-translation notes and absence on unconfirmed projects, while preserving integration scope. After fixing a missing Tahaluf badge, the all-project check passed. Mobile language links were visually inspected and fit the dialog. The owner approved production publication on 19 October 2026.
+
 ## Project showcase and GitHub profile update — 14 October 2026
 
 Replaced the initial grid with a project index and one large featured desktop/phone preview for the owner's first five projects. Selection uses labelled native buttons with pressed state, status announcements and Previous/Next controls. Each preview includes role, three contributions and website/details actions. Mobile has a horizontally scrollable index and explicit navigation. “View all projects” reveals the remaining nine projects in batches of two on mobile or five on desktop, preserving expansion across resizing and focusing newly revealed cards. Showcase transitions respect reduced motion; the remaining grid retains scroll-driven card motion. GitHub profile data points to `https://github.com/danyal-zeb/`.

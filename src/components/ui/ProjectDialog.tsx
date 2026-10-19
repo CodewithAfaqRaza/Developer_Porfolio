@@ -72,6 +72,12 @@ export function ProjectDialog({
                   <span key={tag}>{tag}</span>
                 ))}
               </div>
+              {project.languageVersions && <div className="project-languages">
+                <h3>Languages</h3>
+                <p>{project.languageNote}</p>
+                {project.href && <a className="text-link" href={project.href} target="_blank" rel="noopener noreferrer" hrefLang="en">English website <ArrowUpRight size={16} /></a>}
+                {project.languageVersions.map(version => <a key={version.locale} className="text-link" href={version.href} hrefLang={version.locale} target="_blank" rel="noopener noreferrer">{version.language} content <ArrowUpRight size={16} /></a>)}
+              </div>}
               {project.href && (
                 <a
                   href={project.href}

@@ -10,6 +10,8 @@ export type PortfolioProject = {
   mobileCover?: string;
   mobilePreviewKind?: "capture" | "concept";
   href?: string;
+  languageVersions?: { language: string; locale: string; href: string }[];
+  languageNote?: string;
   contributions: string[];
   outcome?: string;
   approvedForPortfolio: boolean;
@@ -26,6 +28,8 @@ export type PortfolioProject = {
 export const projects: PortfolioProject[] = [
   {
     id: "leap",
+    languageVersions: [{ language: "Arabic", locale: "ar", href: "https://onegiantleap.com/ar/node/4974" }],
+    languageNote: "Arabic event content is available; the linked page reflects an earlier event edition.",
     mobileCover: "/images/projects/color/leap-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/leap.jpg",
@@ -35,6 +39,7 @@ export const projects: PortfolioProject[] = [
     role: "Drupal development & integrations",
     stack: [
       "Drupal",
+      "Multilingual",
       "Swapcard",
       "Custom UTM",
       "API integration"
@@ -54,6 +59,8 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "black-hat-mea",
+    languageVersions: [{ language: "Arabic", locale: "ar", href: "https://blackhatmea.com/ar/ar" }],
+    languageNote: "An Arabic landing page is available; this does not imply every page is translated.",
     mobileCover: "/images/projects/color/black-hat-mea-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/black-hat-mea.jpg",
@@ -63,6 +70,7 @@ export const projects: PortfolioProject[] = [
     role: "Drupal development & integrations",
     stack: [
       "Drupal",
+      "Multilingual",
       "Swapcard",
       "Custom UTM",
       "API integration"
@@ -82,6 +90,8 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "cityscape-global",
+    languageVersions: [{ language: "Arabic", locale: "ar", href: "https://cityscapeglobal.com/ar" }],
+    languageNote: "English and Arabic website content.",
     mobileCover: "/images/projects/color/cityscape-global-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/cityscape-global.jpg",
@@ -91,6 +101,7 @@ export const projects: PortfolioProject[] = [
     role: "Drupal development & integrations",
     stack: [
       "Drupal",
+      "Multilingual",
       "Swapcard",
       "Custom UTM",
       "API integration"
@@ -141,6 +152,8 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "umrah-ziyarah",
+    languageVersions: [{ language: "Arabic", locale: "ar", href: "https://umrah-ziyarah.com/ar" }],
+    languageNote: "English and Arabic website content, including right-to-left Arabic pages.",
     mobileCover: "/images/projects/color/umrah-ziyarah-mobile.jpg",
     mobilePreviewKind: "capture",
     title: "Umrah & Ziyarah Forum",
@@ -149,6 +162,7 @@ export const projects: PortfolioProject[] = [
     role: "Drupal development & integrations",
     stack: [
       "Drupal",
+      "Multilingual",
       "Swapcard",
       "Custom UTM",
       "API integration"
@@ -198,13 +212,13 @@ export const projects: PortfolioProject[] = [
   },
   {
     "id": "cityscape-west-ksa",
+    languageVersions: [{ language: "Arabic", locale: "ar", href: "https://cityscapewestksa.com/ar/form/book-a-stand-enquiry-form" }],
+    languageNote: "An Arabic enquiry form is available; the Arabic homepage route still contains substantial English text.",
     "title": "Cityscape West KSA",
     "eyebrow": "REAL ESTATE / EVENTS",
     "summary": "A real estate event website presenting property development and investment opportunities in western Saudi Arabia.",
     "role": "Drupal development",
-    "stack": [
-      "Drupal"
-    ],
+    "stack": ["Drupal", "Multilingual"],
     "href": "https://cityscapewestksa.com/",
     "contributions": [
       "Drupal website development"
@@ -248,6 +262,8 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "leap-east",
+    languageVersions: [{ language: "Chinese", locale: "zh", href: "https://www.leapeast.com.cn/" }],
+    languageNote: "The English website links to a separate Chinese edition.",
     mobileCover: "/images/projects/color/leap-east-mobile.jpg",
     mobilePreviewKind: "capture",
     cover: "/images/projects/color/leap-east.jpg",
@@ -255,7 +271,7 @@ export const projects: PortfolioProject[] = [
     eyebrow: "TECHNOLOGY / HONG KONG",
     summary: "A Hong Kong technology event website connecting enterprises, investors, startups, and global innovators.",
     role: "Drupal development & integrations",
-    stack: ["Drupal", "Swapcard", "Custom UTM", "API integration"],
+    stack: ["Drupal", "Multilingual", "Swapcard", "Custom UTM", "API integration"],
     href: "https://leapeast.com/",
     contributions: ["Drupal website development", "Swapcard integration", "Custom UTM tracking", "API integration"],
     approvedForPortfolio: true,
@@ -266,6 +282,8 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "bio-middle-east",
+    languageVersions: [{ language: "Arabic", locale: "ar", href: "https://biomiddleeast.com/ar" }],
+    languageNote: "English and Arabic website content, including right-to-left Arabic pages.",
     mobileCover: "/images/projects/color/bio-middle-east-mobile.jpg",
     mobilePreviewKind: "capture",
     title: "BIO Middle East",
@@ -274,6 +292,7 @@ export const projects: PortfolioProject[] = [
     role: "Drupal development & integrations",
     stack: [
       "Drupal",
+      "Multilingual",
       "Swapcard",
       "Custom UTM",
       "API integration"
@@ -294,6 +313,8 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "idwsc",
+    languageVersions: [{ language: "Arabic", locale: "ar", href: "https://idwsc.com/ar" }],
+    languageNote: "English and Arabic website content.",
     mobileCover: "/images/projects/color/idwsc-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/idwsc.jpg",
@@ -303,6 +324,7 @@ export const projects: PortfolioProject[] = [
     role: "Drupal development & integrations",
     stack: [
       "Drupal",
+      "Multilingual",
       "Swapcard",
       "Custom UTM",
       "API integration"
@@ -322,6 +344,8 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "red-sea-yacht-show",
+    languageVersions: [{ language: "Arabic", locale: "ar", href: "https://redseayachtshow.com/ar" }],
+    languageNote: "English and Arabic website content, including right-to-left Arabic pages.",
     mobileCover: "/images/projects/color/red-sea-yacht-show-mobile.jpg",
     mobilePreviewKind: "capture",
     title: "Red Sea Yacht Show",
@@ -330,6 +354,7 @@ export const projects: PortfolioProject[] = [
     role: "Drupal development & integrations",
     stack: [
       "Drupal",
+      "Multilingual",
       "Swapcard",
       "Custom UTM",
       "API integration"
@@ -351,6 +376,8 @@ export const projects: PortfolioProject[] = [
   },
   {
     id: "tahaluf",
+    languageVersions: [{ language: "Arabic", locale: "ar", href: "https://tahaluf.com/ar" }],
+    languageNote: "English and Arabic corporate website content.",
     mobileCover: "/images/projects/color/tahaluf-mobile-concept.jpg",
     mobilePreviewKind: "concept",
     cover: "/images/projects/color/tahaluf.jpg",
@@ -358,9 +385,7 @@ export const projects: PortfolioProject[] = [
     eyebrow: "CORPORATE / EVENT ORGANISER",
     summary: "A corporate website presenting an international event organiser and its event portfolio.",
     role: "Drupal development contributor",
-    stack: [
-      "Drupal"
-    ],
+    stack: ["Drupal", "Multilingual"],
     href: "https://tahaluf.com/",
     contributions: [
       "Drupal website development"

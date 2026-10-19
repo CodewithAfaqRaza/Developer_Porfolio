@@ -35,3 +35,9 @@ Mobile previews were added for all 12 projects: five real mobile browser capture
 - [Cityscape West KSA](https://cityscapewestksa.com/): public homepage content reviewed as a real estate event platform for western Saudi Arabia. Listed for Drupal development; the four integration claims are not attached to this entry.
 
 Both entries use cleaned owner-supplied desktop screenshots and illustrative mobile concepts. The owner's first five project priorities remain unchanged.
+
+## Language availability — 19 October 2026
+
+Public English and Arabic content was verified for LEAP (earlier-edition Arabic event page), Black Hat MEA (Arabic landing page), Cityscape Global, Umrah & Ziyarah Forum, Cityscape West KSA (Arabic enquiry form, not a fully translated homepage), BIO Middle East, IDWS, Red Sea Yacht Show and Tahaluf. LEAP East links from its English site to a separate Chinese edition at https://www.leapeast.com.cn/. Exact reviewed URLs and scope notes are in `project-languages.json`.
+
+The mere existence of `/ar`, `lang="ar"` or `dir="rtl"` is not treated as evidence of actual translated content: Kingdom of Gaming and Money20/20 returned English text on the sampled Arabic routes. DeepFest's retrieved `/ar` content was English and stale while direct requests were blocked. American Elements exposes Google Translate language options; a native Arabic edition was not verified. These four entries therefore do not receive verified language badges or Arabic links. This is a public feature review, not proof of the contributor's personal responsibility for translation or a specific backend multilingual module.
