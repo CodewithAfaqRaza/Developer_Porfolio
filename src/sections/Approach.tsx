@@ -20,7 +20,27 @@ export function Approach() {
           See the projects <ArrowUpRight size={16} />
         </a>
       </div>
-      <div className="approach-visual">
+      <div
+        className="approach-visual"
+        onPointerMove={(event) => {
+          if (event.pointerType === "touch") return;
+          const panel = event.currentTarget;
+          const rect = panel.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          panel.style.setProperty("--approach-x", `${(y * -4).toFixed(2)}deg`);
+          panel.style.setProperty("--approach-y", `${(x * 4).toFixed(2)}deg`);
+          panel.style.setProperty("--approach-glow-x", `${((x + 0.5) * 100).toFixed(1)}%`);
+          panel.style.setProperty("--approach-glow-y", `${((y + 0.5) * 100).toFixed(1)}%`);
+        }}
+        onPointerLeave={(event) => {
+          const panel = event.currentTarget;
+          panel.style.setProperty("--approach-x", "0deg");
+          panel.style.setProperty("--approach-y", "0deg");
+          panel.style.setProperty("--approach-glow-x", "50%");
+          panel.style.setProperty("--approach-glow-y", "50%");
+        }}
+      >
         <EngineeringIllustration variant="connections" />
       </div>
     </section>

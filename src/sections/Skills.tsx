@@ -37,7 +37,28 @@ export function Skills() {
           {capabilities.map((item, index) => {
             const Icon = icons[index % icons.length];
             return (
-              <article className="capability" key={item.name}>
+              <article
+                className="capability capability-tilt"
+                key={item.name}
+                onPointerMove={(event) => {
+                  if (event.pointerType === "touch") return;
+                  const card = event.currentTarget;
+                  const rect = card.getBoundingClientRect();
+                  const x = (event.clientX - rect.left) / rect.width - 0.5;
+                  const y = (event.clientY - rect.top) / rect.height - 0.5;
+                  card.style.setProperty("--tilt-x", `${(y * -7).toFixed(2)}deg`);
+                  card.style.setProperty("--tilt-y", `${(x * 7).toFixed(2)}deg`);
+                  card.style.setProperty("--glow-x", `${((x + 0.5) * 100).toFixed(1)}%`);
+                  card.style.setProperty("--glow-y", `${((y + 0.5) * 100).toFixed(1)}%`);
+                }}
+                onPointerLeave={(event) => {
+                  const card = event.currentTarget;
+                  card.style.setProperty("--tilt-x", "0deg");
+                  card.style.setProperty("--tilt-y", "0deg");
+                  card.style.setProperty("--glow-x", "50%");
+                  card.style.setProperty("--glow-y", "50%");
+                }}
+              >
                 <Icon
                   className="capability-icon"
                   size={36}

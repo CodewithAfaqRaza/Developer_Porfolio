@@ -15,6 +15,7 @@ export default defineConfig({
         __PROFILE_TITLE__: `${profile.name} — ${profile.brandTagline}`,
         __PROFILE_DESCRIPTION__: profile.intro,
         __PROFILE_LINKEDIN__: profile.linkedin,
+        __PROFILE_GITHUB__: profile.github,
       };
       for (const [token, value] of Object.entries(values)) html = html.replaceAll(token, htmlEscape(value));
       return html;
@@ -24,5 +25,16 @@ export default defineConfig({
     host: "127.0.0.1",
     fs: { deny: ["**/.env", "**/.env.*", "**/*.{crt,pem}", "**/.git/**", "**/.local/**", "**/.dev.vars*", "**/*.sqlite*", "**/contact-export*.json", "**/.aws/**", "**/.codex/**", "**/.agents/**"] },
   },
-  build: { target: "es2022" },
+  build: {
+    target: "es2022",
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"],
+          motion: ["gsap", "@gsap/react", "lenis"],
+          icons: ["lucide-react"],
+        },
+      },
+    },
+  },
 });

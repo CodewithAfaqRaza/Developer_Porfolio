@@ -128,11 +128,11 @@ export function ProjectArtwork({
 export function ProjectPreview({ project }: { project: PortfolioProject }) {
   if (project.cover) return (
     <div className="project-art project-preview">
-      <img className="project-desktop" src={project.cover} loading="lazy" width="1440" height="960" alt={`${project.title} desktop website preview`} />
+      <img className="project-desktop" src={project.cover} loading="lazy" decoding="async" width="1440" height="960" alt={`${project.title} desktop website preview`} />
       {project.mobileCover && (
         <span className="project-mobile-device">
           <span className="project-mobile-screen">
-            <img src={project.mobileCover} loading="lazy" width="390" height="844" alt={`${project.title} ${project.mobilePreviewKind === "concept" ? "illustrative mobile layout concept" : "mobile website screenshot"}`} />
+            <img src={project.mobileCover} loading="lazy" decoding="async" width="390" height="844" alt={`${project.title} ${project.mobilePreviewKind === "concept" ? "illustrative mobile layout concept" : "mobile website screenshot"}`} />
           </span>
           <span className="project-mobile-caption">Mobile concept</span>
         </span>
@@ -181,6 +181,24 @@ export function ProjectCard({
         className="project-open"
         aria-label={`Explore ${project.title}`}
         onClick={() => onOpen(project)}
+        onPointerMove={(event) => {
+          if (event.pointerType === "touch") return;
+          const card = event.currentTarget;
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          card.style.setProperty("--project-tilt-x", `${(y * -3.5).toFixed(2)}deg`);
+          card.style.setProperty("--project-tilt-y", `${(x * 3.5).toFixed(2)}deg`);
+          card.style.setProperty("--project-glow-x", `${((x + 0.5) * 100).toFixed(1)}%`);
+          card.style.setProperty("--project-glow-y", `${((y + 0.5) * 100).toFixed(1)}%`);
+        }}
+        onPointerLeave={(event) => {
+          const card = event.currentTarget;
+          card.style.setProperty("--project-tilt-x", "0deg");
+          card.style.setProperty("--project-tilt-y", "0deg");
+          card.style.setProperty("--project-glow-x", "50%");
+          card.style.setProperty("--project-glow-y", "50%");
+        }}
       >
         <ProjectPreview project={project} />
         <span className="project-badge">

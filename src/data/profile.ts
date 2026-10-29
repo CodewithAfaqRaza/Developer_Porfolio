@@ -6,7 +6,7 @@ export const profile = {
   proposedRole: "Senior Full-Stack Drupal Developer & Creative Web Engineer",
   headline: "Thoughtful engineering. Lasting experiences.",
   intro:
-    "From distinctive Drupal websites to powerful web applications and complex platforms, I bring together thoughtful design, full-stack engineering and practical AI.",
+    "Afaq Raza is a Drupal developer and software engineer building distinctive websites, web applications and complex digital platforms with thoughtful design, full-stack engineering and practical AI.",
   about:
     "I turn complex requirements into clear digital experiences—from brand and content websites to ecommerce platforms and complex web applications.",
   aboutDetail:
@@ -15,7 +15,7 @@ export const profile = {
   // TODO: Supply real public contact details. Empty values hide controls.
   email: "",
   github: "https://github.com/CodewithAfaqRaza",
-  whatsapp: "+92 316 9712793",
+  whatsapp: "+92 309 0903628",
   cv: "/Afaq_Raza_Drupal_Developer.pdf",
   contentApproved: false,
 } as const;

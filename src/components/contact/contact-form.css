@@ -271,6 +271,57 @@
     padding: 22px;
   }
 }
+
+/* Dark glass contact surface. */
+.contact-form {
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(255,255,255,.1), rgba(255,255,255,.035));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.14), 0 24px 60px rgba(0,0,0,.16);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
+}
+.contact-form-grid { gap: 26px 28px; }
+.contact-field > label, .contact-verification > h4 { color: var(--text); }
+.contact-field > label span { color: var(--muted); }
+.contact-field :is(input, select, textarea) {
+  border: 1px solid rgba(255,255,255,.18) !important;
+  border-radius: 10px;
+  background: rgba(255,255,255,.075) !important;
+  color: var(--text) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+.contact-field :is(input, select, textarea):focus {
+  border-color: var(--accent) !important;
+  background: rgba(255,255,255,.11) !important;
+  box-shadow: 0 0 0 3px rgba(212,169,79,.16);
+  outline: none;
+}
+.contact-field :is(input, textarea)::placeholder { color: #b8c2d4; }
+.contact-field-help, .contact-privacy, .contact-form-submit-row p { color: var(--muted); }
+.contact-consent { color: var(--text); }
+.contact-consent input, .contact-local-verification input { accent-color: var(--accent); }
+.contact-privacy summary { color: var(--text); }
+.contact-verification { border-color: rgba(255,255,255,.16); }
+.contact-development-notice {
+  border-color: rgba(212,169,79,.55);
+  border-radius: 10px;
+  background: rgba(212,169,79,.08);
+  color: #d5dceb;
+}
+.contact-submit, .contact-success button {
+  border-radius: 10px;
+  background: var(--accent);
+  color: #0b1f3a;
+  font-weight: 600;
+  box-shadow: 0 12px 24px rgba(0,0,0,.2);
+}
+.contact-submit:not(:disabled):hover, .contact-success button:hover { background: #e6bd63; }
+.contact-submit:disabled { background: #52627b; color: #c8d2e2; }
+.contact-success { border-color: var(--glass-border); border-radius: 16px; background: rgba(255,255,255,.07); color: var(--text); }
+@media (max-width: 640px) { .contact-form { padding: 20px; border-radius: 16px; } }
 @media (prefers-reduced-motion: reduce) {
   .contact-form :is(input, select, textarea),
   .contact-submit,

@@ -9,6 +9,7 @@ import { Experience } from "./sections/Experience";
 import { Contact } from "./sections/Contact";
 import { ScrollExperience } from "./components/effects/ScrollExperience";
 import { Approach } from "./sections/Approach";
+import { ExpertiseFAQ } from "./sections/ExpertiseFAQ";
 import { lazy, Suspense } from "react";
 const AdminDashboard = lazy(() => import("./admin/AdminDashboard"));
 
@@ -30,6 +31,7 @@ export default function App() {
           <FeaturedWork />
           <Experience />
           <Contact />
+          <ExpertiseFAQ />
         </main>
         <Footer />
       </ScrollExperience>

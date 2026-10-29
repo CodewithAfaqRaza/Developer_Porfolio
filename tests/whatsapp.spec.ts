@@ -9,7 +9,7 @@ test('WhatsApp contact stays in the corner, works by keyboard, opens the right c
     await expect(button).toBeVisible();
     const href = new URL((await button.getAttribute('href'))!);
     expect(href.origin).toBe('https://wa.me');
-    expect(href.pathname).toBe('/923169712793');
+    expect(href.pathname).toBe('/923090903628');
   expect(href.searchParams.get('text')).toBe('Hi Afaq Raza, I’d like to discuss a project or collaboration.');
     await expect(button).toHaveAttribute('target', '_blank');
     await expect(button).toHaveAttribute('rel', 'noopener noreferrer');
@@ -40,7 +40,7 @@ test('WhatsApp contact stays in the corner, works by keyboard, opens the right c
   await page.keyboard.press('Enter');
   const popup = await popupPromise;
   await popup.waitForLoadState('domcontentloaded');
-  expect(new URL(popup.url()).pathname).toBe('/923169712793');
+  expect(new URL(popup.url()).pathname).toBe('/923090903628');
   await popup.close();
   await page.getByRole('button', { name: 'Explore LEAP', exact: true }).click();
   await expect(page.getByRole('dialog')).toBeVisible();
