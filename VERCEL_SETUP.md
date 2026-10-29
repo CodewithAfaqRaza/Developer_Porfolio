@@ -1,6 +1,6 @@
 # GitHub and Vercel deployment
 
-The private repository is https://github.com/Danikhan88/danyal-zeb-portfolio. The public portfolio is https://danyal-zeb-portfolio.vercel.app and the owner dashboard is https://danyal-zeb-portfolio.vercel.app/admin. GitHub is connected to Vercel for deployments from `main`.
+The repository is https://github.com/CodewithAfaqRaza/Developer_Porfolio. Configure the final public Vercel/custom-domain URL and its `/admin` dashboard URL after deployment. GitHub `main` is the production branch.
 
 Production uses Vercel Hobby, the $0/month Turso Starter integration (`portfolio-contact`), and a Managed Turnstile widget restricted to the live hostname. Both schema migrations and production environment settings are configured. The generated production password is saved privately in `.local/production-admin-password.txt`; local credentials remain separate. Do not rerun secret generation to obtain the existing password. Secrets and local submissions are excluded from Git and uploads.
 
@@ -16,7 +16,7 @@ Commit source, `api/`, `server/`, `shared/`, schema migrations, tests, public as
 
 ## Production setup
 
-1. Authenticate GitHub as **Danikhan88**, create the private repository and push it. Never paste access tokens into chat.
+1. Authenticate GitHub as **CodewithAfaqRaza**, use the configured repository and push it. Never paste access tokens into chat.
 2. Sign into Vercel and import the repository under your personal account. Framework **Vite**, build `npm run build`, output `dist`, Node **22.x**. Preserve `vercel.json` routing. Obtain the actual canonical `https://…vercel.app` origin. An initial deployment can display the portfolio before secrets are configured, but form/admin access fail closed until setup is complete.
 3. Create a database on Turso's **Free** plan and obtain its `libsql://….turso.io` URL and database token. Create a Managed Turnstile widget restricted to your actual hostname. The same widget supports the `contact` and `admin-login` actions.
 4. Generate application secrets in your trusted project terminal:

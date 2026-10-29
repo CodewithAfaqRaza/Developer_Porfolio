@@ -55,7 +55,7 @@ test("layout, navigation, modal keyboard behavior, and reduced-motion fallback",
     page.getByRole("link", { name: "Connect with Afaq Raza on LinkedIn" }),
   ).toHaveAttribute(
     "href",
-    "https://www.linkedin.com/in/danyal-zeb-4a1571249/",
+    "https://www.linkedin.com/in/devdeveloper/",
   );
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();

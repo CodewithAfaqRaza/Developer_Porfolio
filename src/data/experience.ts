@@ -5,5 +5,5 @@ export type Experience = {
   description: string;
   verified: boolean;
 };
-// TODO: Add verified roles, employers, dates, and responsibilities supplied by Danyal.
+// Add verified roles, employers, dates, and responsibilities before publishing.
 export const experience: Experience[] = [];

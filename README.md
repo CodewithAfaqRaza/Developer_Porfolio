@@ -30,7 +30,7 @@ npm run dev
 
 - `src/data/profile.ts`: name, copy, approved role, capability descriptions, real email, GitHub, LinkedIn, CV URL. Email/GitHub controls stay hidden while empty. The supplied résumé is in `public/Afaq_Raza_Drupal_Developer.pdf`; hero, header and contact links open it in a new tab, where the PDF viewer supports downloading. Replace that file to update the résumé.
 - Profile names/initials, header branding, consent copy, admin title, and HTML title/share metadata derive from `src/data/profile.ts`. Country codes, budget options/currency and retention policy live in `shared/contact.ts`, used by the form, API, dashboard and cleanup jobs. Countries support name/code search, arrow keys, Enter, Escape and touch selection. Project counts and the copyright year already update automatically.
-- `src/data/projects.ts`: 14 real Drupal projects supplied by Danyal, with live URLs and development-contributor attribution. Eleven event projects include Swapcard, custom UTM tracking and API integration contributions, as confirmed by Danyal. Custom URN applies only to Kingdom of Gaming; Cityscape West KSA, Tahaluf and American Elements do not include those claims. Screenshots are in `public/images/projects/`; Every project has a screenshot preview, grayscale by default with original colors revealed on hover or keyboard focus. Touch users see color when opening project details. Research and public-motion observations are in `research/PROJECT_REVIEW.md`.
+- `src/data/projects.ts`: 14 Drupal projects supplied by Afaq Raza, with live URLs and development-contributor attribution. Integration claims should remain limited to the scope Afaq has verified. Screenshots are in `public/images/projects/`; every project has a screenshot preview, grayscale by default with original colors revealed on hover or keyboard focus. Touch users see color when opening project details. Research and public-motion observations are in `research/PROJECT_REVIEW.md`.
 - `src/data/experience.ts`: add verified employers, role dates, and responsibilities with `verified: true`. The timeline is hidden while empty.
 - `src/styles/design-tokens.css`: colors and fonts. System font stacks keep rendering independent of external font services.
 - `src/index.css`: responsive layout and visual direction.
@@ -70,7 +70,7 @@ npm run inquiries:prune
 npm run test:api
 ```
 
-The live portfolio is https://danyal-zeb-portfolio.vercel.app and the private dashboard is at `/admin`. Production uses Vercel, Turso and real Turnstile verification. The production owner password is stored only in the ignored `.local/production-admin-password.txt`. GitHub `main` is connected to Vercel for deployments.
+The live portfolio will use the final Vercel/custom-domain URL and the private dashboard is at `/admin`. Production uses Vercel, Turso and real Turnstile verification. The production owner password is stored only in the ignored `.local/production-admin-password.txt`. GitHub `main` is the production branch.
 
 New saved production submissions also send an owner email notification through Resend. The email includes all submitted contact and project fields, a reference and private dashboard link. Reply-To is the visitor's submitted email address, so Gmail's Reply action targets that address. Temporary email failures do not lose submissions. Local form tests send no emails. Delivery configuration, retry limits and free-plan restrictions are in [VERCEL_SETUP.md](VERCEL_SETUP.md).
 

@@ -1,9 +1,9 @@
-# Danyal Zeb — 3D Portfolio: Master Plan & AI Build Brief
+# Afaq Raza — 3D Portfolio: Master Plan & AI Build Brief
 
 > **Version:** 1.0 · **Prepared:** October 2026  
 > **Goal:** Build a visually LOUD, polished, exceptionally fast, 3D-driven developer portfolio and publish it publicly for **$0 recurring cost** using a free Cloudflare Pages subdomain.
 >
-> **Profile source:** [LinkedIn](https://www.linkedin.com/in/devdeveloper/) — LinkedIn blocked automated profile reading while preparing this document. All biographical facts, employers, dates, credentials, client work, and numerical results **must be confirmed by Danyal** before publication. Example project names below are suggestions, not verified public case studies.
+> **Profile source:** [LinkedIn](https://www.linkedin.com/in/devdeveloper/) — LinkedIn blocked automated profile reading while preparing this document. All biographical facts, employers, dates, credentials, client work, and numerical results **must be confirmed by Afaq Raza** before publication. Example project names below are suggestions, not verified public case studies.
 
 ---
 
@@ -36,7 +36,7 @@
 
 ### Working positioning (edit after confirming LinkedIn/CV)
 
-- Name: **Danyal Zeb**.
+- Name: **Afaq Raza**.
 - Suggested label: **Senior Full-Stack Drupal Developer & Creative Web Engineer**.
 - Suggested headline: **I BUILD DIGITAL EXPERIENCES THAT MOVE.**
 - Supporting copy: **Drupal architecture. Modern frontend engineering. Unapologetically interactive web experiences.**
@@ -585,10 +585,10 @@ These are **goals**. Actual scores depend on assets, runtime/device, network, re
 ### In `index.html`
 
 ```html
-<title>Danyal Zeb — Full-Stack Drupal Developer & Creative Web Engineer</title>
-<meta name="description" content="Portfolio of Danyal Zeb — full-stack Drupal engineering, modern web experiences, and interactive frontend development." />
+<title>Afaq Raza — Full-Stack Drupal Developer & Creative Web Engineer</title>
+<meta name="description" content="Portfolio of Afaq Raza — full-stack Drupal engineering, modern web experiences, and interactive frontend development." />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Danyal Zeb — Creative Web Engineering" />
+<meta property="og:title" content="Afaq Raza — Creative Web Engineering" />
 <meta property="og:description" content="Digital experiences engineered to move." />
 <meta property="og:type" content="website" />
 <!-- Set og:image and og:url to final absolute live URLs after deployment. -->
@@ -742,8 +742,8 @@ QUALITY BAR
 - Avoid adding unnecessary frontend libraries, giant textures, cinematic videos, heavy shader postprocessing, or a long loading screen.
 
 CONTENT INTEGRITY
-- The LinkedIn URL is https://www.linkedin.com/in/danyal-zeb-4a1571249/ but was not machine-readable. Do not scrape or invent years of experience, verified certifications, employers, job dates, degrees, awards, metrics or testimonials.
-- Display Danyal Zeb by name. The proposed role is "Senior Full-Stack Drupal Developer & Creative Web Engineer" but leave editable in src/data/profile.ts.
+- The LinkedIn URL is https://www.linkedin.com/in/devdeveloper/ but was not machine-readable. Do not scrape or invent years of experience, verified certifications, employers, job dates, degrees, awards, metrics or testimonials.
+- Display Afaq Raza by name. The proposed role is "Senior Full-Stack Drupal Developer & Creative Web Engineer" but leave editable in src/data/profile.ts.
 - Candidate project content can refer to Drupal architecture, interactive ticketing interfaces, React, performance, event-platform development and multilingual UX, but ANY real client identity/details are gated by portfolio approval and accurate attribution.
 - Put all career/project/contact data in src/data/*.ts with TODO markers for unverified content. Do not ship false public claims or broken placeholder links.
 - Include clear CTAs for project work, email, LinkedIn and optional download CV. Never fabricate GitHub username or an email.

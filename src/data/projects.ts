@@ -23,7 +23,7 @@ export type PortfolioProject = {
 };
 
 
-// Project participation and integration scope supplied by Danyal.
+// Project participation and integration scope supplied by Afaq Raza.
 // Site descriptions and visible motion reviewed on 13 October 2026.
 export const projects: PortfolioProject[] = [
   {

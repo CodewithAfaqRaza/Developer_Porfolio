@@ -1,7 +1,7 @@
 export const profile = {
   name: "Afaq Raza",
   brandTagline: "Thoughtful Web Engineering",
-  // TODO: Confirm the suggested senior title and all specialties before publishing.
+  // Confirm the suggested senior title and specialties before publishing.
   role: "Creative web engineering",
   proposedRole: "Senior Full-Stack Drupal Developer & Creative Web Engineer",
   headline: "Thoughtful engineering. Lasting experiences.",
@@ -12,8 +12,7 @@ export const profile = {
   aboutDetail:
     "My focus includes Drupal AI, content assistance and workflow automation, alongside Swapcard integrations, custom UTM tracking, URN handling and external APIs that connect websites with business systems.",
   linkedin: "https://www.linkedin.com/in/devdeveloper/",
-  // TODO: Supply real public contact details. Empty values hide controls.
-  email: "",
+  email: "afaqraza0220@gmail.com",
   github: "https://github.com/CodewithAfaqRaza",
   whatsapp: "+92 309 0903628",
   cv: "/Afaq_Raza_Drupal_Developer.pdf",
