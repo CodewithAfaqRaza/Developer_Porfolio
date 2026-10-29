@@ -1105,6 +1105,16 @@ svg {
 .contact-links > a:hover {
   text-decoration: underline;
 }
+.contact-links > a.contact-link-featured {
+  border: 2px solid #222;
+  padding: 12px 14px;
+  text-decoration: none;
+}
+.contact-links > a.contact-link-featured:hover,
+.contact-links > a.contact-link-featured:focus-visible {
+  background: #222;
+  color: #fff;
+}
 .email-row {
   position: relative;
   display: flex;

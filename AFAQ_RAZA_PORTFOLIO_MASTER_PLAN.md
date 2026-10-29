@@ -3,7 +3,7 @@
 > **Version:** 1.0 · **Prepared:** October 2026  
 > **Goal:** Build a visually LOUD, polished, exceptionally fast, 3D-driven developer portfolio and publish it publicly for **$0 recurring cost** using a free Cloudflare Pages subdomain.
 >
-> **Profile source:** [LinkedIn](https://www.linkedin.com/in/danyal-zeb-4a1571249/) — LinkedIn blocked automated profile reading while preparing this document. All biographical facts, employers, dates, credentials, client work, and numerical results **must be confirmed by Danyal** before publication. Example project names below are suggestions, not verified public case studies.
+> **Profile source:** [LinkedIn](https://www.linkedin.com/in/devdeveloper/) — LinkedIn blocked automated profile reading while preparing this document. All biographical facts, employers, dates, credentials, client work, and numerical results **must be confirmed by Danyal** before publication. Example project names below are suggestions, not verified public case studies.
 
 ---
 
@@ -48,7 +48,7 @@
 ### Content inventory to gather BEFORE building
 
 1. A professional photo or stylized portrait (only if you want it).
-2. An approved CV PDF (`public/danyal-zeb-cv.pdf`).
+2. An approved CV PDF (`public/Afaq_Raza_Drupal_Developer.pdf`).
 3. Your actual work experience, dates, and education.
 4. Public GitHub and LinkedIn links.
 5. A contact email you are comfortable publishing.
@@ -258,7 +258,7 @@ danyal-portfolio/
 ├── public/
 │   ├── favicon.svg
 │   ├── og-cover.jpg                 # social share card; create original asset
-│   ├── danyal-zeb-cv.pdf           # approved CV, optional
+│   ├── Afaq_Raza_Drupal_Developer.pdf # approved CV, optional
 │   ├── images/
 │   │   ├── projects/               # AVIF/WebP thumbnails + fallback
 │   │   └── profile.webp
@@ -620,7 +620,7 @@ git add .
 git commit -m "Initial 3D portfolio"
 git branch -M main
 
-git remote add origin https://github.com/YOUR_GITHUB_USERNAME/danyal-portfolio.git
+git remote add origin https://github.com/CodewithAfaqRaza/Developer_Porfolio.git
 git push -u origin main
 ```
 
@@ -651,7 +651,7 @@ Every push to `main` triggers an updated deployment. Cloudflare Pages Free curre
 
 ### Step C — Get the best free URL
 
-Try a memorable project name during creation, e.g. `danyal-zeb-portfolio` or `danyalbuilds`; availability is not guaranteed.
+Try a memorable project name during creation, e.g. `Developer_Portfolio`; availability is not guaranteed.
 
 Examples (illustrative, **not existing verified URLs**):
 

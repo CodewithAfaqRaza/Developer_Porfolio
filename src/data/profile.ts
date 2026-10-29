@@ -1,5 +1,5 @@
 export const profile = {
-  name: "Danyal Zeb",
+  name: "Afaq Raza",
   brandTagline: "Thoughtful Web Engineering",
   // TODO: Confirm the suggested senior title and all specialties before publishing.
   role: "Creative web engineering",
@@ -11,12 +11,12 @@ export const profile = {
     "I turn complex requirements into clear digital experiences—from brand and content websites to ecommerce platforms and complex web applications.",
   aboutDetail:
     "My focus includes Drupal AI, content assistance and workflow automation, alongside Swapcard integrations, custom UTM tracking, URN handling and external APIs that connect websites with business systems.",
-  linkedin: "https://www.linkedin.com/in/danyal-zeb-4a1571249/",
+  linkedin: "https://www.linkedin.com/in/devdeveloper/",
   // TODO: Supply real public contact details. Empty values hide controls.
   email: "",
-  github: "https://github.com/danyal-zeb/",
+  github: "https://github.com/CodewithAfaqRaza",
   whatsapp: "+92 316 9712793",
-  cv: "/danyal-zeb-cv.pdf",
+  cv: "/Afaq_Raza_Drupal_Developer.pdf",
   contentApproved: false,
 } as const;
 

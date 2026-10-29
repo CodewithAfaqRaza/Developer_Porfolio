@@ -52,7 +52,7 @@ test("layout, navigation, modal keyboard behavior, and reduced-motion fallback",
     .click();
   await expect(page).toHaveURL(/#contact$/);
   await expect(
-    page.getByRole("link", { name: "Connect with Danyal Zeb on LinkedIn" }),
+    page.getByRole("link", { name: "Connect with Afaq Raza on LinkedIn" }),
   ).toHaveAttribute(
     "href",
     "https://www.linkedin.com/in/danyal-zeb-4a1571249/",

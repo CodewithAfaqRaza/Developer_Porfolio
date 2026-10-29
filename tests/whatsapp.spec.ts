@@ -5,12 +5,12 @@ test('WhatsApp contact stays in the corner, works by keyboard, opens the right c
   for (const width of [390, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     await page.goto('/');
-    const button = page.getByRole('link', { name: /Chat with Danyal Zeb on WhatsApp/ });
+  const button = page.getByRole('link', { name: /Chat with Afaq Raza on WhatsApp/ });
     await expect(button).toBeVisible();
     const href = new URL((await button.getAttribute('href'))!);
     expect(href.origin).toBe('https://wa.me');
     expect(href.pathname).toBe('/923169712793');
-    expect(href.searchParams.get('text')).toBe('Hi Danyal Zeb, I’d like to discuss a project or collaboration.');
+  expect(href.searchParams.get('text')).toBe('Hi Afaq Raza, I’d like to discuss a project or collaboration.');
     await expect(button).toHaveAttribute('target', '_blank');
     await expect(button).toHaveAttribute('rel', 'noopener noreferrer');
     await expect.poll(() => button.locator('img').evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0)).toBe(true);

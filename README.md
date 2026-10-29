@@ -1,6 +1,6 @@
-# Danyal Zeb — Thoughtful Web Engineering
+# Afaq Raza — Thoughtful Web Engineering
 
-A mostly light, monochrome developer portfolio inspired by the composition of [WQsoftwares](https://wqsoftwares.com/), following the user's chosen light direction. A full-width muted video hero with matching animation-frame fallback, monospaced typography, illustrated introduction and approach, expandable capability cards, and 14 real Drupal projects. The original [master plan](DANYAL_ZEB_PORTFOLIO_MASTER_PLAN.md) remains in the project; subsequent reference and palette preferences supersede its original neon/3D art direction. React + TypeScript + Vite frontend with a working contact API, encrypted local SQLite storage, Vercel/Turso deployment support, and an alternative Cloudflare Pages/D1 deployment.
+A mostly light, monochrome developer portfolio inspired by the composition of [WQsoftwares](https://wqsoftwares.com/), following the user's chosen light direction. A full-width muted video hero with matching animation-frame fallback, monospaced typography, illustrated introduction and approach, expandable capability cards, and 14 real Drupal projects. The original [master plan](AFAQ_RAZA_PORTFOLIO_MASTER_PLAN.md) remains in the project; subsequent reference and palette preferences supersede its original neon/3D art direction. React + TypeScript + Vite frontend with a working contact API, encrypted local SQLite storage, Vercel/Turso deployment support, and an alternative Cloudflare Pages/D1 deployment.
 
 ## Run locally
 
@@ -28,7 +28,7 @@ npm run dev
 
 ## Replace dummy content
 
-- `src/data/profile.ts`: name, copy, approved role, capability descriptions, real email, GitHub, LinkedIn, CV URL. Email/GitHub controls stay hidden while empty. The supplied résumé is in `public/danyal-zeb-cv.pdf`; hero, header and contact links open it in a new tab, where the PDF viewer supports downloading. Replace that file to update the résumé.
+- `src/data/profile.ts`: name, copy, approved role, capability descriptions, real email, GitHub, LinkedIn, CV URL. Email/GitHub controls stay hidden while empty. The supplied résumé is in `public/Afaq_Raza_Drupal_Developer.pdf`; hero, header and contact links open it in a new tab, where the PDF viewer supports downloading. Replace that file to update the résumé.
 - Profile names/initials, header branding, consent copy, admin title, and HTML title/share metadata derive from `src/data/profile.ts`. Country codes, budget options/currency and retention policy live in `shared/contact.ts`, used by the form, API, dashboard and cleanup jobs. Countries support name/code search, arrow keys, Enter, Escape and touch selection. Project counts and the copyright year already update automatically.
 - `src/data/projects.ts`: 14 real Drupal projects supplied by Danyal, with live URLs and development-contributor attribution. Eleven event projects include Swapcard, custom UTM tracking and API integration contributions, as confirmed by Danyal. Custom URN applies only to Kingdom of Gaming; Cityscape West KSA, Tahaluf and American Elements do not include those claims. Screenshots are in `public/images/projects/`; Every project has a screenshot preview, grayscale by default with original colors revealed on hover or keyboard focus. Touch users see color when opening project details. Research and public-motion observations are in `research/PROJECT_REVIEW.md`.
 - `src/data/experience.ts`: add verified employers, role dates, and responsibilities with `verified: true`. The timeline is hidden while empty.

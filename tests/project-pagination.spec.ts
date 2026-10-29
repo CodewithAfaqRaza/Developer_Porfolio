@@ -40,7 +40,7 @@ for (const width of [390, 1440]) {
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await page.setViewportSize({ width: width === 390 ? 1440 : 390, height: 900 });
     await expect(cards).toHaveCount(9);
-    await expect(page.getByRole('link', { name: 'GitHub', exact: true })).toHaveAttribute('href', 'https://github.com/danyal-zeb/');
+    await expect(page.getByRole('link', { name: 'GitHub', exact: true })).toHaveAttribute('href', 'https://github.com/CodewithAfaqRaza');
   });
 }
 

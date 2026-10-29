@@ -71,7 +71,8 @@ export function Contact() {
               LinkedIn <ArrowUpRight size={17} />
             </a>
             {profile.github && (
-              <a
+                <a
+                className="contact-link-featured"
                 href={profile.github}
                 target="_blank"
                 rel="noopener noreferrer"
